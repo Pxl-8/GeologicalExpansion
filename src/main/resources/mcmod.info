@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "geoexpansion",
+    "name": "GeologicalExpansion",
+    "description": "A mod that overhauls minecrafts stone and ore generation",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": ["uberifix"],
+    "credits": "\nThe pxl8 community, for being mostly cool \nHatsune Miku for making minecraft",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

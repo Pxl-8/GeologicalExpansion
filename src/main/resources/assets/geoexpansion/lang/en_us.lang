@@ -1,0 +1,10 @@
+itemGroup.tab_geoexpansion=Geological Expansion
+
+tile.geoexpansion.stone.name=Stone
+tile.geoexpansion.andesite.name=Andesite
+tile.geoexpansion.diorite.name=Diorite
+tile.geoexpansion.granite.name=Granite
+
+tile.geoexpansion.dirt.name=Dirt
+tile.geoexpansion.gravel.name=Gravel
+tile.geoexpansion.clay.name=Clay

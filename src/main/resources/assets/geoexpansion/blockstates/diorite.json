@@ -1,0 +1,18 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "geoexpansion:tinted_block",
+    "textures": {
+      "particle": "blocks/stone_diorite",
+      "all": "blocks/stone_diorite"
+    },
+    "uvlock": true
+  },
+  "variants": {
+    "density": {
+      "soft": {},
+      "hard": {},
+      "dense": {}
+    }
+  }
+}
