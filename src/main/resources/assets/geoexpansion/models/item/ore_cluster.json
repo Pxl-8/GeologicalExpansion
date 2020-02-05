@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "geoexpansion:items/cluster_base",
+    "layer1": "geoexpansion:items/ore_overlay"
+  }
+}

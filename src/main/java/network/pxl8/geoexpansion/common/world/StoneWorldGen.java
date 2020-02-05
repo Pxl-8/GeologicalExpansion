@@ -27,8 +27,8 @@ public class StoneWorldGen implements IWorldGenerator {
 
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         if(!(world instanceof WorldServer)) { return; }
-            int posX = (chunkX * 16) + 3;
-            int posZ = (chunkZ * 16) + 3;
+            int posX = (chunkX * 16) + 8;
+            int posZ = (chunkZ * 16) + 8;
 
             replaceBlocks(posX, posZ, world, blockMap);
     }
@@ -38,10 +38,10 @@ public class StoneWorldGen implements IWorldGenerator {
             for (int z = chunkZ; z < chunkZ + 16; z++) {
                 int maxY = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0 , z)).getY();
                 for (int y = 0; y < maxY; y++) {
-                    IBlockState oldblock = world.getBlockState(new BlockPos(x, y, z));
+                    IBlockState oldBlock = world.getBlockState(new BlockPos(x, y, z));
                     for (IBlockState block : blockReplaceMap.keySet()) {
-                        if (oldblock == block) {
-                            world.setBlockState(new BlockPos(x, y, z), blockReplaceMap.get(block).getDefaultState().withProperty(BlockTintedBase.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 2);
+                        if (oldBlock == block) {
+                            world.setBlockState(new BlockPos(x, y, z), blockReplaceMap.get(block).getDefaultState().withProperty(BlockTintedBase.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 20);
                         }
                     }
                 }

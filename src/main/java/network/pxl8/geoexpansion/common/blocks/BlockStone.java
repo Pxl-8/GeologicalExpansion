@@ -11,18 +11,16 @@ public class BlockStone extends BlockTintedBase {
     private ItemStack blockDrop;
     private ItemStack silkBlockDrop;
     private IBlockState replacedBlock;
-    private String harvestTool;
 
-    public BlockStone(String name, String harvestTool, IBlockState replacedBlock, ItemStack drop) {
-        this(name, harvestTool, replacedBlock, drop, drop);
+    BlockStone(String name, String harvestTool, Float hardness, IBlockState replacedBlock, ItemStack drop) {
+        this(name, harvestTool, hardness, replacedBlock, drop, drop);
     }
 
-    public BlockStone(String name, String harvestTool, IBlockState replacedBlock, ItemStack drop, ItemStack silkDrop) {
-        super(name);
+    BlockStone(String name, String harvestTool, Float hardness, IBlockState replacedBlock, ItemStack drop, ItemStack silkDrop) {
+        super(name, hardness, harvestTool);
         this.blockDrop = drop;
         this.silkBlockDrop = silkDrop;
         this.replacedBlock = replacedBlock;
-        this.harvestTool = harvestTool;
     }
 
     public IBlockState getBlockToReplace() {
@@ -38,11 +36,6 @@ public class BlockStone extends BlockTintedBase {
     @Override
     protected ItemStack getSilkTouchDrop(IBlockState state) {
         return silkBlockDrop;
-    }
-
-    @Override
-    public String getHarvestTool(IBlockState state) {
-        return this.harvestTool;
     }
 
     @Override

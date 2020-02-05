@@ -9,13 +9,7 @@ public class OreGenOverride {
     @SubscribeEvent
     public void oreGen(OreGenEvent.GenerateMinable event) {
         switch (event.getType()) {
-            case COAL:
-            case IRON:
-            case GOLD:
-            case DIAMOND:
-            case EMERALD:
-            case REDSTONE:
-            case LAPIS:
+            case COAL: case IRON: case GOLD: case DIAMOND: case EMERALD: case REDSTONE: case LAPIS: case DIORITE: case GRANITE: case ANDESITE:
                 event.setResult(DENY);
                 break;
             default: break;

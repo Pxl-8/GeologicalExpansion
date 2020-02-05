@@ -11,7 +11,7 @@ public enum EnumDensity implements IStringSerializable {
     private final int meta;
     private final String name;
 
-    private EnumDensity(int meta, String name) {
+    EnumDensity(int meta, String name) {
         this.meta = meta;
         this.name = name;
     }

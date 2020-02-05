@@ -1,5 +1,7 @@
 itemGroup.tab_geoexpansion=Geological Expansion
 
+tile.geoexpansion..name=
+
 tile.geoexpansion.stone.name=Stone
 tile.geoexpansion.andesite.name=Andesite
 tile.geoexpansion.diorite.name=Diorite
@@ -8,3 +10,25 @@ tile.geoexpansion.granite.name=Granite
 tile.geoexpansion.dirt.name=Dirt
 tile.geoexpansion.gravel.name=Gravel
 tile.geoexpansion.clay.name=Clay
+
+tile.geoexpansion.ore_coal.name=Coal Ore
+tile.geoexpansion.ore_iron.name=Iron Ore
+tile.geoexpansion.ore_gold.name=Gold Ore
+tile.geoexpansion.ore_diamond.name=Diamond Ore
+tile.geoexpansion.ore_emerald.name=Emerald Ore
+tile.geoexpansion.ore_redstone.name=Redstone Ore
+tile.geoexpansion.ore_lapis.name=Lapis Ore
+
+item.geoexpansion.ore_cluster.name=Base Ore Cluster
+item.geoexpansion.crystal_cluster.name=Base Crystal Cluster
+item.geoexpansion.dust_cluster.name=Base Dust Cluster
+
+item.geoexpansion.ore_cluster_coal.name=Coal Ore Cluster
+item.geoexpansion.ore_cluster_iron.name=Iron Ore Cluster
+item.geoexpansion.ore_cluster_gold.name=Gold Ore Cluster
+
+item.geoexpansion.crystal_cluster_diamond.name=Diamond Crystal Cluster
+item.geoexpansion.crystal_cluster_emerald.name=Emerald Crystal Cluster
+
+item.geoexpansion.dust_cluster_redstone.name=Redstone Dust Cluster
+item.geoexpansion.dust_cluster_lapis.name=Lapis Dust Cluster
