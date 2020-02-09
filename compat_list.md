@@ -23,7 +23,7 @@
 |oreZinc                         |basemetals:zinc_ore                         |basemetals:zinc_ingot               |basemetals:zinc_powder                      |basemetals:blocks/zinc_ore
 |# **Modern Metals** mm.
 |oreAluminum                     |modernmetals:aluminum_ore                   |modernmetals:aluminum_ingot         |modernmetals:aluminum_powder                |modernmetals:blocks/aluminum_ore
-|- oreBauxite                    |modernmetals:bauxite_ore                    |modernmetals:bauxite_ingot          |modernmetals:bauxite_powder                 |modernmetals:blocks/bauxite_ore
+|- oreBauxite                    |                                            |                                    |                                            |
 |oreBeryllium                    |modernmetals:beryllium_ore                  |modernmetals:beryllium_ingot        |modernmetals:beryllium_powder               |modernmetals:blocks/beryllium_ore
 |oreBoron                        |modernmetals:boron_ore                      |modernmetals:boron_ingot            |modernmetals:boron_powder                   |modernmetals:blocks/boron_ore
 |oreCadmium                      |modernmetals:cadmium_ore                    |modernmetals:cadmium_ingot          |modernmetals:cadmium_powder                 |modernmetals:blocks/cadmium_ore
@@ -71,9 +71,9 @@
 |oreCopper                       |techreborn:ore2/0                           |techreborn:ingot/4                  |techreborn:dust/14                          |techreborn:blocks/ore/copper_ore
 |oreTin                          |techreborn:ore2/1                           |techreborn:ingot/13                 |techreborn:dust/53                          |techreborn:blocks/ore/tin_ore
 |# **Forestry** fr.
-|oreApatite                      |forestry:resources/0                        |null                                |forestry:apatite                            |forestry:blocks/ores/apatite.png
-|oreCopper                       |forestry:resources/1                        |forestry:ingot_copper               |null                                        |forestry:blocks/ores/copper.png
-|oreTin                          |forestry:resources/2                        |forestry:ingot_tin                  |null                                        |forestry:blocks/ores/tin.png
+|oreApatite                      |forestry:resources/0                        |null                                |forestry:apatite                            |forestry:blocks/ores/apatite
+|oreCopper                       |forestry:resources/1                        |forestry:ingot_copper               |null                                        |forestry:blocks/ores/copper
+|oreTin                          |forestry:resources/2                        |forestry:ingot_tin                  |null                                        |forestry:blocks/ores/tin
 |# **BluePower** bp.
 |oreTeslatite                    |bluepower:teslatite_ore                     |null                                |bluepower:teslatite_dust                    |bluepower:blocks/teslatite_ore
 |oreRuby                         |bluepower:ruby_ore                          |null                                |bluepower:ruby_gem                          |bluepower:blocks/ruby_ore
