@@ -1,7 +1,7 @@
 language: java
 jdk:
 - openjdk8
--
+
 before_install: chmod +x gradlew
 script: "./gradlew build -s"
 
@@ -11,6 +11,7 @@ deploy:
     secure: Ro3BlnC6kGlG4qLGqrviJyExVC31qeXkNlWXZ4+GXE6gbolhYzLo96f50U5SxCDw7JFs2ZYR50zDQu5j+a8kFG4cdI94K7ZEpvuRN42bc3AtwI665JKAbeRqthCYQWiyiPl9EshXmQ+kuKOuhsd1SjVBEjK2fKdfEE5VLrBKX+qskWv1ihXDXwXZR+V+PUWesv/WhxugXY3g86VxJOrENFYh8PFSYt0nQyLmQMA8cME0wpvtYS8GHPvpZMRwIOldGyuCc6ipbQdkUt8ZzwqTiSoVl0QNU47ednNHX5Y3ccJMH7rAE65lVUni4uD+fXsjbXDEmpBD5X/q+7Es7LyKZ2PhT9mZaplRHQdlG/9En7R+tV/jDoimN94ucqqyGVik425jlxxvpjxK6spI/GtR/JCV9UbomPWVhgwJrenBb7WuNuAFP4gcjRux9MPqF/0tEtCnxSS0Y3x7qkAe0HkUIlbO0bcLdhdUIIbWolm2bzeGydHif4aYG5mNhUNGir3QWVuuihEQH3WRnLJ56iCnYTtNnF2BnyoP8uELHDDN8S8VnT33Npx1HSINbUC9276X4YHtJeCB8BMcpEfEeNysgmyS/Nsox9WBxW3G50qvc1T1azLwhy6FP1nwEf61tqZGv/LRsz3fzuuko8MZey6DKnpo2LRARzJDBlAFllc+Dpc=
   file_glob: true
   file: "build/libs/*"
+  skip_cleanup: true
   on:
     repo: Pxl-8/GeologicalExpansion
     tags: true
