@@ -3,11 +3,14 @@ jdk:
 - openjdk8
 
 before_install: chmod +x gradlew
+install: "./gradlew setupCIWorkspace -s"
 script: "./gradlew build -s"
+
 deploy:
   provider: releases
   api_key:
     secure: XqGIlIg9Z/HL5QUmURII6mUIW1TYnyU5pC9+C3zVIR3UKyXw0ckI5LpQZlpWaPZoLvDnpDWh4ecjdHGl32xQxRfz6N4gWDXLl07CX/SHP1TWzCR+NuJtxXhoaU5J1GheoxDBZ3Klh2mkKzB0vnzK5mowsSfNhfCc07RNdSevX4vCb9ZcNZrrHFsHeYTJE1HTKJjNxeyckpc7eqmDfUBubF23QpGRshY6OMcagJnnSIHmmU5awCg5IIYE0wkSEW5xp442iu0pSBR0yJQypMhqB0l04KFOV1ygPvAVFailJHU/2VNpBt3+kNFir+IHByKiajLaXHYK0IDRLSL1pYuFufDTZCAcq2JIpNVumlVov1vni7SerTtYHVnUIe/Wy5yPXzCaRyZcTw5Kdu4E+VJVLMlJ23FYRENbUBwL9DtJ3xa637jtI6g401D0A1coUtUEJSdIhB/XJh324+MHUjCuOGo6EuwUKtS1l7Qs/bv6Cqj6IxDqlCyKZvtScgI4LWThj4xaVvePAReAMNp1oo/YJ5iFfvZFUg74m1rDWFjDjdwF5oMfTIiadz8nz97V57nIIe+13oVOjZ1RXbWSWAYJhLK2wJ6qbbtKhVdjGiUOoXWdhVYun0uwDzdtMBy0Rx0QGpMfqNMxCsPixGlAeSqCPSJCYcqQRZ+Zsfato8PQ60M=
+  overwrite: true
   file_glob: true
   file: "build/libs/*"
   on:
