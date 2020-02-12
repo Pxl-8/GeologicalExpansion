@@ -5,13 +5,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import network.pxl8.geoexpansion.common.event.OreGenOverride;
 import network.pxl8.geoexpansion.common.event.Register;
 import network.pxl8.geoexpansion.common.world.StoneWorldGen;
-import network.pxl8.geoexpansion.compat.top.CompatHandler;
+import network.pxl8.geoexpansion.compat.CompatHandler;
 
 public class CommonProxy implements Proxy {
     @Override
     public void preInit() {
         MinecraftForge.ORE_GEN_BUS.register(new OreGenOverride());
-        CompatHandler.registerTOP();
+        CompatHandler.registerModCompat();
     }
 
     @Override
@@ -19,6 +19,9 @@ public class CommonProxy implements Proxy {
         GameRegistry.registerWorldGenerator(new StoneWorldGen(), Integer.MAX_VALUE);
         Register.registerOreDictionary();
         Register.registerFurnaceRecipes();
+        Register.registerCraftingRecipes();
+
+        CompatHandler.checkRegistration();
     }
 
     @Override

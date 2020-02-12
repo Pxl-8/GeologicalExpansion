@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "aroma1997sdimension:blocks/stickyore"
+  }
+}

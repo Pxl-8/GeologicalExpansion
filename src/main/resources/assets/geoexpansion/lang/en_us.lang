@@ -1,34 +1,259 @@
-itemGroup.tab_geoexpansion=Geological Expansion
+itemGroup.tab_geoexpansion_general=Geological Expansion
+itemGroup.tab_geoexpansion_blocks=Geological Expansion : Blocks
+itemGroup.tab_geoexpansion_clusters=Geological Expansion : Clusters
 
-tile.geoexpansion..name=
+## Geological Expansion
+# Hammers
+item.geoexpansion.ge.spalling_hammer.name=Base Spalling Hammer
+item.geoexpansion.ge.spalling_hammer_iron.name=Iron Spalling Hammer
+item.geoexpansion.ge.spalling_hammer_diamond.name=Diamond Spalling Hammer
+# Compat Hammers
+item.geoexpansion.ge.spalling_hammer_silver.name=Silver Spalling Hammer
+item.geoexpansion.ge.spalling_hammer_lead.name=Lead Spalling Hammer
+item.geoexpansion.ge.spalling_hammer_tin.name=Tin Spalling Hammer
+item.geoexpansion.ge.spalling_hammer_copper.name=Copper Spalling Hammer
+item.geoexpansion.ge.spalling_hammer_aluminum.name=Aluminum Spalling Hammer
+item.geoexpansion.ge.spalling_hammer_nickel.name=Nickel Spalling Hammer
+item.geoexpansion.ge.spalling_hammer_platinum.name=Platinum Spalling Hammer
+# Misc
+item.geoexpansion.ge.ore_cluster.name=Base Ore Cluster
+item.geoexpansion.ge.crystal_cluster.name=Base Crystal Cluster
+item.geoexpansion.ge.dust_cluster.name=Base Dust Cluster
 
-tile.geoexpansion.stone.name=Stone
-tile.geoexpansion.andesite.name=Andesite
-tile.geoexpansion.diorite.name=Diorite
-tile.geoexpansion.granite.name=Granite
+## Minecraft
+# Stones
+tile.geoexpansion.mc.stone.name=Stone
+tile.geoexpansion.mc.andesite.name=Andesite
+tile.geoexpansion.mc.diorite.name=Diorite
+tile.geoexpansion.mc.granite.name=Granite
+tile.geoexpansion.mc.dirt.name=Dirt
+tile.geoexpansion.mc.gravel.name=Gravel
+tile.geoexpansion.mc.clay.name=Clay
+# Ores
+tile.geoexpansion.mc.ore_coal.name=Coal Ore
+tile.geoexpansion.mc.ore_iron.name=Iron Ore
+tile.geoexpansion.mc.ore_gold.name=Gold Ore
+tile.geoexpansion.mc.ore_diamond.name=Diamond Ore
+tile.geoexpansion.mc.ore_emerald.name=Emerald Ore
+tile.geoexpansion.mc.ore_redstone.name=Redstone Ore
+tile.geoexpansion.mc.ore_lapis.name=Lapis Ore
+# Clusters
+item.geoexpansion.mc.ore_cluster_coal.name=Coal Ore Cluster
+item.geoexpansion.mc.ore_cluster_iron.name=Iron Ore Cluster
+item.geoexpansion.mc.ore_cluster_gold.name=Gold Ore Cluster
+item.geoexpansion.mc.crystal_cluster_diamond.name=Diamond Crystal Cluster
+item.geoexpansion.mc.crystal_cluster_emerald.name=Emerald Crystal Cluster
+item.geoexpansion.mc.dust_cluster_redstone.name=Redstone Dust Cluster
+item.geoexpansion.mc.dust_cluster_lapis.name=Lapis Dust Cluster
 
-tile.geoexpansion.dirt.name=Dirt
-tile.geoexpansion.gravel.name=Gravel
-tile.geoexpansion.clay.name=Clay
+## Base Metals
+# Ores
+tile.geoexpansion.bm.ore_antimony.name=Antimony Ore
+tile.geoexpansion.bm.ore_bismuth.name=Bismuth Ore
+tile.geoexpansion.bm.ore_copper.name=Copper Ore
+tile.geoexpansion.bm.ore_lead.name=Lead Ore
+tile.geoexpansion.bm.ore_mercury.name=Mercury Ore
+tile.geoexpansion.bm.ore_nickel.name=Nickel Ore
+tile.geoexpansion.bm.ore_platinum.name=Platinum Ore
+tile.geoexpansion.bm.ore_silver.name=Silver Ore
+tile.geoexpansion.bm.ore_tin.name=Tin Ore
+tile.geoexpansion.bm.ore_zinc.name=Zinc Ore
+# Clusters
+item.geoexpansion.bm.ore_cluster_antimony.name=Antimony Ore Cluster
+item.geoexpansion.bm.ore_cluster_bismuth.name=Bismuth Ore Cluster
+item.geoexpansion.bm.ore_cluster_copper.name=Copper Ore Cluster
+item.geoexpansion.bm.ore_cluster_lead.name=Lead Ore Cluster
+item.geoexpansion.bm.ore_cluster_mercury.name=Mercury Ore Cluster
+item.geoexpansion.bm.ore_cluster_nickel.name=Nickel Ore Cluster
+item.geoexpansion.bm.ore_cluster_platinum.name=Platinum Ore Cluster
+item.geoexpansion.bm.ore_cluster_silver.name=Silver Ore Cluster
+item.geoexpansion.bm.ore_cluster_tin.name=Tin Ore Cluster
+item.geoexpansion.bm.ore_cluster_zinc.name=Zinc Ore Cluster
 
-tile.geoexpansion.ore_coal.name=Coal Ore
-tile.geoexpansion.ore_iron.name=Iron Ore
-tile.geoexpansion.ore_gold.name=Gold Ore
-tile.geoexpansion.ore_diamond.name=Diamond Ore
-tile.geoexpansion.ore_emerald.name=Emerald Ore
-tile.geoexpansion.ore_redstone.name=Redstone Ore
-tile.geoexpansion.ore_lapis.name=Lapis Ore
+## Modern Metals
+# Ores
+tile.geoexpansion.mm.ore_aluminum.name=Aluminum Ore
+tile.geoexpansion.mm.ore_beryllium.name=Beryllium Ore
+tile.geoexpansion.mm.ore_boron.name=Boron Ore
+tile.geoexpansion.mm.ore_cadmium.name=Cadmium Ore
+tile.geoexpansion.mm.ore_chromium.name=Chromium Ore
+tile.geoexpansion.mm.ore_iridium.name=Iridium Ore
+tile.geoexpansion.mm.ore_magnesium.name=Magnesium Ore
+tile.geoexpansion.mm.ore_manganese.name=Manganese Ore
+tile.geoexpansion.mm.ore_osmium.name=Osmium Ore
+tile.geoexpansion.mm.ore_plutonium.name=Plutonium Ore
+tile.geoexpansion.mm.ore_rutile.name=Rutile Ore
+tile.geoexpansion.mm.ore_tantalum.name=Tantalum Ore
+tile.geoexpansion.mm.ore_thorium.name=Thorium Ore
+tile.geoexpansion.mm.ore_titanium.name=Titanium Ore
+tile.geoexpansion.mm.ore_tungsten.name=Tungsten Ore
+tile.geoexpansion.mm.ore_uranium.name=Uranium Ore
+tile.geoexpansion.mm.ore_zirconium.name=Zirconium Ore
+# Clusters
+item.geoexpansion.mm.ore_cluster_aluminum.name=Aluminum Ore Cluster
+item.geoexpansion.mm.ore_cluster_beryllium.name=Beryllium Ore Cluster
+item.geoexpansion.mm.ore_cluster_boron.name=Boron Ore Cluster
+item.geoexpansion.mm.ore_cluster_cadmium.name=Cadmium Ore Cluster
+item.geoexpansion.mm.ore_cluster_chromium.name=Chromium Ore Cluster
+item.geoexpansion.mm.ore_cluster_iridium.name=Iridium Ore Cluster
+item.geoexpansion.mm.ore_cluster_magnesium.name=Magnesium Ore Cluster
+item.geoexpansion.mm.ore_cluster_manganese.name=Manganese Ore Cluster
+item.geoexpansion.mm.ore_cluster_osmium.name=Osmium Ore Cluster
+item.geoexpansion.mm.ore_cluster_plutonium.name=Plutonium Ore Cluster
+item.geoexpansion.mm.ore_cluster_rutile.name=Rutile Ore Cluster
+item.geoexpansion.mm.ore_cluster_tantalum.name=Tantalum Ore Cluster
+item.geoexpansion.mm.ore_cluster_thorium.name=Thorium Ore Cluster
+item.geoexpansion.mm.ore_cluster_titanium.name=Titanium Ore Cluster
+item.geoexpansion.mm.ore_cluster_tungsten.name=Tungsten Ore Cluster
+item.geoexpansion.mm.ore_cluster_uranium.name=Uranium Ore Cluster
+item.geoexpansion.mm.ore_cluster_zirconium.name=Zirconium Ore Cluster
 
-item.geoexpansion.ore_cluster.name=Base Ore Cluster
-item.geoexpansion.crystal_cluster.name=Base Crystal Cluster
-item.geoexpansion.dust_cluster.name=Base Dust Cluster
+## Thermal Foundation
+# Ores
+tile.geoexpansion.tf.ore_copper.name=Copper Ore
+tile.geoexpansion.tf.ore_tin.name=Tin Ore
+tile.geoexpansion.tf.ore_silver.name=Silver Ore
+tile.geoexpansion.tf.ore_lead.name=Lead Ore
+tile.geoexpansion.tf.ore_aluminum.name=Aluminum Ore
+tile.geoexpansion.tf.ore_nickel.name=Nickel Ore
+tile.geoexpansion.tf.ore_platinum.name=Platinum Ore
+tile.geoexpansion.tf.ore_iridium.name=Iridium Ore
+tile.geoexpansion.tf.ore_mithril.name=Mana Infused Ore
+tile.geoexpansion.tf.ore_fluid_redstone.name=Destabilized Redstone Ore
+# Clusters
+item.geoexpansion.tf.ore_cluster_copper.name=Copper Ore Cluster
+item.geoexpansion.tf.ore_cluster_tin.name=Tin Ore Cluster
+item.geoexpansion.tf.ore_cluster_silver.name=Silver Ore Cluster
+item.geoexpansion.tf.ore_cluster_lead.name=Lead Ore Cluster
+item.geoexpansion.tf.ore_cluster_aluminum.name=Aluminum Ore Cluster
+item.geoexpansion.tf.ore_cluster_nickel.name=Nickel Ore Cluster
+item.geoexpansion.tf.ore_cluster_platinum.name=Platinum Ore Cluster
+item.geoexpansion.tf.ore_cluster_iridium.name=Iridium Ore Cluster
+item.geoexpansion.tf.ore_cluster_mithril.name=Mithril Ore Cluster
+item.geoexpansion.tf.fluid_cluster_redstone.name=Destabilized Redstone Cluster
 
-item.geoexpansion.ore_cluster_coal.name=Coal Ore Cluster
-item.geoexpansion.ore_cluster_iron.name=Iron Ore Cluster
-item.geoexpansion.ore_cluster_gold.name=Gold Ore Cluster
+## Immersive Engineering
+# Ores
+tile.geoexpansion.ie.ore_copper.name=Copper Ore
+tile.geoexpansion.ie.ore_aluminum.name=Aluminum Ore
+tile.geoexpansion.ie.ore_lead.name=Lead Ore
+tile.geoexpansion.ie.ore_silver.name=Silver Ore
+tile.geoexpansion.ie.ore_nickel.name=Nickel Ore
+tile.geoexpansion.ie.ore_uranium.name=Uranium Ore
+# Clusters
+tile.geoexpansion.ie.ore_cluster_copper.name=Copper Ore Cluster
+tile.geoexpansion.ie.ore_cluster_aluminum.name=Aluminum Ore Cluster
+tile.geoexpansion.ie.ore_cluster_lead.name=Lead Ore Cluster
+tile.geoexpansion.ie.ore_cluster_silver.name=Silver Ore Cluster
+tile.geoexpansion.ie.ore_cluster_nickel.name=Nickel Ore Cluster
+tile.geoexpansion.ie.ore_cluster_uranium.name=Uranium Ore Cluster
 
-item.geoexpansion.crystal_cluster_diamond.name=Diamond Crystal Cluster
-item.geoexpansion.crystal_cluster_emerald.name=Emerald Crystal Cluster
+## Tech Reborn
+# Ores
+tile.geoexpansion.tr.ore_galena.name=Galena Ore
+tile.geoexpansion.tr.ore_iridium.name=Iridium Ore
+tile.geoexpansion.tr.ore_ruby.name=Ruby Ore
+tile.geoexpansion.tr.ore_sapphire.name=Sapphire Ore
+tile.geoexpansion.tr.ore_bauxite.name=Bauxite Ore
+tile.geoexpansion.tr.ore_lead.name=Lead Ore
+tile.geoexpansion.tr.ore_silver.name=Silver Ore
+tile.geoexpansion.tr.ore_copper.name=Copper Ore
+tile.geoexpansion.tr.ore_tin.name=Tin Ore
+# Clusters
+item.geoexpansion.tr.ore_cluster_galena.name=Galena Ore Cluster
+item.geoexpansion.tr.ore_cluster_iridium.name=Iridium Ore Cluster
+item.geoexpansion.tr.crystal_cluster_ruby.name=Ruby Crystal Cluster
+item.geoexpansion.tr.crystal_cluster_sapphire.name=Sapphire Crystal Cluster
+item.geoexpansion.tr.ore_cluster_bauxite.name=Bauxite Ore Cluster
+item.geoexpansion.tr.ore_cluster_lead.name=Lead Ore Cluster
+item.geoexpansion.tr.ore_cluster_silver.name=Silver Ore Cluster
+item.geoexpansion.tr.ore_cluster_copper.name=Copper Ore Cluster
+item.geoexpansion.tr.ore_cluster_tin.name=Tin Ore Cluster
 
-item.geoexpansion.dust_cluster_redstone.name=Redstone Dust Cluster
-item.geoexpansion.dust_cluster_lapis.name=Lapis Dust Cluster
+## Forestry
+# Ores
+tile.geoexpansion.fr.ore_apatite.name=Apatite Ore
+tile.geoexpansion.fr.ore_copper.name=Copper Ore
+tile.geoexpansion.fr.ore_tin.name=Tin Ore
+# Clusters
+item.geoexpansion.fr.crystal_cluster_apatite.name=Apatite Crystal Cluster
+item.geoexpansion.fr.ore_cluster_copper.name=Copper Ore Cluster
+item.geoexpansion.fr.ore_cluster_tin.name=Tin Ore Cluster
+
+## Blue Power
+# Ores
+tile.geoexpansion.bp.ore_teslatite.name=Teslatite Ore
+tile.geoexpansion.bp.ore_ruby.name=Ruby Ore
+tile.geoexpansion.bp.ore_sapphire.name=Sapphire Ore
+tile.geoexpansion.bp.ore_amethyst.name=Amethyst Ore
+tile.geoexpansion.bp.ore_copper.name=Copper Ore
+tile.geoexpansion.bp.ore_silver.name=Silver Ore
+tile.geoexpansion.bp.ore_zinc.name=Zinc Ore
+tile.geoexpansion.bp.ore_tungsten.name=Tungsten Ore
+# Clusters
+item.geoexpansion.bp.dust_cluster_teslatite.name=Teslatite Dust Cluster
+item.geoexpansion.bp.crystal_cluster_ruby.name=Ruby Crystal Cluster
+item.geoexpansion.bp.crystal_cluster_sapphire.name=Sapphire Crystal Cluster
+item.geoexpansion.bp.crystal_cluster_amethyst.name=Amethyst Crystal Cluster
+item.geoexpansion.bp.ore_cluster_copper.name=Copper Ore Cluster
+item.geoexpansion.bp.ore_cluster_silver.name=Silver Ore Cluster
+item.geoexpansion.bp.ore_cluster_zinc.name=Zinc Ore Cluster
+item.geoexpansion.bp.ore_cluster_tungsten.name=Tungsten Ore Cluster
+
+## Applied Energistics 2
+# Ores
+tile.geoexpansion.ae.ore_quartz.name=Certus Quartz Ore
+tile.geoexpansion.ae.ore_charged_quartz.name=Charged Certus Quartz Ore
+# Clusters
+item.geoexpansion.ae.crystal_cluster_quartz.name=Certus Quartz Crystal Cluster
+item.geoexpansion.ae.crystal_cluster_charged_quartz.name=Charged Certus Quartz Crystal Cluster
+
+## Extreme Reactors
+# Ores
+tile.geoexpansion.er.ore_yellorite.name=Yellorite Ore
+# Clusters
+item.geoexpansion.er.ore_cluster_yellorite.name=Yellorite Ore Cluster
+
+## Aroma1997s Dimensional World
+# Ores
+tile.geoexpansion.ad.ore_sticky.name=Sticky Ore
+tile.geoexpansion.ad.ore_clay.name=Clay Ore
+# Clusters
+item.geoexpansion.ad.dust_cluster_sticky.name=Slime Cluster
+item.geoexpansion.ad.dust_cluster_clay.name=Clay Cluster
+
+## Embers
+# Ores
+tile.geoexpansion.em.ore_copper.name=Copper Ore
+tile.geoexpansion.em.ore_lead.name=Lead Ore
+tile.geoexpansion.em.ore_silver.name=Silver Ore
+tile.geoexpansion.em.ore_aluminum.name=Aluminum Ore
+tile.geoexpansion.em.ore_nickel.name=Nickel Ore
+tile.geoexpansion.em.ore_tin.name=Tin Ore
+tile.geoexpansion.em.ore_quartz.name=Quartz Ore
+# Clusters
+item.geoexpansion.em.ore_cluster_copper.name=Copper Ore Cluster
+item.geoexpansion.em.ore_cluster_lead.name=Lead Ore Cluster
+item.geoexpansion.em.ore_cluster_silver.name=Silver Ore Cluster
+item.geoexpansion.em.ore_cluster_aluminum.name=Aluminum Ore Cluster
+item.geoexpansion.em.ore_cluster_nickel.name=Nickel Ore Cluster
+item.geoexpansion.em.ore_cluster_tin.name=Tin Ore Cluster
+item.geoexpansion.em.crystal_cluster_quartz.name=Quartz Crystal Cluster
+
+## Mekanism
+# Ores
+tile.geoexpansion.mk.ore_osmium.name=Osmium Ore
+tile.geoexpansion.mk.ore_copper.name=Copper Ore
+tile.geoexpansion.mk.ore_tin.name=Tin Ore
+# Clusters
+item.geoexpansion.mk.ore_cluster_osmium.name=Osmium Ore Cluster
+item.geoexpansion.mk.ore_cluster_copper.name=Copper Ore Cluster
+item.geoexpansion.mk.ore_cluster_tin.name=Tin Ore Cluster
+
+## Quark
+# Stone
+tile.geoexpansion.qk.basalt.name=Basalt
+tile.geoexpansion.qk.marble.name=Marble
+tile.geoexpansion.qk.limestone.name=Limestone
+tile.geoexpansion.qk.jasper.name=Jasper
+tile.geoexpansion.qk.slate.name=Slate

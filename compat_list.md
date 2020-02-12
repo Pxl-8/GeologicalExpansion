@@ -93,6 +93,17 @@
 |# **Aroma Dim** ad.
 |oreSticky                       |aroma1997sdimension:miningore/0             |minecraft:slime_ball                |minecraft:slime_ball                        |aroma1997sdimension:blocks/stickyore
 |oreClay                         |aroma1997sdimension:miningore/1             |minecraft:clay_ball                 |minecraft:clay_ball                         |aroma1997sdimension:blocks/clayore
+|# **Embers**
+|oreCopper                       |embers:ore_copper                           |embers:ingot_copper                 |null                                        |embers:blocks/ore_copper_vanilla
+|oreLead                         |embers:ore_lead                             |embers:ingot_lead                   |null                                        |embers:blocks/ore_lead_vanilla
+|oreSilver                       |embers:ore_silver                           |embers:ingot_silver                 |null                                        |embers:blocks/ore_silver_vanilla
+|oreAluminum                     |embers:ore_aluminum                         |embers:ingot_aluminum               |null                                        |embers:blocks/ore_aluminum_vanilla
+|oreNickel                       |embers:ore_nickel                           |embers:ingot_nickel                 |null                                        |embers:blocks/ore_nickel_vanilla
+|oreTin                          |embers:ore_tin                              |embers:ingot_tin                    |null                                        |embers:blocks/ore_tin_vanilla
+|# **Mekanism**
+|oreOsmium                       |mekanism:oreblock/0                         |mekanism:ingot/1                    |mekanism:dust/2                             |mekanism:blocks/osmiumore
+|oreCopper                       |mekanism:oreblock/1                         |mekanism:ingot/5                    |mekanism:dust/3                             |mekanism:blocks/copperore
+|oreTin                          |mekanism:oreblock/2                         |mekanism:ingot/6                    |mekanism:dust/4                             |mekanism:blocks/tinore
 |## **Stone**
 |# **Quark** qk.
 |stoneBasalt                     |quark:basalt                                |                                    |                                            |quark:blocks/basalt

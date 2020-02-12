@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "immersiveengineering:blocks/ore_silver"
+  }
+}

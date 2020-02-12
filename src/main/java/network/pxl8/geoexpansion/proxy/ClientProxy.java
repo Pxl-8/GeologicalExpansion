@@ -19,6 +19,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init() {
         ModItems.addAll();
+        ModItems.addAllCompat();
         stoneColorHandler();
         itemColorHandler();
         initModels();
@@ -26,7 +27,9 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void postInit() { super.postInit(); }
+    public void postInit() {
+        super.postInit();
+    }
 
     private void stoneColorHandler() {
         Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(
@@ -35,6 +38,12 @@ public class ClientProxy extends CommonProxy {
         Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(
                 (state, world, pos, tintIndex) -> world != null && pos != null ? BlockStone.getColor(state) : 0xFFFFFF
                 , ModBlocks.blockOreList.toArray(new Block[ModBlocks.blockOreList.size()]));
+        Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(
+                (state, world, pos, tintIndex) -> world != null && pos != null ? BlockStone.getColor(state) : 0xFFFFFF
+                , ModBlocks.compatStoneList.toArray(new Block[ModBlocks.compatStoneList.size()]));
+        Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(
+                (state, world, pos, tintIndex) -> world != null && pos != null ? BlockStone.getColor(state) : 0xFFFFFF
+                , ModBlocks.compatOreList.toArray(new Block[ModBlocks.compatOreList.size()]));
     }
 
     private void itemColorHandler() {
@@ -47,15 +56,38 @@ public class ClientProxy extends CommonProxy {
         Minecraft.getMinecraft().getItemColors().registerItemColorHandler(
                 (stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack)
                 , ModItems.dustClusterList.toArray(new Item[ModItems.dustClusterList.size()]));
+
+        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(
+                (stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getHammerColour(stack)
+                , ModItems.spallingHammerList.toArray(new Item[ModItems.spallingHammerList.size()]));
+
+        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(
+                (stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack)
+                , ModItems.oreClusterListCompat.toArray(new Item[ModItems.oreClusterList.size()]));
+        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(
+                (stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack)
+                , ModItems.crystalClusterListCompat.toArray(new Item[ModItems.crystalClusterList.size()]));
+        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(
+                (stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack)
+                , ModItems.dustClusterListCompat.toArray(new Item[ModItems.dustClusterList.size()]));
     }
 
     private void initModels() {
         for (BlockStone block : ModBlocks.blockStoneList) { registerBlockModel(block); }
         for (BlockOre ore : ModBlocks.blockOreList) { registerBlockModel(ore); }
+        for (BlockStone block : ModBlocks.compatStoneList) { registerBlockModel(block); }
+        for (BlockOre ore : ModBlocks.compatOreList) { registerBlockModel(ore); }
 
-        for (ItemOreCluster cluster : ModItems.oreClusterList) { registerItemModel(cluster, "geoexpansion:ore_cluster"); }
-        for (ItemCrystalCluster cluster : ModItems.crystalClusterList) { registerItemModel(cluster, "geoexpansion:crystal_cluster"); }
-        for (ItemDustCluster cluster : ModItems.dustClusterList) { registerItemModel(cluster, "geoexpansion:dust_cluster"); }
+
+        for (ItemOreCluster cluster : ModItems.oreClusterList) { registerItemModel(cluster, "geoexpansion:ge.ore_cluster"); }
+        for (ItemCrystalCluster cluster : ModItems.crystalClusterList) { registerItemModel(cluster, "geoexpansion:ge.crystal_cluster"); }
+        for (ItemDustCluster cluster : ModItems.dustClusterList) { registerItemModel(cluster, "geoexpansion:ge.dust_cluster"); }
+
+        for (ItemSpallingHammer hammer : ModItems.spallingHammerList) { registerItemModel(hammer, "geoexpansion:ge.spalling_hammer"); }
+
+        for (ItemOreCluster cluster : ModItems.oreClusterListCompat) { registerItemModel(cluster, "geoexpansion:ge.ore_cluster"); }
+        for (ItemCrystalCluster cluster : ModItems.crystalClusterListCompat) { registerItemModel(cluster, "geoexpansion:ge.crystal_cluster"); }
+        for (ItemDustCluster cluster : ModItems.dustClusterListCompat) { registerItemModel(cluster, "geoexpansion:ge.dust_cluster"); }
     }
 
     private static void registerBlockModel(Block block) {

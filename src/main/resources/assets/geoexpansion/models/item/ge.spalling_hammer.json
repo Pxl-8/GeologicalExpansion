@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "geoexpansion:items/spalling_hammer_handle",
+    "layer1": "geoexpansion:items/spalling_hammer_head"
+  }
+}

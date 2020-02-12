@@ -7,6 +7,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import network.pxl8.geoexpansion.config.Conf;
+import network.pxl8.geoexpansion.lib.LibMeta;
 
 import java.util.Random;
 
@@ -14,23 +15,35 @@ public class BlockOre extends BlockTintedBase {
     private String oreDrop;
     private Random random = new Random();
 
-    BlockOre(String name, Float hardness, String drop) {
-        super(name, hardness, "pickaxe");
+    BlockOre(String name, Float hardness, String replacedBlock, String drop) {
+        super(name, hardness, "pickaxe", replacedBlock);
+
         this.oreDrop = drop;
     }
 
     @Override
     public void getDrops(NonNullList<ItemStack> items, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         items.clear();
-        Item drop = Item.getByNameOrId(oreDrop);
         float dropBase = 1.0F;
-        if          (state.getValue(PROPERTY_DENSITY) == EnumDensity.SOFT) {    dropBase = Conf.ore_config.DROP_BASE_SOFT; }
-        else if     (state.getValue(PROPERTY_DENSITY) == EnumDensity.HARD) {    dropBase = Conf.ore_config.DROP_BASE_HARD; }
-        else  if    (state.getValue(PROPERTY_DENSITY) == EnumDensity.DENSE) {   dropBase = Conf.ore_config.DROP_BASE_DENSE; }
+        Item drop = Item.getByNameOrId(oreDrop);
 
-        float fortuneMult = 1.0F + (((1.0F/(fortune + 2.0F) + (fortune + 1.0F)/2.0F) - 1.0F) * random.nextFloat());
-        int dropsMultiplied = Math.round(dropBase * fortuneMult);
+        if (state.getValue(LibMeta.PROPERTY_DENSITY) == EnumDensity.SOFT) {
+            dropBase = Conf.ore_config.DROP_BASE_1_SOFT;
+        } else if (state.getValue(LibMeta.PROPERTY_DENSITY) == EnumDensity.FIRM) {
+            dropBase = Conf.ore_config.DROP_BASE_2_FIRM;
+        } else if (state.getValue(LibMeta.PROPERTY_DENSITY) == EnumDensity.SOLID) {
+            dropBase = Conf.ore_config.DROP_BASE_3_SOLID;
+        } else if (state.getValue(LibMeta.PROPERTY_DENSITY) == EnumDensity.HARD) {
+            dropBase = Conf.ore_config.DROP_BASE_4_HARD;
+        }
 
-        items.add(new ItemStack(drop, dropsMultiplied));
+        if (drop != null) {
+            float fortuneMult = 1.0F + (((1.0F / (fortune + 2.0F) + (fortune + 1.0F) / 2.0F) - 1.0F) * random.nextFloat());
+            int dropsMultiplied = Math.round(dropBase * fortuneMult);
+
+            items.add(new ItemStack(drop, dropsMultiplied));
+        }
     }
+
+    @Override public boolean canSilkHarvest() { return false; }
 }
