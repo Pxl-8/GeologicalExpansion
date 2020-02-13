@@ -53,15 +53,40 @@ public class Register {
 
     //Recipe register methods
     public static void registerOreDictionary(){
-        for (ItemOreCluster cluster : ModItems.oreClusterList) { if (cluster.getOredict() != null) OreDictionary.registerOre(cluster.getOredict(), cluster); }
-        for (ItemCrystalCluster cluster : ModItems.crystalClusterList) { if (cluster.getOredict() != null) OreDictionary.registerOre(cluster.getOredict(), cluster); }
-        for (ItemDustCluster cluster : ModItems.dustClusterList) { if (cluster.getOredict() != null) OreDictionary.registerOre(cluster.getOredict(), cluster); }
+        for (ItemOreCluster cluster : ModItems.oreClusterList) {
+            if (cluster.getOredict() != null) {
+                OreDictionary.registerOre(cluster.getOredict(), cluster);
+            }
+        }
+
+        for (ItemCrystalCluster cluster : ModItems.crystalClusterList) {
+            if (cluster.getOredict() != null) {
+                OreDictionary.registerOre(cluster.getOredict(), cluster);
+            }
+        }
+        for (ItemDustCluster cluster : ModItems.dustClusterList) {
+            if (cluster.getOredict() != null) {
+                OreDictionary.registerOre(cluster.getOredict(), cluster);
+            }
+        }
 
         //for (ItemSpallingHammer hammer : ModItems.spallingHammerList) { OreDictionary.registerOre("toolSpallingHammer", new ItemStack(hammer, 1, WILDCARD_VALUE)); }
 
-        for (ItemOreCluster cluster : ModItems.oreClusterListCompat) { if (cluster.getOredict() != null) OreDictionary.registerOre(cluster.getOredict(), cluster); }
-        for (ItemCrystalCluster cluster : ModItems.crystalClusterListCompat) { if (cluster.getOredict() != null) OreDictionary.registerOre(cluster.getOredict(), cluster); }
-        for (ItemDustCluster cluster : ModItems.dustClusterListCompat) { if (cluster.getOredict() != null) OreDictionary.registerOre(cluster.getOredict(), cluster); }
+        for (ItemOreCluster cluster : ModItems.oreClusterListCompat) {
+            if (cluster.getOredict() != null) {
+                OreDictionary.registerOre(cluster.getOredict(), cluster);
+            }
+        }
+        for (ItemCrystalCluster cluster : ModItems.crystalClusterListCompat) {
+            if (cluster.getOredict() != null) {
+                OreDictionary.registerOre(cluster.getOredict(), cluster);
+            }
+        }
+        for (ItemDustCluster cluster : ModItems.dustClusterListCompat) {
+            if (cluster.getOredict() != null) {
+                OreDictionary.registerOre(cluster.getOredict(), cluster);
+            }
+        }
     }
 
     public static void registerFurnaceRecipes() {

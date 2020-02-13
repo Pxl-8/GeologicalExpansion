@@ -27,10 +27,16 @@ public class LibTools {
 
         IBlockState blockState = null;
 
+        try {
+
         if (blockSplit.length == 2) {
             blockState = Block.getBlockFromName(blockSplit[0]).getStateFromMeta(Integer.parseInt(blockSplit[1]));
         } else if (blockSplit.length == 1) {
             blockState = Block.getBlockFromName(blockSplit[0]).getDefaultState();
+        }
+
+        } catch (NullPointerException e) {
+            //LibMeta.LOG.info(e);
         }
 
         return blockState;

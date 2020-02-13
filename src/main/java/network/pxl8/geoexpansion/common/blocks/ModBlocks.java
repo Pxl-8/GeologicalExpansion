@@ -9,6 +9,8 @@ import network.pxl8.geoexpansion.lib.LibMeta;
 import java.util.ArrayList;
 import java.util.List;
 
+import static network.pxl8.geoexpansion.compat.CompatHandler.modListLoaded;
+
 @GameRegistry.ObjectHolder(LibMeta.MOD_ID)
 public class ModBlocks {
     @GameRegistry.ObjectHolder("mc.stone")                 public static BlockStone blockStone;
@@ -281,200 +283,125 @@ public class ModBlocks {
     }
 
     public static void registerCompat(IForgeRegistry<Block> blockReg) {
-        for (String mod : CompatHandler.modListLoaded) { switch(mod) {
-            case "quark": {
-                if (!CompatHandler.isRegistered("stoneBasalt")) { CompatHandler.setRegistered("stoneBasalt");
-                    blockReg.register(new BlockStone("qk.basalt", "pickaxe",    1.5F,   "quark:basalt",     "quark:basalt")); }
-                if (!CompatHandler.isRegistered("stoneMarble")) { CompatHandler.setRegistered("stoneMarble");
-                    blockReg.register(new BlockStone("qk.marble", "pickaxe",    1.5F,   "quark:marble",     "quark:marble")); }
-                if (!CompatHandler.isRegistered("stoneLimestone")) { CompatHandler.setRegistered("stoneLimestone");
-                    blockReg.register(new BlockStone("qk.limestone", "pickaxe", 1.5F,   "quark:limestone",  "quark:limestone")); }
-                if (!CompatHandler.isRegistered("stoneJasper")) { CompatHandler.setRegistered("stoneJasper");
-                    blockReg.register(new BlockStone("qk.jasper", "pickaxe",    1.5F,   "quark:jasper",     "quark:jasper")); }
-                if (!CompatHandler.isRegistered("stoneSlate")) { CompatHandler.setRegistered("stoneSlate");
-                    blockReg.register(new BlockStone("qk.slate", "pickaxe",     1.5F,   "quark:slate",      "quark:slate")); }
+        for (String mod : modListLoaded) {
+            switch (mod) {
+                case "quark":
+                    register(blockReg, "stoneBasalt", new BlockStone("qk.basalt", "pickaxe", 1.5F, "quark:basalt", "quark:basalt"));
+                    register(blockReg, "stoneMarble", new BlockStone("qk.marble", "pickaxe", 1.5F, "quark:marble", "quark:marble"));
+                    register(blockReg, "stoneLimestone", new BlockStone("qk.limestone", "pickaxe", 1.5F, "quark:limestone", "quark:limestone"));
+                    register(blockReg, "stoneJasper", new BlockStone("qk.jasper", "pickaxe", 1.5F, "quark:jasper", "quark:jasper"));
+                    register(blockReg, "stoneSlate", new BlockStone("qk.slate", "pickaxe", 1.5F, "quark:slate", "quark:slate"));
+                    break;
+                case "basemetals":
+                    register(blockReg, "oreAntimony", new BlockOre("bm.ore_antimony", 2.0F, "basemetals:antimony_ore", "geoexpansion:bm.ore_cluster_antimony"));
+                    register(blockReg, "oreBismuth", new BlockOre("bm.ore_bismuth", 2.0F, "basemetals:bismuth_ore", "geoexpansion:bm.ore_cluster_bismuth"));
+                    register(blockReg, "oreCopper", new BlockOre("bm.ore_copper", 2.0F, "basemetals:copper_ore", "geoexpansion:bm.ore_cluster_copper"));
+                    register(blockReg, "oreLead", new BlockOre("bm.ore_lead", 2.0F, "basemetals:lead_ore", "geoexpansion:bm.ore_cluster_lead"));
+                    register(blockReg, "oreMercury", new BlockOre("bm.ore_mercury", 2.0F, "basemetals:mercury_ore", "geoexpansion:bm.ore_cluster_mercury"));
+                    register(blockReg, "oreNickel", new BlockOre("bm.ore_nickel", 2.0F, "basemetals:nickel_ore", "geoexpansion:bm.ore_cluster_nickel"));
+                    register(blockReg, "orePlatinum", new BlockOre("bm.ore_platinum", 2.0F, "basemetals:platinum_ore", "geoexpansion:bm.ore_cluster_platinum"));
+                    register(blockReg, "oreSilver", new BlockOre("bm.ore_silver", 2.0F, "basemetals:silver_ore", "geoexpansion:bm.ore_cluster_silver"));
+                    register(blockReg, "oreTin", new BlockOre("bm.ore_tin", 2.0F, "basemetals:tin_ore", "geoexpansion:bm.ore_cluster_tin"));
+                    register(blockReg, "oreZinc", new BlockOre("bm.ore_zinc", 2.0F, "basemetals:zinc_ore", "geoexpansion:bm.ore_cluster_zinc"));
+                    break;
+                case "modernmetals":
+                    register(blockReg, "oreAluminum", new BlockOre("mm.ore_aluminum", 2.0F, "modernmetals:aluminum_ore", "geoexpansion:mm.ore_cluster_aluminum"));
+                    register(blockReg, "oreBeryllium", new BlockOre("mm.ore_beryllium", 2.0F, "modernmetals:beryllium_ore", "geoexpansion:mm.ore_cluster_beryllium"));
+                    register(blockReg, "oreBoron", new BlockOre("mm.ore_boron", 2.0F, "modernmetals:boron_ore", "geoexpansion:mm.ore_cluster_boron"));
+                    register(blockReg, "oreCadmium", new BlockOre("mm.ore_cadmium", 2.0F, "modernmetals:cadmium_ore", "geoexpansion:mm.ore_cluster_cadmium"));
+                    register(blockReg, "oreChromium", new BlockOre("mm.ore_chromium", 2.0F, "modernmetals:chromium_ore", "geoexpansion:mm.ore_cluster_chromium"));
+                    register(blockReg, "oreIridium", new BlockOre("mm.ore_iridium", 2.0F, "modernmetals:iridium_ore", "geoexpansion:mm.ore_cluster_iridium"));
+                    register(blockReg, "oreMagnesium", new BlockOre("mm.ore_magnesium", 2.0F, "modernmetals:magnesium_ore", "geoexpansion:mm.ore_cluster_magnesium"));
+                    register(blockReg, "oreManganese", new BlockOre("mm.ore_manganese", 2.0F, "modernmetals:manganese_ore", "geoexpansion:mm.ore_cluster_manganese"));
+                    register(blockReg, "oreOsmium", new BlockOre("mm.ore_osmium", 2.0F, "modernmetals:osmium_ore", "geoexpansion:mm.ore_cluster_osmium"));
+                    register(blockReg, "orePlutonium", new BlockOre("mm.ore_plutonium", 2.0F, "modernmetals:plutonium_ore", "geoexpansion:mm.ore_cluster_plutonium"));
+                    register(blockReg, "oreRutile", new BlockOre("mm.ore_rutile", 2.0F, "modernmetals:rutile_ore", "geoexpansion:mm.ore_cluster_rutile"));
+                    register(blockReg, "oreTantalum", new BlockOre("mm.ore_tantalum", 2.0F, "modernmetals:tantalum_ore", "geoexpansion:mm.ore_cluster_tantalum"));
+                    register(blockReg, "oreThorium", new BlockOre("mm.ore_thorium", 2.0F, "modernmetals:thorium_ore", "geoexpansion:mm.ore_cluster_thorium"));
+                    register(blockReg, "oreTitanium", new BlockOre("mm.ore_titanium", 2.0F, "modernmetals:titanium_ore", "geoexpansion:mm.ore_cluster_titanium"));
+                    register(blockReg, "oreTungsten", new BlockOre("mm.ore_tungsten", 2.0F, "modernmetals:tungsten_ore", "geoexpansion:mm.ore_cluster_tungsten"));
+                    register(blockReg, "oreUranium", new BlockOre("mm.ore_uranium", 2.0F, "modernmetals:uranium_ore", "geoexpansion:mm.ore_cluster_uranium"));
+                    register(blockReg, "oreZirconium", new BlockOre("mm.ore_zirconium", 2.0F, "modernmetals:zirconium_ore", "geoexpansion:mm.ore_cluster_zirconium"));
+                    break;
+                case "thermalfoundation":
+                    register(blockReg, "oreCopper", new BlockOre("tf.ore_copper", 2.0F, "thermalfoundation:ore/0", "geoexpansion:tf.ore_cluster_copper"));
+                    register(blockReg, "oreTin", new BlockOre("tf.ore_tin", 2.0F, "thermalfoundation:ore/1", "geoexpansion:tf.ore_cluster_tin"));
+                    register(blockReg, "oreSilver", new BlockOre("tf.ore_silver", 2.0F, "thermalfoundation:ore/2", "geoexpansion:tf.ore_cluster_silver"));
+                    register(blockReg, "oreLead", new BlockOre("tf.ore_lead", 2.0F, "thermalfoundation:ore/3", "geoexpansion:tf.ore_cluster_lead"));
+                    register(blockReg, "oreAluminum", new BlockOre("tf.ore_aluminum", 2.0F, "thermalfoundation:ore/4", "geoexpansion:tf.ore_cluster_aluminum"));
+                    register(blockReg, "oreNickel", new BlockOre("tf.ore_nickel", 2.0F, "thermalfoundation:ore/5", "geoexpansion:tf.ore_cluster_nickel"));
+                    register(blockReg, "orePlatinum", new BlockOre("tf.ore_platinum", 2.0F, "thermalfoundation:ore/6", "geoexpansion:tf.ore_cluster_platinum"));
+                    register(blockReg, "oreIridium", new BlockOre("tf.ore_iridium", 2.0F, "thermalfoundation:ore/7", "geoexpansion:tf.ore_cluster_iridium"));
+                    register(blockReg, "oreMithril", new BlockOre("tf.ore_mithril", 2.0F, "thermalfoundation:ore/8", "geoexpansion:tf.ore_cluster_mithril"));
+                    register(blockReg, "oreClathrateRedstone", new BlockOre("tf.ore_fluid_redstone", 2.0F, "thermalfoundation:ore_fluid/2", "geoexpansion:tf.fluid_cluster_redstone"));
+                    break;
+                case "immersiveengineering":
+                    register(blockReg, "oreCopper", new BlockOre("ie.ore_copper", 2.0F, "immersiveengineering:ore/0", "geoexpansion:ie.ore_cluster_copper"));
+                    register(blockReg, "oreAluminum", new BlockOre("ie.ore_aluminum", 2.0F, "immersiveengineering:ore/1", "geoexpansion:ie.ore_cluster_aluminum"));
+                    register(blockReg, "oreLead", new BlockOre("ie.ore_lead", 2.0F, "immersiveengineering:ore/2", "geoexpansion:ie.ore_cluster_lead"));
+                    register(blockReg, "oreSilver", new BlockOre("ie.ore_silver", 2.0F, "immersiveengineering:ore/3", "geoexpansion:ie.ore_cluster_silver"));
+                    register(blockReg, "oreNickel", new BlockOre("ie.ore_nickel", 2.0F, "immersiveengineering:ore/4", "geoexpansion:ie.ore_cluster_nickel"));
+                    register(blockReg, "oreUranium", new BlockOre("ie.ore_uranium", 2.0F, "immersiveengineering:ore/5", "geoexpansion:ie.ore_cluster_uranium"));
+                    break;
+                case "techreborn":
+                    register(blockReg, "oreGalena", new BlockOre("tr.ore_galena", 2.0F, "techreborn:ore/0", "geoexpansion:tr.ore_cluster_galena"));
+                    register(blockReg, "oreIridium", new BlockOre("tr.ore_iridium", 2.0F, "techreborn:ore/1", "geoexpansion:tr.ore_cluster_iridium"));
+                    register(blockReg, "oreRuby", new BlockOre("tr.ore_ruby", 2.0F, "techreborn:ore/2", "geoexpansion:tr.crystal_cluster_ruby"));
+                    register(blockReg, "oreSapphire", new BlockOre("tr.ore_sapphire", 2.0F, "techreborn:ore/3", "geoexpansion:tr.crystal_cluster_sapphire"));
+                    register(blockReg, "oreBauxite", new BlockOre("tr.ore_bauxite", 2.0F, "techreborn:ore/4", "geoexpansion:tr.ore_cluster_bauxite"));
+                    register(blockReg, "oreLead", new BlockOre("tr.ore_lead", 2.0F, "techreborn:ore/12", "geoexpansion:tr.ore_cluster_lead"));
+                    register(blockReg, "oreSilver", new BlockOre("tr.ore_silver", 2.0F, "techreborn:ore/13", "geoexpansion:tr.ore_cluster_silver"));
+                    register(blockReg, "oreCopper", new BlockOre("tr.ore_copper", 2.0F, "techreborn:ore2/0", "geoexpansion:tr.ore_cluster_copper"));
+                    register(blockReg, "oreTin", new BlockOre("tr.ore_tin", 2.0F, "techreborn:ore2/1", "geoexpansion:tr.ore_cluster_tin"));
+                    break;
+                case "forestry":
+                    register(blockReg, "oreApatite", new BlockOre("fr.ore_apatite", 2.0F, "forestry:resources/0", "geoexpansion:fr.crystal_cluster_apatite"));
+                    register(blockReg, "oreCopper", new BlockOre("fr.ore_copper", 2.0F, "forestry:resources/1", "geoexpansion:fr.ore_cluster_copper"));
+                    register(blockReg, "oreTin", new BlockOre("fr.ore_tin", 2.0F, "forestry:resources/2", "geoexpansion:fr.ore_cluster_tin"));
+                    break;
+                case "bluepower":
+                    register(blockReg, "oreTeslatite", new BlockOre("bp.ore_teslatite", 2.0F, "bluepower:teslatite_ore", "geoexpansion:bp.dust_cluster_teslatite"));
+                    register(blockReg, "oreRuby", new BlockOre("bp.ore_ruby", 2.0F, "bluepower:ruby_ore", "geoexpansion:bp.crystal_cluster_ruby"));
+                    register(blockReg, "oreSapphire", new BlockOre("bp.ore_sapphire", 2.0F, "bluepower:sapphire_ore", "geoexpansion:bp.crystal_cluster_sapphire"));
+                    register(blockReg, "oreAmethyst", new BlockOre("bp.ore_amethyst", 2.0F, "bluepower:amethyst_ore", "geoexpansion:bp.crystal_cluster_amethyst"));
+                    register(blockReg, "oreCopper", new BlockOre("bp.ore_copper", 2.0F, "bluepower:copper_ore", "geoexpansion:bp.ore_cluster_copper"));
+                    register(blockReg, "oreSilver", new BlockOre("bp.ore_silver", 2.0F, "bluepower:silver_ore", "geoexpansion:bp.ore_cluster_silver"));
+                    register(blockReg, "oreZinc", new BlockOre("bp.ore_zinc", 2.0F, "bluepower:zinc_ore", "geoexpansion:bp.ore_cluster_zinc"));
+                    register(blockReg, "oreTungsten", new BlockOre("bp.ore_tungsten", 2.0F, "bluepower:tungsten_ore", "geoexpansion:bp.ore_cluster_tungsten"));
+                    break;
+                case "appliedenergistics2":
+                    register(blockReg, "oreCertusQuartz", new BlockOre("ae.ore_quartz", 2.0F, "appliedenergistics2:quartz_ore", "geoexpansion:ae.crystal_cluster_quartz"));
+                    register(blockReg, "oreChargedCertusQuartz", new BlockOre("ae.ore_charged_quartz", 2.0F, "appliedenergistics2:charged_quartz_ore", "geoexpansion:ae.crystal_cluster_charged_quartz"));
+                    break;
+                case "bigreactors":
+                    register(blockReg, "oreYellorite", new BlockOre("er.ore_yellorite", 2.0F, "bigreactors:oreyellorite", "geoexpansion:er.ore_cluster_yellorite"));
+                    break;
+                case "aroma1997sdimension":
+                    register(blockReg, "oreSticky", new BlockOre("ad.ore_sticky", 2.0F, "aroma1997sdimension:miningore/0", "geoexpansion:ad.dust_cluster_sticky"));
+                    register(blockReg, "oreClay", new BlockOre("ad.ore_clay", 2.0F, "aroma1997sdimension:miningore/1", "geoexpansion:ad.dust_cluster_clay"));
+                    break;
+                case "embers":
+                    register(blockReg, "oreCopper", new BlockOre("em.ore_copper", 2.0F, "embers:ore_copper", "geoexpansion.em.ore_cluster_copper"));
+                    register(blockReg, "oreLead", new BlockOre("em.ore_lead", 2.0F, "embers:ore_lead", "geoexpansion.em.ore_cluster_lead"));
+                    register(blockReg, "oreSilver", new BlockOre("em.ore_silver", 2.0F, "embers:ore_silver", "geoexpansion.em.ore_cluster_silver"));
+                    register(blockReg, "oreAluminum", new BlockOre("em.ore_aluminum", 2.0F, "embers:ore_aluminum", "geoexpansion.em.ore_cluster_aluminum"));
+                    register(blockReg, "oreNickel", new BlockOre("em.ore_nickel", 2.0F, "embers:ore_nickel", "geoexpansion.em.ore_cluster_nickel"));
+                    register(blockReg, "oreTin", new BlockOre("em.ore_tin", 2.0F, "embers:ore_tin", "geoexpansion.em.ore_cluster_tin"));
+                    register(blockReg, "oreQuartz", new BlockOre("em.ore_quartz", 2.0F, "embers:ore_quartz", "geoexpansion.em.crystal_cluster_quartz"));
+                    break;
+                case "mekanism":
+                    register(blockReg, "oreOsmium", new BlockOre("mk.ore_osmium", 2.0F, "mekanism:oreblock/0", "geoexpansion.mk.ore_cluster_osmium"));
+                    register(blockReg, "oreCopper", new BlockOre("mk.ore_copper", 2.0F, "mekanism:oreblock/1", "geoexpansion.mk.ore_cluster_copper"));
+                    register(blockReg, "oreTin", new BlockOre("mk.ore_tin", 2.0F, "mekanism:oreblock/2", "geoexpansion.mk.ore_cluster_tin"));
+                    break;
             }
-            case "basemetals": {
-                if (!CompatHandler.isRegistered("oreAntimony")) { CompatHandler.setRegistered("oreAntimony");
-                    blockReg.register(new BlockOre("bm.ore_antimony", 2.0F,             "basemetals:antimony_ore",      "geoexpansion:bm.ore_cluster_antimony")); }
-                if (!CompatHandler.isRegistered("oreBismuth")) { CompatHandler.setRegistered("oreBismuth");
-                    blockReg.register(new BlockOre("bm.ore_bismuth", 2.0F,              "basemetals:bismuth_ore",       "geoexpansion:bm.ore_cluster_bismuth")); }
-                if (!CompatHandler.isRegistered("oreCopper")) { CompatHandler.setRegistered("oreCopper");
-                    blockReg.register(new BlockOre("bm.ore_copper", 2.0F,               "basemetals:copper_ore",        "geoexpansion:bm.ore_cluster_copper")); }
-                if (!CompatHandler.isRegistered("oreLead")) { CompatHandler.setRegistered("oreLead");
-                    blockReg.register(new BlockOre("bm.ore_lead", 2.0F,                 "basemetals:lead_ore",          "geoexpansion:bm.ore_cluster_lead")); }
-                if (!CompatHandler.isRegistered("oreMercury")) { CompatHandler.setRegistered("oreMercury");
-                    blockReg.register(new BlockOre("bm.ore_mercury", 2.0F,              "basemetals:mercury_ore",       "geoexpansion:bm.ore_cluster_mercury")); }
-                if (!CompatHandler.isRegistered("oreNickel")) { CompatHandler.setRegistered("oreNickel");
-                    blockReg.register(new BlockOre("bm.ore_nickel", 2.0F,               "basemetals:nickel_ore",        "geoexpansion:bm.ore_cluster_nickel")); }
-                if (!CompatHandler.isRegistered("orePlatinum")) { CompatHandler.setRegistered("orePlatinum");
-                    blockReg.register(new BlockOre("bm.ore_platinum", 2.0F,             "basemetals:platinum_ore",      "geoexpansion:bm.ore_cluster_platinum")); }
-                if (!CompatHandler.isRegistered("oreSilver")) { CompatHandler.setRegistered("oreSilver");
-                    blockReg.register(new BlockOre("bm.ore_silver", 2.0F,               "basemetals:silver_ore",        "geoexpansion:bm.ore_cluster_silver")); }
-                if (!CompatHandler.isRegistered("oreTin")) { CompatHandler.setRegistered("oreTin");
-                    blockReg.register(new BlockOre("bm.ore_tin", 2.0F,                  "basemetals:tin_ore",           "geoexpansion:bm.ore_cluster_tin")); }
-                if (!CompatHandler.isRegistered("oreZinc")) { CompatHandler.setRegistered("oreZinc");
-                    blockReg.register(new BlockOre("bm.ore_zinc", 2.0F,                 "basemetals:zinc_ore",          "geoexpansion:bm.ore_cluster_zinc")); }
-            }
-            case "modernmetals": {
-                if (!CompatHandler.isRegistered("oreAluminum")) { CompatHandler.setRegistered("oreAluminum");
-                    blockReg.register(new BlockOre("mm.ore_aluminum", 2.0F,             "modernmetals:aluminum_ore",    "geoexpansion:mm.ore_cluster_aluminum")); }
-                if (!CompatHandler.isRegistered("oreBeryllium")) { CompatHandler.setRegistered("oreBeryllium");
-                    blockReg.register(new BlockOre("mm.ore_beryllium", 2.0F,            "modernmetals:beryllium_ore",   "geoexpansion:mm.ore_cluster_beryllium")); }
-                if (!CompatHandler.isRegistered("oreBoron")) { CompatHandler.setRegistered("oreBoron");
-                    blockReg.register(new BlockOre("mm.ore_boron", 2.0F,                "modernmetals:boron_ore",       "geoexpansion:mm.ore_cluster_boron")); }
-                if (!CompatHandler.isRegistered("oreCadmium")) { CompatHandler.setRegistered("oreCadmium");
-                    blockReg.register(new BlockOre("mm.ore_cadmium", 2.0F,              "modernmetals:cadmium_ore",     "geoexpansion:mm.ore_cluster_cadmium")); }
-                if (!CompatHandler.isRegistered("oreChromium")) { CompatHandler.setRegistered("oreChromium");
-                    blockReg.register(new BlockOre("mm.ore_chromium", 2.0F,             "modernmetals:chromium_ore",    "geoexpansion:mm.ore_cluster_chromium")); }
-                if (!CompatHandler.isRegistered("oreIridium")) { CompatHandler.setRegistered("oreIridium");
-                    blockReg.register(new BlockOre("mm.ore_iridium", 2.0F,              "modernmetals:iridium_ore",     "geoexpansion:mm.ore_cluster_iridium")); }
-                if (!CompatHandler.isRegistered("oreMagnesium")) { CompatHandler.setRegistered("oreMagnesium");
-                    blockReg.register(new BlockOre("mm.ore_magnesium", 2.0F,            "modernmetals:magnesium_ore",   "geoexpansion:mm.ore_cluster_magnesium")); }
-                if (!CompatHandler.isRegistered("oreManganese")) { CompatHandler.setRegistered("oreManganese");
-                    blockReg.register(new BlockOre("mm.ore_manganese", 2.0F,            "modernmetals:manganese_ore",   "geoexpansion:mm.ore_cluster_manganese")); }
-                if (!CompatHandler.isRegistered("oreOsmium")) { CompatHandler.setRegistered("oreOsmium");
-                    blockReg.register(new BlockOre("mm.ore_osmium", 2.0F,               "modernmetals:osmium_ore",      "geoexpansion:mm.ore_cluster_osmium")); }
-                if (!CompatHandler.isRegistered("orePlutonium")) { CompatHandler.setRegistered("orePlutonium");
-                    blockReg.register(new BlockOre("mm.ore_plutonium", 2.0F,            "modernmetals:plutonium_ore",   "geoexpansion:mm.ore_cluster_plutonium")); }
-                if (!CompatHandler.isRegistered("oreRutile")) { CompatHandler.setRegistered("oreRutile");
-                    blockReg.register(new BlockOre("mm.ore_rutile", 2.0F,               "modernmetals:rutile_ore",      "geoexpansion:mm.ore_cluster_rutile")); }
-                if (!CompatHandler.isRegistered("oreTantalum")) { CompatHandler.setRegistered("oreTantalum");
-                    blockReg.register(new BlockOre("mm.ore_tantalum", 2.0F,             "modernmetals:tantalum_ore",    "geoexpansion:mm.ore_cluster_tantalum")); }
-                if (!CompatHandler.isRegistered("oreThorium")) { CompatHandler.setRegistered("oreThorium");
-                    blockReg.register(new BlockOre("mm.ore_thorium", 2.0F,              "modernmetals:thorium_ore",     "geoexpansion:mm.ore_cluster_thorium")); }
-                if (!CompatHandler.isRegistered("oreTitanium")) { CompatHandler.setRegistered("oreTitanium");
-                    blockReg.register(new BlockOre("mm.ore_titanium", 2.0F,             "modernmetals:titanium_ore",    "geoexpansion:mm.ore_cluster_titanium")); }
-                if (!CompatHandler.isRegistered("oreTungsten")) { CompatHandler.setRegistered("oreTungsten");
-                    blockReg.register(new BlockOre("mm.ore_tungsten", 2.0F,             "modernmetals:tungsten_ore",    "geoexpansion:mm.ore_cluster_tungsten")); }
-                if (!CompatHandler.isRegistered("oreUranium")) { CompatHandler.setRegistered("oreUranium");
-                    blockReg.register(new BlockOre("mm.ore_uranium", 2.0F,              "modernmetals:uranium_ore",     "geoexpansion:mm.ore_cluster_uranium")); }
-                if (!CompatHandler.isRegistered("oreZirconium")) { CompatHandler.setRegistered("oreZirconium");
-                    blockReg.register(new BlockOre("mm.ore_zirconium", 2.0F,            "modernmetals:zirconium_ore",   "geoexpansion:mm.ore_cluster_zirconium")); }
-            }
-            case "thermalfoundation": {
-                if (!CompatHandler.isRegistered("oreCopper")) { CompatHandler.setRegistered("oreCopper");
-                    blockReg.register(new BlockOre("tf.ore_copper", 2.0F,               "thermalfoundation:ore/0",      "geoexpansion:tf.ore_cluster_copper")); }
-                if (!CompatHandler.isRegistered("oreTin")) { CompatHandler.setRegistered("oreTin");
-                    blockReg.register(new BlockOre("tf.ore_tin", 2.0F,                  "thermalfoundation:ore/1",      "geoexpansion:tf.ore_cluster_tin")); }
-                if (!CompatHandler.isRegistered("oreSilver")) { CompatHandler.setRegistered("oreSilver");
-                    blockReg.register(new BlockOre("tf.ore_silver", 2.0F,               "thermalfoundation:ore/2",      "geoexpansion:tf.ore_cluster_silver")); }
-                if (!CompatHandler.isRegistered("oreLead")) { CompatHandler.setRegistered("oreLead");
-                    blockReg.register(new BlockOre("tf.ore_lead", 2.0F,                 "thermalfoundation:ore/3",      "geoexpansion:tf.ore_cluster_lead")); }
-                if (!CompatHandler.isRegistered("oreAluminum")) { CompatHandler.setRegistered("oreAluminum");
-                    blockReg.register(new BlockOre("tf.ore_aluminum", 2.0F,             "thermalfoundation:ore/4",      "geoexpansion:tf.ore_cluster_aluminum")); }
-                if (!CompatHandler.isRegistered("oreNickel")) { CompatHandler.setRegistered("oreNickel");
-                    blockReg.register(new BlockOre("tf.ore_nickel", 2.0F,               "thermalfoundation:ore/5",      "geoexpansion:tf.ore_cluster_nickel")); }
-                if (!CompatHandler.isRegistered("orePlatinum")) { CompatHandler.setRegistered("orePlatinum");
-                    blockReg.register(new BlockOre("tf.ore_platinum", 2.0F,             "thermalfoundation:ore/6",      "geoexpansion:tf.ore_cluster_platinum")); }
-                if (!CompatHandler.isRegistered("oreIridium")) { CompatHandler.setRegistered("oreIridium");
-                    blockReg.register(new BlockOre("tf.ore_iridium", 2.0F,              "thermalfoundation:ore/7",      "geoexpansion:tf.ore_cluster_iridium")); }
-                if (!CompatHandler.isRegistered("oreMithril")) { CompatHandler.setRegistered("oreMithril");
-                    blockReg.register(new BlockOre("tf.ore_mithril", 2.0F,              "thermalfoundation:ore/8",      "geoexpansion:tf.ore_cluster_mithril")); }
-                if (!CompatHandler.isRegistered("oreClathrateRedstone")) { CompatHandler.setRegistered("oreClathrateRedstone");
-                    blockReg.register(new BlockOre("tf.ore_fluid_redstone", 2.0F,       "thermalfoundation:ore_fluid/2", "geoexpansion:tf.fluid_cluster_redstone")); }
-            }
-            case "immersiveengineering": {
-                if (!CompatHandler.isRegistered("oreCopper")) { CompatHandler.setRegistered("oreCopper");
-                    blockReg.register(new BlockOre("ie.ore_copper", 2.0F,               "immersiveengineering:ore/0",   "geoexpansion:ie.ore_cluster_copper")); }
-                if (!CompatHandler.isRegistered("oreAluminum")) { CompatHandler.setRegistered("oreAluminum");
-                    blockReg.register(new BlockOre("ie.ore_aluminum", 2.0F,             "immersiveengineering:ore/1",   "geoexpansion:ie.ore_cluster_aluminum")); }
-                if (!CompatHandler.isRegistered("oreLead")) { CompatHandler.setRegistered("oreLead");
-                    blockReg.register(new BlockOre("ie.ore_lead", 2.0F,                 "immersiveengineering:ore/2",   "geoexpansion:ie.ore_cluster_lead")); }
-                if (!CompatHandler.isRegistered("oreSilver")) { CompatHandler.setRegistered("oreSilver");
-                    blockReg.register(new BlockOre("ie.ore_silver", 2.0F,               "immersiveengineering:ore/3",   "geoexpansion:ie.ore_cluster_silver")); }
-                if (!CompatHandler.isRegistered("oreNickel")) { CompatHandler.setRegistered("oreNickel");
-                    blockReg.register(new BlockOre("ie.ore_nickel", 2.0F,               "immersiveengineering:ore/4",   "geoexpansion:ie.ore_cluster_nickel")); }
-                if (!CompatHandler.isRegistered("oreUranium")) { CompatHandler.setRegistered("oreUranium");
-                    blockReg.register(new BlockOre("ie.ore_uranium", 2.0F,              "immersiveengineering:ore/5",   "geoexpansion:ie.ore_cluster_uranium")); }
-            }
-            case "techreborn": {
-                if (!CompatHandler.isRegistered("oreGalena")) { CompatHandler.setRegistered("oreGalena");
-                    blockReg.register(new BlockOre("tr.ore_galena", 2.0F,               "techreborn:ore/0",             "geoexpansion:tr.ore_cluster_galena")); }
-                if (!CompatHandler.isRegistered("oreIridium")) { CompatHandler.setRegistered("oreIridium");
-                    blockReg.register(new BlockOre("tr.ore_iridium", 2.0F,              "techreborn:ore/1",             "geoexpansion:tr.ore_cluster_iridium")); }
-                if (!CompatHandler.isRegistered("oreRuby")) { CompatHandler.setRegistered("oreRuby");
-                    blockReg.register(new BlockOre("tr.ore_ruby", 2.0F,                 "techreborn:ore/2",             "geoexpansion:tr.crystal_cluster_ruby")); }
-                if (!CompatHandler.isRegistered("oreSapphire")) { CompatHandler.setRegistered("oreSapphire");
-                    blockReg.register(new BlockOre("tr.ore_sapphire", 2.0F,             "techreborn:ore/3",             "geoexpansion:tr.crystal_cluster_sapphire")); }
-                if (!CompatHandler.isRegistered("oreBauxite")) { CompatHandler.setRegistered("oreBauxite");
-                    blockReg.register(new BlockOre("tr.ore_bauxite", 2.0F,              "techreborn:ore/4",             "geoexpansion:tr.ore_cluster_bauxite")); }
-                if (!CompatHandler.isRegistered("oreLead")) { CompatHandler.setRegistered("oreLead");
-                    blockReg.register(new BlockOre("tr.ore_lead", 2.0F,                 "techreborn:ore/12",            "geoexpansion:tr.ore_cluster_lead")); }
-                if (!CompatHandler.isRegistered("oreSilver")) { CompatHandler.setRegistered("oreSilver");
-                    blockReg.register(new BlockOre("tr.ore_silver", 2.0F,               "techreborn:ore/13",            "geoexpansion:tr.ore_cluster_silver")); }
-                if (!CompatHandler.isRegistered("oreCopper")) { CompatHandler.setRegistered("oreCopper");
-                    blockReg.register(new BlockOre("tr.ore_copper", 2.0F,               "techreborn:ore2/0",            "geoexpansion:tr.ore_cluster_copper")); }
-                if (!CompatHandler.isRegistered("oreTin")) { CompatHandler.setRegistered("oreTin");
-                    blockReg.register(new BlockOre("tr.ore_tin", 2.0F,                  "techreborn:ore2/1",            "geoexpansion:tr.ore_cluster_tin")); }
-            }
-            case "forestry": {
-                if (!CompatHandler.isRegistered("oreApatite")) { CompatHandler.setRegistered("oreApatite");
-                    blockReg.register(new BlockOre("fr.ore_apatite", 2.0F,              "forestry:resources/0",         "geoexpansion:fr.crystal_cluster_apatite")); }
-                if (!CompatHandler.isRegistered("oreCopper")) { CompatHandler.setRegistered("oreCopper");
-                    blockReg.register(new BlockOre("fr.ore_copper", 2.0F,               "forestry:resources/1",         "geoexpansion:fr.ore_cluster_copper")); }
-                if (!CompatHandler.isRegistered("oreTin")) { CompatHandler.setRegistered("oreTin");
-                    blockReg.register(new BlockOre("fr.ore_tin", 2.0F,                  "forestry:resources/2",         "geoexpansion:fr.ore_cluster_tin")); }
-            }
-            case "bluepower": {
-                if (!CompatHandler.isRegistered("oreTeslatite")) { CompatHandler.setRegistered("oreTeslatite");
-                    blockReg.register(new BlockOre("bp.ore_teslatite", 2.0F,            "bluepower:teslatite_ore",      "geoexpansion:bp.dust_cluster_teslatite")); }
-                if (!CompatHandler.isRegistered("oreRuby")) { CompatHandler.setRegistered("oreRuby");
-                    blockReg.register(new BlockOre("bp.ore_ruby", 2.0F,                 "bluepower:ruby_ore",           "geoexpansion:bp.crystal_cluster_ruby")); }
-                if (!CompatHandler.isRegistered("oreSapphire")) { CompatHandler.setRegistered("oreSapphire");
-                    blockReg.register(new BlockOre("bp.ore_sapphire", 2.0F,             "bluepower:sapphire_ore",       "geoexpansion:bp.crystal_cluster_sapphire")); }
-                if (!CompatHandler.isRegistered("oreAmethyst")) { CompatHandler.setRegistered("oreAmethyst");
-                    blockReg.register(new BlockOre("bp.ore_amethyst", 2.0F,             "bluepower:amethyst_ore",       "geoexpansion:bp.crystal_cluster_amethyst")); }
-                if (!CompatHandler.isRegistered("oreCopper")) { CompatHandler.setRegistered("oreCopper");
-                    blockReg.register(new BlockOre("bp.ore_copper", 2.0F,               "bluepower:copper_ore",         "geoexpansion:bp.ore_cluster_copper")); }
-                if (!CompatHandler.isRegistered("oreSilver")) { CompatHandler.setRegistered("oreSilver");
-                    blockReg.register(new BlockOre("bp.ore_silver", 2.0F,               "bluepower:silver_ore",         "geoexpansion:bp.ore_cluster_silver")); }
-                if (!CompatHandler.isRegistered("oreZinc")) { CompatHandler.setRegistered("oreZinc");
-                    blockReg.register(new BlockOre("bp.ore_zinc", 2.0F,                 "bluepower:zinc_ore",           "geoexpansion:bp.ore_cluster_zinc")); }
-                if (!CompatHandler.isRegistered("oreTungsten")) { CompatHandler.setRegistered("oreTungsten");
-                    blockReg.register(new BlockOre("bp.ore_tungsten", 2.0F,             "bluepower:tungsten_ore",       "geoexpansion:bp.ore_cluster_tungsten")); }
-            }
-            case "appliedenergistics2": {
-                if (!CompatHandler.isRegistered("oreCertusQuartz")) { CompatHandler.setRegistered("oreCertusQuartz");
-                    blockReg.register(new BlockOre("ae.ore_quartz", 2.0F,               "appliedenergistics2:quartz_ore",           "geoexpansion:ae.crystal_cluster_quartz")); }
-                if (!CompatHandler.isRegistered("oreChargedCertusQuartz")) { CompatHandler.setRegistered("oreChargedCertusQuartz");
-                    blockReg.register(new BlockOre("ae.ore_charged_quartz", 2.0F,       "appliedenergistics2:charged_quartz_ore",   "geoexpansion:ae.crystal_cluster_charged_quartz")); }
-            }
-            case "bigreactors": {
-                if (!CompatHandler.isRegistered("oreYellorite")) { CompatHandler.setRegistered("oreYellorite");
-                    blockReg.register(new BlockOre("er.ore_yellorite", 2.0F,            "bigreactors:oreyellorite",     "geoexpansion:er.ore_cluster_yellorite")); }
-            }
-            case "aroma1997sdimension": {
-                if (!CompatHandler.isRegistered("oreSticky")) { CompatHandler.setRegistered("oreSticky");
-                    blockReg.register(new BlockOre("ad.ore_sticky", 2.0F,               "aroma1997sdimension:miningore/0",      "geoexpansion:ad.dust_cluster_sticky")); }
-                if (!CompatHandler.isRegistered("oreClay")) { CompatHandler.setRegistered("oreClay");
-                    blockReg.register(new BlockOre("ad.ore_clay", 2.0F,                 "aroma1997sdimension:miningore/1",      "geoexpansion:ad.dust_cluster_clay")); }
-            }
-            case "embers": {
-                if (!CompatHandler.isRegistered("oreCopper")) { CompatHandler.setRegistered("oreCopper");
-                    blockReg.register(new BlockOre("em.ore_copper", 2.0F,               "embers:ore_copper",                    "geoexpansion.em.ore_cluster_copper")); }
-                if (!CompatHandler.isRegistered("oreLead")) { CompatHandler.setRegistered("oreLead");
-                    blockReg.register(new BlockOre("em.ore_lead", 2.0F,                 "embers:ore_lead",                      "geoexpansion.em.ore_cluster_lead")); }
-                if (!CompatHandler.isRegistered("oreSilver")) { CompatHandler.setRegistered("oreSilver");
-                    blockReg.register(new BlockOre("em.ore_silver", 2.0F,               "embers:ore_silver",                    "geoexpansion.em.ore_cluster_silver")); }
-                if (!CompatHandler.isRegistered("oreAluminum")) { CompatHandler.setRegistered("oreAluminum");
-                    blockReg.register(new BlockOre("em.ore_aluminum", 2.0F,             "embers:ore_aluminum",                  "geoexpansion.em.ore_cluster_aluminum")); }
-                if (!CompatHandler.isRegistered("oreNickel")) { CompatHandler.setRegistered("oreNickel");
-                    blockReg.register(new BlockOre("em.ore_nickel", 2.0F,               "embers:ore_nickel",                    "geoexpansion.em.ore_cluster_nickel")); }
-                if (!CompatHandler.isRegistered("oreTin")) { CompatHandler.setRegistered("oreTin");
-                    blockReg.register(new BlockOre("em.ore_tin", 2.0F,                  "embers:ore_tin",                       "geoexpansion.em.ore_cluster_tin")); }
-                if (!CompatHandler.isRegistered("oreQuartz")) { CompatHandler.setRegistered("oreQuartz");
-                    blockReg.register(new BlockOre("em.ore_quartz", 2.0F,               "embers:ore_quartz",                    "geoexpansion.em.crystal_cluster_quartz")); }
-            }
-            case "mekanism": {
-                if (!CompatHandler.isRegistered("oreOsmium")) { CompatHandler.setRegistered("oreOsmium");
-                    blockReg.register(new BlockOre("mk.ore_osmium", 2.0F,               "mekanism:oreblock/0",                  "geoexpansion.mk.ore_cluster_osmium")); }
-                if (!CompatHandler.isRegistered("oreCopper")) { CompatHandler.setRegistered("oreCopper");
-                    blockReg.register(new BlockOre("mk.ore_copper", 2.0F,               "mekanism:oreblock/1",                  "geoexpansion.mk.ore_cluster_copper")); }
-                if (!CompatHandler.isRegistered("oreTin")) { CompatHandler.setRegistered("oreTin");
-                    blockReg.register(new BlockOre("mk.ore_tin", 2.0F,                  "mekanism:oreblock/2",                  "geoexpansion.mk.ore_cluster_tin")); }
-            }
+        }
+    }
 
-        }}
+    private static void register(IForgeRegistry<Block> blockReg, String oreDict, Block block) {
+        if (!CompatHandler.isRegistered(oreDict)) {
+            CompatHandler.setRegistered(oreDict);
+            blockReg.register(block);
+        }
     }
 }

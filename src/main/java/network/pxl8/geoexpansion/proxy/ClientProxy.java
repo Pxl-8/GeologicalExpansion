@@ -8,6 +8,7 @@ import network.pxl8.geoexpansion.common.blocks.BlockOre;
 import network.pxl8.geoexpansion.common.blocks.BlockStone;
 import network.pxl8.geoexpansion.common.blocks.ModBlocks;
 import network.pxl8.geoexpansion.common.items.*;
+import network.pxl8.geoexpansion.lib.LibMeta;
 import network.pxl8.geoexpansion.lib.LibTools;
 
 public class ClientProxy extends CommonProxy {
@@ -61,15 +62,21 @@ public class ClientProxy extends CommonProxy {
                 (stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getHammerColour(stack)
                 , ModItems.spallingHammerList.toArray(new Item[ModItems.spallingHammerList.size()]));
 
-        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(
-                (stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack)
-                , ModItems.oreClusterListCompat.toArray(new Item[ModItems.oreClusterList.size()]));
-        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(
-                (stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack)
-                , ModItems.crystalClusterListCompat.toArray(new Item[ModItems.crystalClusterList.size()]));
-        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(
-                (stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack)
-                , ModItems.dustClusterListCompat.toArray(new Item[ModItems.dustClusterList.size()]));
+        try {
+            Minecraft.getMinecraft().getItemColors().registerItemColorHandler(
+                    (stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack)
+                    , ModItems.oreClusterListCompat.toArray(new Item[ModItems.oreClusterList.size()]));
+
+            Minecraft.getMinecraft().getItemColors().registerItemColorHandler(
+                    (stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack)
+                    , ModItems.crystalClusterListCompat.toArray(new Item[ModItems.crystalClusterList.size()]));
+
+            Minecraft.getMinecraft().getItemColors().registerItemColorHandler(
+                    (stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack)
+                    , ModItems.dustClusterListCompat.toArray(new Item[ModItems.dustClusterList.size()]));
+
+        } catch (IllegalArgumentException e) { LibMeta.LOG.info(e.getMessage()); }
+
     }
 
     private void initModels() {

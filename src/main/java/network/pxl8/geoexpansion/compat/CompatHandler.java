@@ -1,6 +1,8 @@
 package network.pxl8.geoexpansion.compat;
 
 import net.minecraftforge.fml.common.Loader;
+import network.pxl8.geoexpansion.common.blocks.ModBlocks;
+import network.pxl8.geoexpansion.common.items.ModItems;
 import network.pxl8.geoexpansion.config.Conf;
 import network.pxl8.geoexpansion.lib.LibMeta;
 
