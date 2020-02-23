@@ -11,7 +11,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "1.12.2-1.0.1-beta"
+version = "1.12.2-1.1.0-beta"
 group = "network.pxl8.geoexpansion"
 archivesBaseName = "geoexpansion"
 
@@ -34,18 +34,18 @@ minecraft {
 }
 
 repositories {
-    maven {
-        name = "CurseForge"
-        url = "https://minecraft.curseforge.com/api/maven/"
-    }
-    maven {
-        name = 'tterrag maven'
-        url = "http://maven.tterrag.com/"
-    }
-    maven {
-        name = "CoFH Maven"
-        url = "http://maven.covers1624.net"
-    }
+    //maven {
+    //    name = "CurseForge"
+    //    url = "https://minecraft.curseforge.com/api/maven/"
+    //}
+    //maven {
+    //    name = 'tterrag maven'
+    //    url = "http://maven.tterrag.com/"
+    //}
+    //maven {
+    //    name = "CoFH Maven"
+    //    url = "http://maven.covers1624.net"
+    //}
 }
 
 dependencies {

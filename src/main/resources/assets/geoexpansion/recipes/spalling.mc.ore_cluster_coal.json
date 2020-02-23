@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "minecraft:item_exists",
+      "item": "geoexpansion:mc.ore_cluster_coal"
+    }
+  ],
+  "ingredients":
+  [
+    {
+      "type": "forge:ore_dict",
+      "ore": "toolSpallingHammer"
+    },
+    {
+      "item": "geoexpansion:mc.ore_cluster_coal"
+    }
+  ],
+  "result":
+  {
+    "item": "minecraft:coal",
+    "count": 2,
+    "data": 0
+  }
+}

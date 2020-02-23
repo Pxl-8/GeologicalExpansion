@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "minecraft:item_exists",
+      "item": "geoexpansion:ad.dust_cluster_sticky"
+    }
+  ],
+  "ingredients":
+  [
+    {
+      "type": "forge:ore_dict",
+      "ore": "toolSpallingHammer"
+    },
+    {
+      "item": "geoexpansion:ad.dust_cluster_sticky"
+    }
+  ],
+  "result":
+  {
+    "item": "minecraft:slime_ball",
+    "count": 2,
+    "data": 0
+  }
+}

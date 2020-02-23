@@ -6,10 +6,9 @@ import network.pxl8.geoexpansion.common.event.Register;
 import network.pxl8.geoexpansion.lib.LibMeta;
 
 public class ItemSpallingHammer extends Item {
-    private String material;
     private String refName;
 
-    ItemSpallingHammer(String registryName, String material, int durability) {
+    ItemSpallingHammer(String registryName, int durability) {
         this.setCreativeTab(Register.geoexpansionTabGeneral);
 
         this.setRegistryName(registryName);
@@ -17,13 +16,9 @@ public class ItemSpallingHammer extends Item {
 
         this.setMaxStackSize(1);
         this.setMaxDamage(durability);
-        this.material = material;
         this.refName = registryName;
     }
 
-    public String getMaterial() {
-        return this.material;
-    }
     public String getRef() { return refName; }
 
     @Override

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "minecraft:item_exists",
+      "item": "geoexpansion:tr.ore_cluster_lead"
+    }
+  ],
+  "ingredients":
+  [
+    {
+      "type": "forge:ore_dict",
+      "ore": "toolSpallingHammer"
+    },
+    {
+      "item": "geoexpansion:tr.ore_cluster_lead"
+    }
+  ],
+  "result":
+  {
+    "item": "techreborn:dust",
+    "count": 2,
+    "data": 29
+  }
+}

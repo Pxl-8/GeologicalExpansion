@@ -83,19 +83,6 @@ public class ModItems {
     public static Map<String, String> clusterColourMap = new HashMap<>();
     public static Map<String, String> hammerColourMap = new HashMap<>();
     static {
-        //clusterColourMap.put("geoexpansion:", "0x");
-        clusterColourMap.put("geoexpansion:ge.ore_cluster",                 "0xCAF2FD");
-        clusterColourMap.put("geoexpansion:ge.crystal_cluster",             "0xCAF2FD");
-        clusterColourMap.put("geoexpansion:ge.dust_cluster",                "0xCAF2FD");
-
-        clusterColourMap.put("geoexpansion:mc.ore_cluster_coal",            "0x343434");
-        clusterColourMap.put("geoexpansion:mc.ore_cluster_iron",            "0xBC9980");
-        clusterColourMap.put("geoexpansion:mc.ore_cluster_gold",            "0xFCEE4B");
-        clusterColourMap.put("geoexpansion:mc.crystal_cluster_diamond",     "0x77CEFB");
-        clusterColourMap.put("geoexpansion:mc.crystal_cluster_emerald",     "0x17DD62");
-        clusterColourMap.put("geoexpansion:mc.dust_cluster_redstone",       "0x970303");
-        clusterColourMap.put("geoexpansion:mc.dust_cluster_lapis",          "0x1546C2");
-
         hammerColourMap.put("geoexpansion:ge.spalling_hammer",              "0xCAF2FD");
         hammerColourMap.put("geoexpansion:ge.spalling_hammer_iron",         "0xFFFFFF");
         hammerColourMap.put("geoexpansion:ge.spalling_hammer_diamond",      "0x5CCDD4");
@@ -107,6 +94,18 @@ public class ModItems {
         hammerColourMap.put("geoexpansion:ge.spalling_hammer_aluminum",     "0xCED1DB");
         hammerColourMap.put("geoexpansion:ge.spalling_hammer_nickel",       "0xB5B68C");
         hammerColourMap.put("geoexpansion:ge.spalling_hammer_platinum",     "0x91A2B1");
+
+        clusterColourMap.put("geoexpansion:ge.ore_cluster",                 "0xCAF2FD");
+        clusterColourMap.put("geoexpansion:ge.crystal_cluster",             "0xCAF2FD");
+        clusterColourMap.put("geoexpansion:ge.dust_cluster",                "0xCAF2FD");
+
+        clusterColourMap.put("geoexpansion:mc.ore_cluster_coal",            "0x343434");
+        clusterColourMap.put("geoexpansion:mc.ore_cluster_iron",            "0xBC9980");
+        clusterColourMap.put("geoexpansion:mc.ore_cluster_gold",            "0xFCEE4B");
+        clusterColourMap.put("geoexpansion:mc.crystal_cluster_diamond",     "0x77CEFB");
+        clusterColourMap.put("geoexpansion:mc.crystal_cluster_emerald",     "0x17DD62");
+        clusterColourMap.put("geoexpansion:mc.dust_cluster_redstone",       "0x970303");
+        clusterColourMap.put("geoexpansion:mc.dust_cluster_lapis",          "0x1546C2");
 
         clusterColourMap.put("geoexpansion:bm.ore_cluster_antimony",                "0x838785");
         clusterColourMap.put("geoexpansion:bm.ore_cluster_bismuth",                 "0x83817D");
@@ -189,28 +188,29 @@ public class ModItems {
     }
 
     public static void registerModItems(IForgeRegistry<Item> itemReg) {
-        itemReg.register(new ItemOreCluster("ge.ore_cluster",           null, null, null));
-        itemReg.register(new ItemCrystalCluster("ge.crystal_cluster",   null, null, null));
-        itemReg.register(new ItemDustCluster("ge.dust_cluster",         null, null, null));
+        itemReg.register(new ItemOreCluster("ge.ore_cluster",           null, null));
+        itemReg.register(new ItemCrystalCluster("ge.crystal_cluster",   null, null));
+        itemReg.register(new ItemDustCluster("ge.dust_cluster",         null, null));
 
-        itemReg.register(new ItemOreCluster("mc.ore_cluster_coal",             "oreCoal",      null,                        "minecraft:coal/0/4"));
-        itemReg.register(new ItemOreCluster("mc.ore_cluster_iron",             "oreIron",      "minecraft:iron_ingot",      null));
-        itemReg.register(new ItemOreCluster("mc.ore_cluster_gold",             "oreGold",      "minecraft:gold_ingot",      null));
-        itemReg.register(new ItemCrystalCluster("mc.crystal_cluster_diamond",  "oreDiamond",   null,                        "minecraft:diamond/0/2"));
-        itemReg.register(new ItemCrystalCluster("mc.crystal_cluster_emerald",  "oreEmerald",   null,                        "minecraft:emerald/0/2"));
-        itemReg.register(new ItemDustCluster("mc.dust_cluster_redstone",       "oreRedstone",  null,                        "minecraft:redstone/0/4"));
-        itemReg.register(new ItemDustCluster("mc.dust_cluster_lapis",          "oreLapis",     null,                        "minecraft:dye/4/4"));
+        itemReg.register(new ItemOreCluster("mc.ore_cluster_coal",             "oreCoal",      null));
+        itemReg.register(new ItemOreCluster("mc.ore_cluster_iron",             "oreIron",      "minecraft:iron_ingot"));
+        itemReg.register(new ItemOreCluster("mc.ore_cluster_gold",             "oreGold",      "minecraft:gold_ingot"));
+        itemReg.register(new ItemCrystalCluster("mc.crystal_cluster_diamond",  "oreDiamond",   null));
+        itemReg.register(new ItemCrystalCluster("mc.crystal_cluster_emerald",  "oreEmerald",   null));
+        itemReg.register(new ItemDustCluster("mc.dust_cluster_redstone",       "oreRedstone",  null));
+        itemReg.register(new ItemDustCluster("mc.dust_cluster_lapis",          "oreLapis",     null));
 
-        itemReg.register(new ItemSpallingHammer("ge.spalling_hammer",   null, 9999));
-        itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_iron",      "ingotIron",     255));
-        itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_diamond",   "gemDiamond",    1279));
-        if(CompatHandler.isRegistered("oreSilver")) {   itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_silver",        "ingotSilver",      63)); }
-        if(CompatHandler.isRegistered("oreLead")) {     itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_lead",          "ingotLead",        95)); }
-        if(CompatHandler.isRegistered("oreTin")) {      itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_tin",           "ingotTin",         127)); }
-        if(CompatHandler.isRegistered("oreCopper")) {   itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_copper",        "ingotCopper",      159)); }
-        if(CompatHandler.isRegistered("oreAluminum")) { itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_aluminum",      "ingotAluminum",    191)); }
-        if(CompatHandler.isRegistered("oreNickel")) {   itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_nickel",        "ingotNickel",      255)); }
-        if(CompatHandler.isRegistered("orePlatinum")) { itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_platinum",      "ingotPlatinum",    1023)); }
+        itemReg.register(new ItemSpallingHammer("ge.spalling_hammer",           9999));
+        itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_iron",      255));
+        itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_diamond",   1279));
+        if(CompatHandler.isRegistered("oreSilver")) {   itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_silver",        63)); }
+        if(CompatHandler.isRegistered("oreLead")) {     itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_lead",          95)); }
+        if(CompatHandler.isRegistered("oreTin")) {      itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_tin",           127)); }
+        if(CompatHandler.isRegistered("oreCopper")) {   itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_copper",        159)); }
+        if(CompatHandler.isRegistered("oreAluminum")) { itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_aluminum",      191)); }
+        if(CompatHandler.isRegistered("oreNickel")) {   itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_nickel",        255)); }
+        if(CompatHandler.isRegistered("orePlatinum")) { itemReg.register(new ItemSpallingHammer("ge.spalling_hammer_platinum",      1023)); }
+
     }
 
     @GameRegistry.ObjectHolder("bm.ore_cluster_antimony")               public static ItemOreCluster clusterBaseMetalsAntimony;
@@ -399,87 +399,87 @@ public class ModItems {
     }
 
     public static void registerCompat(IForgeRegistry<Item> itemReg) {
-        register(itemReg, ModBlocks.oreBaseMetalsAntimony,              new ItemOreCluster("bm.ore_cluster_antimony",      "oreAntimony",      "basemetals:antimony_ingot",        "basemetals:antimony_powder/0/2"));
-        register(itemReg, ModBlocks.oreBaseMetalsBismuth,               new ItemOreCluster("bm.ore_cluster_bismuth",       "oreBismuth",       "basemetals:bismuth_ingot",         "basemetals:bismuth_powder/0/2"));
-        register(itemReg, ModBlocks.oreBaseMetalsCopper,                new ItemOreCluster("bm.ore_cluster_copper",        "oreCopper",        "basemetals:copper_ingot",          "basemetals:copper_powder/0/2"));
-        register(itemReg, ModBlocks.oreBaseMetalsLead,                  new ItemOreCluster("bm.ore_cluster_lead",          "oreLead",          "basemetals:lead_ingot",            "basemetals:lead_powder/0/2"));
-        register(itemReg, ModBlocks.oreBaseMetalsMercury,               new ItemOreCluster("bm.ore_cluster_mercury",       "oreMercury",       "basemetals:mercury_ingot",         "basemetals:mercury_powder/0/2"));
-        register(itemReg, ModBlocks.oreBaseMetalsNickel,                new ItemOreCluster("bm.ore_cluster_nickel",        "oreNickel",        "basemetals:nickel_ingot",          "basemetals:nickel_powder/0/2"));
-        register(itemReg, ModBlocks.oreBaseMetalsPlatinum,              new ItemOreCluster("bm.ore_cluster_platinum",      "orePlatinum",      "basemetals:platinum_ingot",        "basemetals:platinum_powder/0/2"));
-        register(itemReg, ModBlocks.oreBaseMetalsSilver,                new ItemOreCluster("bm.ore_cluster_silver",        "oreSilver",        "basemetals:silver_ingot",          "basemetals:silver_powder/0/2"));
-        register(itemReg, ModBlocks.oreBaseMetalsTin,                   new ItemOreCluster("bm.ore_cluster_tin",           "oreTin",           "basemetals:tin_ingot",             "basemetals:tin_powder/0/2"));
-        register(itemReg, ModBlocks.oreBaseMetalsZinc,                  new ItemOreCluster("bm.ore_cluster_zinc",          "oreZinc",          "basemetals:zinc_ingot",            "basemetals:zinc_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsAluminum,            new ItemOreCluster("mm.ore_cluster_aluminum",      "oreAluminum",      "modernmetals:aluminum_ingot",      "modernmetals:aluminum_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsBeryllium,           new ItemOreCluster("mm.ore_cluster_beryllium",     "oreBeryllium",     "modernmetals:beryllium_ingot",     "modernmetals:beryllium_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsBoron,               new ItemOreCluster("mm.ore_cluster_boron",         "oreBoron",         "modernmetals:boron_ingot",         "modernmetals:boron_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsCadmium,             new ItemOreCluster("mm.ore_cluster_cadmium",       "oreCadmium",       "modernmetals:cadmium_ingot",       "modernmetals:cadmium_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsChromium,            new ItemOreCluster("mm.ore_cluster_chromium",      "oreChromium",      "modernmetals:chromium_ingot",      "modernmetals:chromium_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsIridium,             new ItemOreCluster("mm.ore_cluster_iridium",       "oreIridium",       "modernmetals:iridium_ingot",       "modernmetals:iridium_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsMagnesium,           new ItemOreCluster("mm.ore_cluster_magnesium",     "oreMagnesium",     "modernmetals:magnesium_ingot",     "modernmetals:magnesium_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsManganese,           new ItemOreCluster("mm.ore_cluster_manganese",     "oreManganese",     "modernmetals:manganese_ingot",     "modernmetals:manganese_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsOsmium,              new ItemOreCluster("mm.ore_cluster_osmium",        "oreOsmium",        "modernmetals:osmium_ingot",        "modernmetals:osmium_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsPlutonium,           new ItemOreCluster("mm.ore_cluster_plutonium",     "orePlutonium",     "modernmetals:plutonium_ingot",     "modernmetals:plutonium_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsRutile,              new ItemOreCluster("mm.ore_cluster_rutile",        "oreRutile",        "modernmetals:rutile_ingot",        "modernmetals:rutile_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsTantalum,            new ItemOreCluster("mm.ore_cluster_tantalum",      "oreTantalum",      "modernmetals:tantalum_ingot",      "modernmetals:tantalum_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsThorium,             new ItemOreCluster("mm.ore_cluster_thorium",       "oreThorium",       "modernmetals:thorium_ingot",       "modernmetals:thorium_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsTitanium,            new ItemOreCluster("mm.ore_cluster_titanium",      "oreTitanium",      "modernmetals:titanium_ingot",      "modernmetals:titanium_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsTungsten,            new ItemOreCluster("mm.ore_cluster_tungsten",      "oreTungsten",      "modernmetals:tungsten_ingot",      "modernmetals:tungsten_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsUranium,             new ItemOreCluster("mm.ore_cluster_uranium",       "oreUranium",       "modernmetals:uranium_ingot",       "modernmetals:uranium_powder/0/2"));
-        register(itemReg, ModBlocks.oreModernMetalsZirconium,           new ItemOreCluster("mm.ore_cluster_zirconium",     "oreZirconium",     "modernmetals:zirconium_ingot",     "modernmetals:zirconium_powder/0/2"));
-        register(itemReg, ModBlocks.oreThermalFoundationCopper,         new ItemOreCluster("tf.ore_cluster_copper",        "oreCopper",        "thermalfoundation:material/128",   "thermalfoundation:material/64/2"));
-        register(itemReg, ModBlocks.oreThermalFoundationTin,            new ItemOreCluster("tf.ore_cluster_tin",           "oreTin",           "thermalfoundation:material/129",   "thermalfoundation:material/65/2"));
-        register(itemReg, ModBlocks.oreThermalFoundationSilver,         new ItemOreCluster("tf.ore_cluster_silver",        "oreSilver",        "thermalfoundation:material/130",   "thermalfoundation:material/66/2"));
-        register(itemReg, ModBlocks.oreThermalFoundationLead,           new ItemOreCluster("tf.ore_cluster_lead",          "oreLead",          "thermalfoundation:material/131",   "thermalfoundation:material/67/2"));
-        register(itemReg, ModBlocks.oreThermalFoundationAluminum,       new ItemOreCluster("tf.ore_cluster_aluminum",      "oreAluminum",      "thermalfoundation:material/132",   "thermalfoundation:material/68/2"));
-        register(itemReg, ModBlocks.oreThermalFoundationNickel,         new ItemOreCluster("tf.ore_cluster_nickel",        "oreNickel",        "thermalfoundation:material/133",   "thermalfoundation:material/69/2"));
-        register(itemReg, ModBlocks.oreThermalFoundationPlatinum,       new ItemOreCluster("tf.ore_cluster_platinum",      "orePlatinum",      "thermalfoundation:material/134",   "thermalfoundation:material/70/2"));
-        register(itemReg, ModBlocks.oreThermalFoundationIridium,        new ItemOreCluster("tf.ore_cluster_iridium",       "oreIridium",       "thermalfoundation:material/135",   "thermalfoundation:material/71/2"));
-        register(itemReg, ModBlocks.oreThermalFoundationMithril,        new ItemOreCluster("tf.ore_cluster_mithril",       "oreMithril",       "thermalfoundation:material/136",   "thermalfoundation:material/72/2"));
-        register(itemReg, ModBlocks.oreImmersiveEngineeringCopper,      new ItemOreCluster("ie.ore_cluster_copper",        "oreCopper",        "immersiveengineering:metal/0",     "immersiveengineering:metal/9/2"));
-        register(itemReg, ModBlocks.oreImmersiveEngineeringAluminum,    new ItemOreCluster("ie.ore_cluster_aluminum",      "oreAluminum",      "immersiveengineering:metal/1",     "immersiveengineering:metal/10/2"));
-        register(itemReg, ModBlocks.oreImmersiveEngineeringLead,        new ItemOreCluster("ie.ore_cluster_lead",          "oreLead",          "immersiveengineering:metal/2",     "immersiveengineering:metal/11/2"));
-        register(itemReg, ModBlocks.oreImmersiveEngineeringSilver,      new ItemOreCluster("ie.ore_cluster_silver",        "oreSilver",        "immersiveengineering:metal/3",     "immersiveengineering:metal/12/2"));
-        register(itemReg, ModBlocks.oreImmersiveEngineeringNickel,      new ItemOreCluster("ie.ore_cluster_nickel",        "oreNickel",        "immersiveengineering:metal/4",     "immersiveengineering:metal/13/2"));
-        register(itemReg, ModBlocks.oreImmersiveEngineeringUranium,     new ItemOreCluster("ie.ore_cluster_uranium",       "oreUranium",       "immersiveengineering:metal/5",     "immersiveengineering:metal/14/2"));
-        register(itemReg, ModBlocks.oreTechRebornGalena,                new ItemOreCluster("tr.ore_cluster_galena",        "oreGalena",        null,                               "techreborn:dust/23/2"));
-        register(itemReg, ModBlocks.oreTechRebornIridium,               new ItemOreCluster("tr.ore_cluster_iridium",       "oreIridium",       null,                               "techreborn:dust/64/2"));
-        register(itemReg, ModBlocks.oreTechRebornBauxite,               new ItemOreCluster("tr.ore_cluster_bauxite",       "oreBauxite",       null,                               "techreborn:dust/5/2"));
-        register(itemReg, ModBlocks.oreTechRebornLead,                  new ItemOreCluster("tr.ore_cluster_lead",          "oreLead",          "techreborn:ingot/8",               "techreborn:dust/29/2"));
-        register(itemReg, ModBlocks.oreTechRebornSilver,                new ItemOreCluster("tr.ore_cluster_silver",        "oreSilver",        "techreborn:ingot/11",              "techreborn:dust/47/2"));
-        register(itemReg, ModBlocks.oreTechRebornCopper,                new ItemOreCluster("tr.ore_cluster_copper",        "oreCopper",        "techreborn:ingot/4",               "techreborn:dust/14/2"));
-        register(itemReg, ModBlocks.oreTechRebornTin,                   new ItemOreCluster("tr.ore_cluster_tin",           "oreTin",           "techreborn:ingot/13",              "techreborn:dust/53/2"));
-        register(itemReg, ModBlocks.oreForestryCopper,                  new ItemOreCluster("fr.ore_cluster_copper",        "oreCopper",        "forestry:ingot_copper",            null));
-        register(itemReg, ModBlocks.oreForestryTin,                     new ItemOreCluster("fr.ore_cluster_tin",           "oreTin",           "forestry:ingot_tin",               null));
-        register(itemReg, ModBlocks.oreBluePowerCopper,                 new ItemOreCluster("bp.ore_cluster_copper",        "oreCopper",        "bluepower:copper_ingot",           null));
-        register(itemReg, ModBlocks.oreBluePowerSilver,                 new ItemOreCluster("bp.ore_cluster_silver",        "oreSilver",        "bluepower:silver_ingot",           null));
-        register(itemReg, ModBlocks.oreBluePowerZinc,                   new ItemOreCluster("bp.ore_cluster_zinc",          "oreZinc",          "bluepower:zinc_ingot",             null));
-        register(itemReg, ModBlocks.oreBluePowerTungsten,               new ItemOreCluster("bp.ore_cluster_tungsten",      "oreTungsten",      "bluepower:tungsten_nugget",        null));
-        register(itemReg, ModBlocks.oreExtremeReactorsYellorite,        new ItemOreCluster("er.ore_cluster_yellorite",     "oreYellorite",     "bigreactors:ingotyellorium",       "bigreactors:dustyellorium/0/2"));
-        register(itemReg, ModBlocks.oreEmbersCopper,                    new ItemOreCluster("em.ore_cluster_copper",        "oreCopper",        "embers:ingot_copper",              null));
-        register(itemReg, ModBlocks.oreEmbersLead,                      new ItemOreCluster("em.ore_cluster_lead",          "oreLead",          "embers:ingot_lead",                null));
-        register(itemReg, ModBlocks.oreEmbersSilver,                    new ItemOreCluster("em.ore_cluster_silver",        "oreSilver",        "embers:ingot_silver",              null));
-        register(itemReg, ModBlocks.oreEmbersAluminum,                  new ItemOreCluster("em.ore_cluster_aluminum",      "oreAluminum",      "embers:ingot_aluminum",            null));
-        register(itemReg, ModBlocks.oreEmbersNickel,                    new ItemOreCluster("em.ore_cluster_nickel",        "oreNickel",        "embers:ingot_nickel",              null));
-        register(itemReg, ModBlocks.oreEmbersTin,                       new ItemOreCluster("em.ore_cluster_tin",           "oreTin",           "embers:ingot_tin",                 null));
-        register(itemReg, ModBlocks.oreMekanismOsmium,                  new ItemOreCluster("mk.ore_cluster_osmium",        "oreOsmium",        "mekanism:ingot/1",                 "mekanism:dust/2"));
-        register(itemReg, ModBlocks.oreMekanismCopper,                  new ItemOreCluster("mk.ore_cluster_copper",        "oreCopper",        "mekanism:ingot/5",                 "mekanism:dust/3"));
-        register(itemReg, ModBlocks.oreMekanismTin,                     new ItemOreCluster("mk.ore_cluster_tin",           "oreTin",           "mekanism:ingot/6",                 "mekanism:dust/4"));
+        register(itemReg, ModBlocks.oreBaseMetalsAntimony,              new ItemOreCluster("bm.ore_cluster_antimony",      "oreAntimony",      "basemetals:antimony_ingot"));
+        register(itemReg, ModBlocks.oreBaseMetalsBismuth,               new ItemOreCluster("bm.ore_cluster_bismuth",       "oreBismuth",       "basemetals:bismuth_ingot"));
+        register(itemReg, ModBlocks.oreBaseMetalsCopper,                new ItemOreCluster("bm.ore_cluster_copper",        "oreCopper",        "basemetals:copper_ingot"));
+        register(itemReg, ModBlocks.oreBaseMetalsLead,                  new ItemOreCluster("bm.ore_cluster_lead",          "oreLead",          "basemetals:lead_ingot"));
+        register(itemReg, ModBlocks.oreBaseMetalsMercury,               new ItemOreCluster("bm.ore_cluster_mercury",       "oreMercury",       "basemetals:mercury_ingot"));
+        register(itemReg, ModBlocks.oreBaseMetalsNickel,                new ItemOreCluster("bm.ore_cluster_nickel",        "oreNickel",        "basemetals:nickel_ingot"));
+        register(itemReg, ModBlocks.oreBaseMetalsPlatinum,              new ItemOreCluster("bm.ore_cluster_platinum",      "orePlatinum",      "basemetals:platinum_ingot"));
+        register(itemReg, ModBlocks.oreBaseMetalsSilver,                new ItemOreCluster("bm.ore_cluster_silver",        "oreSilver",        "basemetals:silver_ingot"));
+        register(itemReg, ModBlocks.oreBaseMetalsTin,                   new ItemOreCluster("bm.ore_cluster_tin",           "oreTin",           "basemetals:tin_ingot"));
+        register(itemReg, ModBlocks.oreBaseMetalsZinc,                  new ItemOreCluster("bm.ore_cluster_zinc",          "oreZinc",          "basemetals:zinc_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsAluminum,            new ItemOreCluster("mm.ore_cluster_aluminum",      "oreAluminum",      "modernmetals:aluminum_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsBeryllium,           new ItemOreCluster("mm.ore_cluster_beryllium",     "oreBeryllium",     "modernmetals:beryllium_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsBoron,               new ItemOreCluster("mm.ore_cluster_boron",         "oreBoron",         "modernmetals:boron_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsCadmium,             new ItemOreCluster("mm.ore_cluster_cadmium",       "oreCadmium",       "modernmetals:cadmium_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsChromium,            new ItemOreCluster("mm.ore_cluster_chromium",      "oreChromium",      "modernmetals:chromium_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsIridium,             new ItemOreCluster("mm.ore_cluster_iridium",       "oreIridium",       "modernmetals:iridium_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsMagnesium,           new ItemOreCluster("mm.ore_cluster_magnesium",     "oreMagnesium",     "modernmetals:magnesium_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsManganese,           new ItemOreCluster("mm.ore_cluster_manganese",     "oreManganese",     "modernmetals:manganese_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsOsmium,              new ItemOreCluster("mm.ore_cluster_osmium",        "oreOsmium",        "modernmetals:osmium_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsPlutonium,           new ItemOreCluster("mm.ore_cluster_plutonium",     "orePlutonium",     "modernmetals:plutonium_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsRutile,              new ItemOreCluster("mm.ore_cluster_rutile",        "oreRutile",        "modernmetals:rutile_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsTantalum,            new ItemOreCluster("mm.ore_cluster_tantalum",      "oreTantalum",      "modernmetals:tantalum_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsThorium,             new ItemOreCluster("mm.ore_cluster_thorium",       "oreThorium",       "modernmetals:thorium_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsTitanium,            new ItemOreCluster("mm.ore_cluster_titanium",      "oreTitanium",      "modernmetals:titanium_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsTungsten,            new ItemOreCluster("mm.ore_cluster_tungsten",      "oreTungsten",      "modernmetals:tungsten_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsUranium,             new ItemOreCluster("mm.ore_cluster_uranium",       "oreUranium",       "modernmetals:uranium_ingot"));
+        register(itemReg, ModBlocks.oreModernMetalsZirconium,           new ItemOreCluster("mm.ore_cluster_zirconium",     "oreZirconium",     "modernmetals:zirconium_ingot"));
+        register(itemReg, ModBlocks.oreThermalFoundationCopper,         new ItemOreCluster("tf.ore_cluster_copper",        "oreCopper",        "thermalfoundation:material/128"));
+        register(itemReg, ModBlocks.oreThermalFoundationTin,            new ItemOreCluster("tf.ore_cluster_tin",           "oreTin",           "thermalfoundation:material/129"));
+        register(itemReg, ModBlocks.oreThermalFoundationSilver,         new ItemOreCluster("tf.ore_cluster_silver",        "oreSilver",        "thermalfoundation:material/130"));
+        register(itemReg, ModBlocks.oreThermalFoundationLead,           new ItemOreCluster("tf.ore_cluster_lead",          "oreLead",          "thermalfoundation:material/131"));
+        register(itemReg, ModBlocks.oreThermalFoundationAluminum,       new ItemOreCluster("tf.ore_cluster_aluminum",      "oreAluminum",      "thermalfoundation:material/132"));
+        register(itemReg, ModBlocks.oreThermalFoundationNickel,         new ItemOreCluster("tf.ore_cluster_nickel",        "oreNickel",        "thermalfoundation:material/133"));
+        register(itemReg, ModBlocks.oreThermalFoundationPlatinum,       new ItemOreCluster("tf.ore_cluster_platinum",      "orePlatinum",      "thermalfoundation:material/134"));
+        register(itemReg, ModBlocks.oreThermalFoundationIridium,        new ItemOreCluster("tf.ore_cluster_iridium",       "oreIridium",       "thermalfoundation:material/135"));
+        register(itemReg, ModBlocks.oreThermalFoundationMithril,        new ItemOreCluster("tf.ore_cluster_mithril",       "oreMithril",       "thermalfoundation:material/136"));
+        register(itemReg, ModBlocks.oreImmersiveEngineeringCopper,      new ItemOreCluster("ie.ore_cluster_copper",        "oreCopper",        "immersiveengineering:metal/0"));
+        register(itemReg, ModBlocks.oreImmersiveEngineeringAluminum,    new ItemOreCluster("ie.ore_cluster_aluminum",      "oreAluminum",      "immersiveengineering:metal/1"));
+        register(itemReg, ModBlocks.oreImmersiveEngineeringLead,        new ItemOreCluster("ie.ore_cluster_lead",          "oreLead",          "immersiveengineering:metal/2"));
+        register(itemReg, ModBlocks.oreImmersiveEngineeringSilver,      new ItemOreCluster("ie.ore_cluster_silver",        "oreSilver",        "immersiveengineering:metal/3"));
+        register(itemReg, ModBlocks.oreImmersiveEngineeringNickel,      new ItemOreCluster("ie.ore_cluster_nickel",        "oreNickel",        "immersiveengineering:metal/4"));
+        register(itemReg, ModBlocks.oreImmersiveEngineeringUranium,     new ItemOreCluster("ie.ore_cluster_uranium",       "oreUranium",       "immersiveengineering:metal/5"));
+        register(itemReg, ModBlocks.oreTechRebornGalena,                new ItemOreCluster("tr.ore_cluster_galena",        "oreGalena",        null));
+        register(itemReg, ModBlocks.oreTechRebornIridium,               new ItemOreCluster("tr.ore_cluster_iridium",       "oreIridium",       null));
+        register(itemReg, ModBlocks.oreTechRebornBauxite,               new ItemOreCluster("tr.ore_cluster_bauxite",       "oreBauxite",       null));
+        register(itemReg, ModBlocks.oreTechRebornLead,                  new ItemOreCluster("tr.ore_cluster_lead",          "oreLead",          "techreborn:ingot/8"));
+        register(itemReg, ModBlocks.oreTechRebornSilver,                new ItemOreCluster("tr.ore_cluster_silver",        "oreSilver",        "techreborn:ingot/11"));
+        register(itemReg, ModBlocks.oreTechRebornCopper,                new ItemOreCluster("tr.ore_cluster_copper",        "oreCopper",        "techreborn:ingot/4"));
+        register(itemReg, ModBlocks.oreTechRebornTin,                   new ItemOreCluster("tr.ore_cluster_tin",           "oreTin",           "techreborn:ingot/13"));
+        register(itemReg, ModBlocks.oreForestryCopper,                  new ItemOreCluster("fr.ore_cluster_copper",        "oreCopper",        "forestry:ingot_copper"));
+        register(itemReg, ModBlocks.oreForestryTin,                     new ItemOreCluster("fr.ore_cluster_tin",           "oreTin",           "forestry:ingot_tin"));
+        register(itemReg, ModBlocks.oreBluePowerCopper,                 new ItemOreCluster("bp.ore_cluster_copper",        "oreCopper",        "bluepower:copper_ingot"));
+        register(itemReg, ModBlocks.oreBluePowerSilver,                 new ItemOreCluster("bp.ore_cluster_silver",        "oreSilver",        "bluepower:silver_ingot"));
+        register(itemReg, ModBlocks.oreBluePowerZinc,                   new ItemOreCluster("bp.ore_cluster_zinc",          "oreZinc",          "bluepower:zinc_ingot"));
+        register(itemReg, ModBlocks.oreBluePowerTungsten,               new ItemOreCluster("bp.ore_cluster_tungsten",      "oreTungsten",      "bluepower:tungsten_nugget"));
+        register(itemReg, ModBlocks.oreExtremeReactorsYellorite,        new ItemOreCluster("er.ore_cluster_yellorite",     "oreYellorite",     "bigreactors:ingotyellorium"));
+        register(itemReg, ModBlocks.oreEmbersCopper,                    new ItemOreCluster("em.ore_cluster_copper",        "oreCopper",        "embers:ingot_copper"));
+        register(itemReg, ModBlocks.oreEmbersLead,                      new ItemOreCluster("em.ore_cluster_lead",          "oreLead",          "embers:ingot_lead"));
+        register(itemReg, ModBlocks.oreEmbersSilver,                    new ItemOreCluster("em.ore_cluster_silver",        "oreSilver",        "embers:ingot_silver"));
+        register(itemReg, ModBlocks.oreEmbersAluminum,                  new ItemOreCluster("em.ore_cluster_aluminum",      "oreAluminum",      "embers:ingot_aluminum"));
+        register(itemReg, ModBlocks.oreEmbersNickel,                    new ItemOreCluster("em.ore_cluster_nickel",        "oreNickel",        "embers:ingot_nickel"));
+        register(itemReg, ModBlocks.oreEmbersTin,                       new ItemOreCluster("em.ore_cluster_tin",           "oreTin",           "embers:ingot_tin"));
+        register(itemReg, ModBlocks.oreMekanismOsmium,                  new ItemOreCluster("mk.ore_cluster_osmium",        "oreOsmium",        "mekanism:ingot/1"));
+        register(itemReg, ModBlocks.oreMekanismCopper,                  new ItemOreCluster("mk.ore_cluster_copper",        "oreCopper",        "mekanism:ingot/5"));
+        register(itemReg, ModBlocks.oreMekanismTin,                     new ItemOreCluster("mk.ore_cluster_tin",           "oreTin",           "mekanism:ingot/6"));
 
-        register(itemReg, ModBlocks.oreTechRebornRuby,                          new ItemCrystalCluster("tr.crystal_cluster_ruby",              "oreRuby",                  null,   "techreborn:gem/0/2"));
-        register(itemReg, ModBlocks.oreTechRebornSapphire,                      new ItemCrystalCluster("tr.crystal_cluster_sapphire",          "oreSapphire",              null,   "techreborn:gem/1/2"));
-        register(itemReg, ModBlocks.oreForestryApatite,                         new ItemCrystalCluster("fr.crystal_cluster_apatite",           "oreApatite",               null,   "forestry:apatite/0/2"));
-        register(itemReg, ModBlocks.oreBluePowerRuby,                           new ItemCrystalCluster("bp.crystal_cluster_ruby",              "oreRuby",                  null,   "bluepower:ruby_gem/0/2"));
-        register(itemReg, ModBlocks.oreBluePowerSapphire,                       new ItemCrystalCluster("bp.crystal_cluster_sapphire",          "oreSapphire",              null,   "bluepower:sapphire_gem/0/2"));
-        register(itemReg, ModBlocks.oreBluePowerAmethyst,                       new ItemCrystalCluster("bp.crystal_cluster_amethyst",          "oreAmethyst",              null,   "bluepower:amethyst_gem/0/2"));
-        register(itemReg, ModBlocks.oreAppliedEnergisticsCertusQuartz,          new ItemCrystalCluster("ae.crystal_cluster_quartz",            "oreCertusQuartz",          null,   "appliedenergistics2:material/0/2"));
-        register(itemReg, ModBlocks.oreAppliedEnergisticsChargedCertusQuartz,   new ItemCrystalCluster("ae.crystal_cluster_charged_quartz",    "oreChargedCertusQuartz",   null,   "appliedenergistics2:material/1/2"));
-        register(itemReg, ModBlocks.oreEmbersQuartz,                            new ItemCrystalCluster("em.crystal_cluster_quartz",            "oreQuartz",                null,   "minecraft:quartz/0/2"));
+        register(itemReg, ModBlocks.oreTechRebornRuby,                          new ItemCrystalCluster("tr.crystal_cluster_ruby",              "oreRuby",                  null));
+        register(itemReg, ModBlocks.oreTechRebornSapphire,                      new ItemCrystalCluster("tr.crystal_cluster_sapphire",          "oreSapphire",              null));
+        register(itemReg, ModBlocks.oreForestryApatite,                         new ItemCrystalCluster("fr.crystal_cluster_apatite",           "oreApatite",               null));
+        register(itemReg, ModBlocks.oreBluePowerRuby,                           new ItemCrystalCluster("bp.crystal_cluster_ruby",              "oreRuby",                  null));
+        register(itemReg, ModBlocks.oreBluePowerSapphire,                       new ItemCrystalCluster("bp.crystal_cluster_sapphire",          "oreSapphire",              null));
+        register(itemReg, ModBlocks.oreBluePowerAmethyst,                       new ItemCrystalCluster("bp.crystal_cluster_amethyst",          "oreAmethyst",              null));
+        register(itemReg, ModBlocks.oreAppliedEnergisticsCertusQuartz,          new ItemCrystalCluster("ae.crystal_cluster_quartz",            "oreCertusQuartz",          null));
+        register(itemReg, ModBlocks.oreAppliedEnergisticsChargedCertusQuartz,   new ItemCrystalCluster("ae.crystal_cluster_charged_quartz",    "oreChargedCertusQuartz",   null));
+        register(itemReg, ModBlocks.oreEmbersQuartz,                            new ItemCrystalCluster("em.crystal_cluster_quartz",            "oreQuartz",                null));
 
 
-        register(itemReg, ModBlocks.oreThermalFoundationClathrateRedstone,  new ItemDustCluster("tf.fluid_cluster_redstone",   "oreClathrateRedstone",     null,   "thermalfoundation:material/893/2"));
-        register(itemReg, ModBlocks.oreBluePowerTeslatite,                  new ItemDustCluster("bp.dust_cluster_teslatite",   "oreTeslatite",             null,   "bluepower:teslatite_dust/0/2"));
-        register(itemReg, ModBlocks.oreAromaDimensionSticky,                new ItemDustCluster("ad.dust_cluster_sticky",      "oreSticky",                "minecraft:slime_ball",     "minecraft:slime_ball/0/2"));
-        register(itemReg, ModBlocks.oreAromaDimensionClay,                  new ItemDustCluster("ad.dust_cluster_clay",        "oreClay",                  "minecraft:clay_ball",      "minecraft:clay_ball/0/2"));
+        register(itemReg, ModBlocks.oreThermalFoundationClathrateRedstone,  new ItemDustCluster("tf.fluid_cluster_redstone",   "oreClathrateRedstone",     null));
+        register(itemReg, ModBlocks.oreBluePowerTeslatite,                  new ItemDustCluster("bp.dust_cluster_teslatite",   "oreTeslatite",             null));
+        register(itemReg, ModBlocks.oreAromaDimensionSticky,                new ItemDustCluster("ad.dust_cluster_sticky",      "oreSticky",                "minecraft:slime_ball"));
+        register(itemReg, ModBlocks.oreAromaDimensionClay,                  new ItemDustCluster("ad.dust_cluster_clay",        "oreClay",                  "minecraft:clay_ball"));
     }
 
     private static void register(IForgeRegistry<Item> itemReg, Block ore, Item item) {

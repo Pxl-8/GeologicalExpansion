@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "minecraft:item_exists",
+      "item": "geoexpansion:bp.crystal_cluster_amethyst"
+    }
+  ],
+  "ingredients":
+  [
+    {
+      "type": "forge:ore_dict",
+      "ore": "toolSpallingHammer"
+    },
+    {
+      "item": "geoexpansion:bp.crystal_cluster_amethyst"
+    }
+  ],
+  "result":
+  {
+    "item": "bluepower:amethyst_gem",
+    "count": 2,
+    "data": 0
+  }
+}

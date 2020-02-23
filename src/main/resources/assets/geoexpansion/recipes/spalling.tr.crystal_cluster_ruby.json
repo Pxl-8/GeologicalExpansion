@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "minecraft:item_exists",
+      "item": "geoexpansion:tr.crystal_cluster_ruby"
+    }
+  ],
+  "ingredients":
+  [
+    {
+      "type": "forge:ore_dict",
+      "ore": "toolSpallingHammer"
+    },
+    {
+      "item": "geoexpansion:tr.crystal_cluster_ruby"
+    }
+  ],
+  "result":
+  {
+    "item": "techreborn:gem",
+    "count": 2,
+    "data": 0
+  }
+}

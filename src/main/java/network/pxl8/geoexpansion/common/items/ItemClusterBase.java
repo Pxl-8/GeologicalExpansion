@@ -1,6 +1,5 @@
 package network.pxl8.geoexpansion.common.items;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import network.pxl8.geoexpansion.common.event.Register;
@@ -11,9 +10,8 @@ public class ItemClusterBase extends Item {
     private String refName;
     private String oredict;
     private String smeltingOutput;
-    private String spallingOutput;
 
-    ItemClusterBase(String registryName, String oredictName, String smeltingOutput, String spallingOutput) {
+    ItemClusterBase(String registryName, String oredictName, String smeltingOutput) {
         this.setCreativeTab(Register.geoexpansionTabClusters);
 
         this.setRegistryName(registryName);
@@ -22,7 +20,6 @@ public class ItemClusterBase extends Item {
         this.refName = registryName;
         this.oredict = oredictName;
         this.smeltingOutput = smeltingOutput;
-        this.spallingOutput = spallingOutput;
     }
 
     public String getRef() { return refName; }
@@ -33,9 +30,5 @@ public class ItemClusterBase extends Item {
     public ItemStack getSmeltingOutput() {
         if (smeltingOutput == null) { return null; }
         return LibTools.getStackFromString(smeltingOutput);
-    }
-    public ItemStack getSpallingOutput() {
-        if (spallingOutput == null) { return null; }
-        return LibTools.getStackFromString(spallingOutput);
     }
 }

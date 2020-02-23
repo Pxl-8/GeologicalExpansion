@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "minecraft:item_exists",
+      "item": "geoexpansion:mc.dust_cluster_redstone"
+    }
+  ],
+  "ingredients":
+  [
+    {
+      "type": "forge:ore_dict",
+      "ore": "toolSpallingHammer"
+    },
+    {
+      "item": "geoexpansion:mc.dust_cluster_redstone"
+    }
+  ],
+  "result":
+  {
+    "item": "minecraft:redstone",
+    "count": 4,
+    "data": 0
+  }
+}

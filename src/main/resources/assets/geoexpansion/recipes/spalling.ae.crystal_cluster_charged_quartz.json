@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "minecraft:item_exists",
+      "item": "geoexpansion:ae.crystal_cluster_charged_quartz"
+    }
+  ],
+  "ingredients":
+  [
+    {
+      "type": "forge:ore_dict",
+      "ore": "toolSpallingHammer"
+    },
+    {
+      "item": "geoexpansion:ae.crystal_cluster_charged_quartz"
+    }
+  ],
+  "result":
+  {
+    "item": "appliedenergistics2:material",
+    "count": 2,
+    "data": 1
+  }
+}

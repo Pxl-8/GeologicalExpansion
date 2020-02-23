@@ -4,7 +4,7 @@ import net.minecraft.item.ItemStack;
 
 public class ItemOreCluster extends ItemClusterBase {
 
-    ItemOreCluster(String registryName, String oredictName, String smeltingOutput, String spallingOutput) {
-        super(registryName, oredictName, smeltingOutput, spallingOutput);
+    ItemOreCluster(String registryName, String oredictName, String smeltingOutput) {
+        super(registryName, oredictName, smeltingOutput);
     }
 }

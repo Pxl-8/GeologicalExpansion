@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "minecraft:item_exists",
+      "item": "geoexpansion:bp.dust_cluster_teslatite"
+    }
+  ],
+  "ingredients":
+  [
+    {
+      "type": "forge:ore_dict",
+      "ore": "toolSpallingHammer"
+    },
+    {
+      "item": "geoexpansion:bp.dust_cluster_teslatite"
+    }
+  ],
+  "result":
+  {
+    "item": "bluepower:teslatite_dust",
+    "count": 2,
+    "data": 0
+  }
+}

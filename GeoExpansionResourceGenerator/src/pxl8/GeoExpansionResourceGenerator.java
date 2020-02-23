@@ -126,6 +126,94 @@ public class GeoExpansionResourceGenerator {
         //resourceMap.put("", "");
     }
 
+    static Map<String, String> hammerMap = new HashMap<>();
+    static {
+        hammerMap.put("ge.spalling_hammer_iron",                "ingotIron");
+        hammerMap.put("ge.spalling_hammer_diamond",             "gemDiamond");
+        hammerMap.put("ge.spalling_hammer_silver",              "ingotSilver");
+        hammerMap.put("ge.spalling_hammer_lead",                "ingotLead");
+        hammerMap.put("ge.spalling_hammer_tin",                 "ingotTin");
+        hammerMap.put("ge.spalling_hammer_copper",              "ingotCopper");
+        hammerMap.put("ge.spalling_hammer_aluminum",            "ingotAluminum");
+        hammerMap.put("ge.spalling_hammer_nickel",              "ingotNickel");
+        hammerMap.put("ge.spalling_hammer_platinum",            "ingotPlatinum");
+    }
+
+    static Map<String, String> spallingMap = new HashMap<>();
+    static {
+        spallingMap.put("mc.ore_cluster_coal",                  "minecraft:coal/0/2");
+        spallingMap.put("mc.crystal_cluster_diamond",           "minecraft:diamond/0/2");
+        spallingMap.put("mc.crystal_cluster_emerald",           "minecraft:emerald/0/2");
+        spallingMap.put("mc.dust_cluster_redstone",             "minecraft:redstone/0/4");
+        spallingMap.put("mc.dust_cluster_lapis",                "minecraft:dye/4/4");
+        spallingMap.put("bm.ore_cluster_antimony",              "basemetals:antimony_powder/0/2");
+        spallingMap.put("bm.ore_cluster_bismuth",               "basemetals:bismuth_powder/0/2");
+        spallingMap.put("bm.ore_cluster_copper",                "basemetals:copper_powder/0/2");
+        spallingMap.put("bm.ore_cluster_lead",                  "basemetals:lead_powder/0/2");
+        spallingMap.put("bm.ore_cluster_mercury",               "basemetals:mercury_powder/0/2");
+        spallingMap.put("bm.ore_cluster_nickel",                "basemetals:nickel_powder/0/2");
+        spallingMap.put("bm.ore_cluster_platinum",              "basemetals:platinum_powder/0/2");
+        spallingMap.put("bm.ore_cluster_silver",                "basemetals:silver_powder/0/2");
+        spallingMap.put("bm.ore_cluster_tin",                   "basemetals:tin_powder/0/2");
+        spallingMap.put("bm.ore_cluster_zinc",                  "basemetals:zinc_powder/0/2");
+        spallingMap.put("mm.ore_cluster_aluminum",              "modernmetals:aluminum_powder/0/2");
+        spallingMap.put("mm.ore_cluster_beryllium",             "modernmetals:beryllium_powder/0/2");
+        spallingMap.put("mm.ore_cluster_boron",                 "modernmetals:boron_powder/0/2");
+        spallingMap.put("mm.ore_cluster_cadmium",               "modernmetals:cadmium_powder/0/2");
+        spallingMap.put("mm.ore_cluster_chromium",              "modernmetals:chromium_powder/0/2");
+        spallingMap.put("mm.ore_cluster_iridium",               "modernmetals:iridium_powder/0/2");
+        spallingMap.put("mm.ore_cluster_magnesium",             "modernmetals:magnesium_powder/0/2");
+        spallingMap.put("mm.ore_cluster_manganese",             "modernmetals:manganese_powder/0/2");
+        spallingMap.put("mm.ore_cluster_osmium",                "modernmetals:osmium_powder/0/2");
+        spallingMap.put("mm.ore_cluster_plutonium",             "modernmetals:plutonium_powder/0/2");
+        spallingMap.put("mm.ore_cluster_rutile",                "modernmetals:rutile_powder/0/2");
+        spallingMap.put("mm.ore_cluster_tantalum",              "modernmetals:tantalum_powder/0/2");
+        spallingMap.put("mm.ore_cluster_thorium",               "modernmetals:thorium_powder/0/2");
+        spallingMap.put("mm.ore_cluster_titanium",              "modernmetals:titanium_powder/0/2");
+        spallingMap.put("mm.ore_cluster_tungsten",              "modernmetals:tungsten_powder/0/2");
+        spallingMap.put("mm.ore_cluster_uranium",               "modernmetals:uranium_powder/0/2");
+        spallingMap.put("mm.ore_cluster_zirconium",             "modernmetals:zirconium_powder/0/2");
+        spallingMap.put("tf.ore_cluster_copper",                "thermalfoundation:material/64/2");
+        spallingMap.put("tf.ore_cluster_tin",                   "thermalfoundation:material/65/2");
+        spallingMap.put("tf.ore_cluster_silver",                "thermalfoundation:material/66/2");
+        spallingMap.put("tf.ore_cluster_lead",                  "thermalfoundation:material/67/2");
+        spallingMap.put("tf.ore_cluster_aluminum",              "thermalfoundation:material/68/2");
+        spallingMap.put("tf.ore_cluster_nickel",                "thermalfoundation:material/69/2");
+        spallingMap.put("tf.ore_cluster_platinum",              "thermalfoundation:material/70/2");
+        spallingMap.put("tf.ore_cluster_iridium",               "thermalfoundation:material/71/2");
+        spallingMap.put("tf.ore_cluster_mithril",               "thermalfoundation:material/72/2");
+        spallingMap.put("ie.ore_cluster_copper",                "immersiveengineering:metal/9/2");
+        spallingMap.put("ie.ore_cluster_aluminum",              "immersiveengineering:metal/10/2");
+        spallingMap.put("ie.ore_cluster_lead",                  "immersiveengineering:metal/11/2");
+        spallingMap.put("ie.ore_cluster_silver",                "immersiveengineering:metal/12/2");
+        spallingMap.put("ie.ore_cluster_nickel",                "immersiveengineering:metal/13/2");
+        spallingMap.put("ie.ore_cluster_uranium",               "immersiveengineering:metal/14/2");
+        spallingMap.put("tr.ore_cluster_galena",                "techreborn:dust/23/2");
+        spallingMap.put("tr.ore_cluster_iridium",               "techreborn:dust/64/2");
+        spallingMap.put("tr.ore_cluster_bauxite",               "techreborn:dust/5/2");
+        spallingMap.put("tr.ore_cluster_lead",                  "techreborn:dust/29/2");
+        spallingMap.put("tr.ore_cluster_silver",                "techreborn:dust/47/2");
+        spallingMap.put("tr.ore_cluster_copper",                "techreborn:dust/14/2");
+        spallingMap.put("tr.ore_cluster_tin",                   "techreborn:dust/53/2");
+        spallingMap.put("er.ore_cluster_yellorite",             "bigreactors:dustyellorium/0/2");
+        spallingMap.put("mk.ore_cluster_osmium",                "mekanism:dust/2/2");
+        spallingMap.put("mk.ore_cluster_copper",                "mekanism:dust/3/2");
+        spallingMap.put("mk.ore_cluster_tin",                   "mekanism:dust/4/2");
+        spallingMap.put("tr.crystal_cluster_ruby",              "techreborn:gem/0/2");
+        spallingMap.put("tr.crystal_cluster_sapphire",          "techreborn:gem/1/2");
+        spallingMap.put("fr.crystal_cluster_apatite",           "forestry:apatite/0/2");
+        spallingMap.put("bp.crystal_cluster_ruby",              "bluepower:ruby_gem/0/2");
+        spallingMap.put("bp.crystal_cluster_sapphire",          "bluepower:sapphire_gem/0/2");
+        spallingMap.put("bp.crystal_cluster_amethyst",          "bluepower:amethyst_gem/0/2");
+        spallingMap.put("ae.crystal_cluster_quartz",            "appliedenergistics2:material/0/2");
+        spallingMap.put("ae.crystal_cluster_charged_quartz",    "appliedenergistics2:material/1/2");
+        spallingMap.put("em.crystal_cluster_quartz",            "minecraft:quartz/0/2");
+        spallingMap.put("tf.fluid_cluster_redstone",            "thermalfoundation:material/893/2");
+        spallingMap.put("bp.dust_cluster_teslatite",            "bluepower:teslatite_dust/0/2");
+        spallingMap.put("ad.dust_cluster_sticky",               "minecraft:slime_ball/0/2");
+        spallingMap.put("ad.dust_cluster_clay",                 "minecraft:clay_ball/0/2");
+    }
+
     static void genResources() {
         File dirBlockstate = new File("output/assets/geoexpansion/blockstates/"); dirBlockstate.mkdirs();
         File dirItemmodel = new File("output/assets/geoexpansion/models/item/"); dirItemmodel.mkdirs();
@@ -133,14 +221,14 @@ public class GeoExpansionResourceGenerator {
         for (String file : resourceMap.keySet()) {
             BufferedWriter blockstate = null;
             BufferedWriter itemmodel = null;
-            System.out.println("Creating: " + file + ".json");
-
             try {
                 File fileBlockstate = new File(dirBlockstate, file + ".json");
                 File fileItemmodel = new File(dirItemmodel, file + ".json");
 
                 blockstate = new BufferedWriter(new FileWriter(fileBlockstate));
                 itemmodel = new BufferedWriter(new FileWriter(fileItemmodel));
+
+                System.out.println("Creating: " + file + ".json for blockstate and item model");
 
                 blockstate.write("{\n");
                 blockstate.write("  \"forge_marker\": 1,\n");
@@ -177,8 +265,113 @@ public class GeoExpansionResourceGenerator {
         }
     }
 
+    static void genRecipesHammers() {
+        File dirRecipe = new File("output/assets/geoexpansion/recipes/"); dirRecipe.mkdirs();
+
+        for (String file : hammerMap.keySet()) {
+            BufferedWriter recipe = null;
+            try {
+                File fileRecipe = new File(dirRecipe, file + ".json");
+
+                recipe = new BufferedWriter(new FileWriter(fileRecipe));
+
+                System.out.println("Creating: " + file + ".json for hammer recipes");
+
+                recipe.write("{\n");
+                recipe.write("  \"type\": \"minecraft:crafting_shaped\",\n");
+                recipe.write("  \"conditions\": [\n");
+                recipe.write("    {\n");
+                recipe.write("      \"type\": \"minecraft:item_exists\",\n");
+                recipe.write("      \"item\": \"geoexpansion:" + file + "\"\n");
+                recipe.write("    }\n");
+                recipe.write("  ],\n");
+                recipe.write("  \"pattern\":\n");
+                recipe.write("  [\n");
+                recipe.write("    \"XX \",\n");
+                recipe.write("    \"XXX\",\n");
+                recipe.write("    \" H \"\n");
+                recipe.write("  ],\n");
+                recipe.write("  \"key\":\n");
+                recipe.write("  {\n");
+                recipe.write("    \"X\":\n");
+                recipe.write("    {\n");
+                recipe.write("        \"type\": \"forge:ore_dict\",\n");
+                recipe.write("        \"ore\": \"" + hammerMap.get(file) + "\"\n");
+                recipe.write("    },\n");
+                recipe.write("    \"H\":\n");
+                recipe.write("    {\n");
+                recipe.write("      \"type\": \"forge:ore_dict\",\n");
+                recipe.write("      \"ore\": \"stickWood\"\n");
+                recipe.write("    }\n");
+                recipe.write("  },\n");
+                recipe.write("  \"result\":\n");
+                recipe.write("  {\n");
+                recipe.write("    \"item\": \"geoexpansion:" + file + "\",\n");
+                recipe.write("    \"count\": 1,\n");
+                recipe.write("    \"data\": 0\n");
+                recipe.write("  }\n");
+                recipe.write("}\n");
+                recipe.close();
+
+            } catch (IOException e) { 
+                System.err.println("Caught IOException: " + e.getMessage());
+            }
+        }
+    }
+
+    static void genRecipesSpalling() {
+        File dirRecipe = new File("output/assets/geoexpansion/recipes/"); dirRecipe.mkdirs();
+
+        for (String file : spallingMap.keySet()) {
+            BufferedWriter recipe = null;
+            String[] splitString = spallingMap.get(file).split("/");
+            String itemId = splitString[0];
+            String itemData = splitString[1];
+            String itemCount = splitString[2];
+            try {
+                File fileRecipe = new File(dirRecipe, "spalling." + file + ".json");
+
+                recipe = new BufferedWriter(new FileWriter(fileRecipe));
+
+                System.out.println("Creating: " + file + ".json for spalling recipes");
+
+                recipe.write("{\n");
+                recipe.write("  \"type\": \"minecraft:crafting_shapeless\",\n");
+                recipe.write("  \"conditions\": [\n");
+                recipe.write("    {\n");
+                recipe.write("      \"type\": \"minecraft:item_exists\",\n");
+                recipe.write("      \"item\": \"geoexpansion:" + file + "\"\n");
+                recipe.write("    }\n");
+                recipe.write("  ],\n");
+                recipe.write("  \"ingredients\":\n");
+                recipe.write("  [\n");
+                recipe.write("    {\n");
+                recipe.write("      \"type\": \"forge:ore_dict\",\n");
+                recipe.write("      \"ore\": \"toolSpallingHammer\"\n");
+                recipe.write("    },\n");
+                recipe.write("    {\n");
+                recipe.write("      \"item\": \"geoexpansion:" + file + "\"\n");
+                recipe.write("    }\n");
+                recipe.write("  ],\n");
+                recipe.write("  \"result\":\n");
+                recipe.write("  {\n");
+                recipe.write("    \"item\": \"" + itemId + "\",\n");
+                recipe.write("    \"count\": " + itemCount + ",\n");
+                recipe.write("    \"data\": " + itemData + "\n");
+                recipe.write("  }\n");
+                recipe.write("}\n");
+                recipe.close();
+
+            } catch (IOException e) { 
+                System.err.println("Caught IOException: " + e.getMessage());
+            }
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("Running Resource Generator");
         genResources();
+        genRecipesHammers();
+        genRecipesSpalling();
     }
 }

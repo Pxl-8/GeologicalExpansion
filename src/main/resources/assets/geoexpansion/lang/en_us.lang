@@ -141,12 +141,12 @@ tile.geoexpansion.ie.ore_silver.name=Silver Ore
 tile.geoexpansion.ie.ore_nickel.name=Nickel Ore
 tile.geoexpansion.ie.ore_uranium.name=Uranium Ore
 # Clusters
-tile.geoexpansion.ie.ore_cluster_copper.name=Copper Ore Cluster
-tile.geoexpansion.ie.ore_cluster_aluminum.name=Aluminum Ore Cluster
-tile.geoexpansion.ie.ore_cluster_lead.name=Lead Ore Cluster
-tile.geoexpansion.ie.ore_cluster_silver.name=Silver Ore Cluster
-tile.geoexpansion.ie.ore_cluster_nickel.name=Nickel Ore Cluster
-tile.geoexpansion.ie.ore_cluster_uranium.name=Uranium Ore Cluster
+item.geoexpansion.ie.ore_cluster_copper.name=Copper Ore Cluster
+item.geoexpansion.ie.ore_cluster_aluminum.name=Aluminum Ore Cluster
+item.geoexpansion.ie.ore_cluster_lead.name=Lead Ore Cluster
+item.geoexpansion.ie.ore_cluster_silver.name=Silver Ore Cluster
+item.geoexpansion.ie.ore_cluster_nickel.name=Nickel Ore Cluster
+item.geoexpansion.ie.ore_cluster_uranium.name=Uranium Ore Cluster
 
 ## Tech Reborn
 # Ores

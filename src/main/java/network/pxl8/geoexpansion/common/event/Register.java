@@ -1,24 +1,25 @@
 package network.pxl8.geoexpansion.common.event;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.OreIngredient;
 import net.minecraftforge.registries.IForgeRegistry;
 import network.pxl8.geoexpansion.common.blocks.BlockOre;
 import network.pxl8.geoexpansion.common.blocks.BlockStone;
 import network.pxl8.geoexpansion.common.blocks.ModBlocks;
 import network.pxl8.geoexpansion.common.items.*;
-import network.pxl8.geoexpansion.lib.LibMeta;
+import network.pxl8.geoexpansion.lib.LibTools;
 
 
 import static net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE;
@@ -51,41 +52,80 @@ public class Register {
 
     private static Item createItemBlock(Block block) { return new ItemBlock(block).setRegistryName(block.getRegistryName()); }
 
-    //Recipe register methods
-    public static void registerOreDictionary(){
-        for (ItemOreCluster cluster : ModItems.oreClusterList) {
-            if (cluster.getOredict() != null) {
-                OreDictionary.registerOre(cluster.getOredict(), cluster);
-            }
-        }
+    @SubscribeEvent
+    public static void registerModels(ModelRegistryEvent event) {
+        ModItems.addAll();
+        ModItems.addAllCompat();
 
+        for (BlockStone block : ModBlocks.blockStoneList) { registerBlockModel(block); }
+        for (BlockOre ore : ModBlocks.blockOreList) { registerBlockModel(ore); }
+        for (BlockStone block : ModBlocks.compatStoneList) { registerBlockModel(block); }
+        for (BlockOre ore : ModBlocks.compatOreList) { registerBlockModel(ore); }
+
+        for (ItemOreCluster cluster : ModItems.oreClusterList) { registerItemModel(cluster, "geoexpansion:ge.ore_cluster"); }
+        for (ItemCrystalCluster cluster : ModItems.crystalClusterList) { registerItemModel(cluster, "geoexpansion:ge.crystal_cluster"); }
+        for (ItemDustCluster cluster : ModItems.dustClusterList) { registerItemModel(cluster, "geoexpansion:ge.dust_cluster"); }
+
+        for (ItemSpallingHammer hammer : ModItems.spallingHammerList) { registerItemModel(hammer, "geoexpansion:ge.spalling_hammer"); }
+
+        for (ItemOreCluster cluster : ModItems.oreClusterListCompat) { registerItemModel(cluster, "geoexpansion:ge.ore_cluster"); }
+        for (ItemCrystalCluster cluster : ModItems.crystalClusterListCompat) { registerItemModel(cluster, "geoexpansion:ge.crystal_cluster"); }
+        for (ItemDustCluster cluster : ModItems.dustClusterListCompat) { registerItemModel(cluster, "geoexpansion:ge.dust_cluster"); }
+    }
+
+    private static void registerBlockModel(Block block) {
+        registerItemModel(Item.getItemFromBlock(block));
+    }
+    private static void registerItemModel(Item item) {
+        ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+    }
+    private static void registerItemModel(Item item, String resource_location) {
+        ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(resource_location, "inventory"));
+    }
+
+    @SubscribeEvent
+    public static void registerBlockColors(ColorHandlerEvent.Block event) {
+        for(Block block : ModBlocks.blockStoneList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null ? BlockStone.getColor(state) : 0xFFFFFF, block); }
+        for(Block block : ModBlocks.blockOreList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null ? BlockStone.getColor(state) : 0xFFFFFF, block); }
+        for(Block block : ModBlocks.compatStoneList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null ? BlockStone.getColor(state) : 0xFFFFFF, block); }
+        for(Block block : ModBlocks.compatOreList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null ? BlockStone.getColor(state) : 0xFFFFFF, block); }
+    }
+
+    @SubscribeEvent
+    public static void registerItemColors(ColorHandlerEvent.Item event) {
+        for(Item cluster : ModItems.spallingHammerList) { event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getHammerColour(stack), cluster); }
+
+        for(Item cluster : ModItems.oreClusterList) { event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack), cluster); }
+        for(Item cluster : ModItems.crystalClusterList) { event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack), cluster); }
+        for(Item cluster : ModItems.dustClusterList) { event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack), cluster); }
+
+        for(Item cluster : ModItems.oreClusterListCompat) { event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack), cluster); }
+        for(Item cluster : ModItems.crystalClusterListCompat) { event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack), cluster); }
+        for(Item cluster : ModItems.dustClusterListCompat) { event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack), cluster); }
+    }
+
+    //  Recipe register methods
+    public static void registerOreDictionary(){
+        for (ItemSpallingHammer hammer : ModItems.spallingHammerList) { OreDictionary.registerOre("toolSpallingHammer", new ItemStack(hammer, 1, WILDCARD_VALUE)); }
+
+        for (ItemOreCluster cluster : ModItems.oreClusterList) {
+            if (cluster.getOredict() != null) { OreDictionary.registerOre(cluster.getOredict(), cluster); }
+        }
         for (ItemCrystalCluster cluster : ModItems.crystalClusterList) {
-            if (cluster.getOredict() != null) {
-                OreDictionary.registerOre(cluster.getOredict(), cluster);
-            }
+            if (cluster.getOredict() != null) { OreDictionary.registerOre(cluster.getOredict(), cluster); }
         }
         for (ItemDustCluster cluster : ModItems.dustClusterList) {
-            if (cluster.getOredict() != null) {
-                OreDictionary.registerOre(cluster.getOredict(), cluster);
-            }
+            if (cluster.getOredict() != null) { OreDictionary.registerOre(cluster.getOredict(), cluster); }
         }
-
-        //for (ItemSpallingHammer hammer : ModItems.spallingHammerList) { OreDictionary.registerOre("toolSpallingHammer", new ItemStack(hammer, 1, WILDCARD_VALUE)); }
 
         for (ItemOreCluster cluster : ModItems.oreClusterListCompat) {
-            if (cluster.getOredict() != null) {
-                OreDictionary.registerOre(cluster.getOredict(), cluster);
-            }
+            if (cluster.getOredict() != null) { OreDictionary.registerOre(cluster.getOredict(), cluster); }
         }
         for (ItemCrystalCluster cluster : ModItems.crystalClusterListCompat) {
-            if (cluster.getOredict() != null) {
-                OreDictionary.registerOre(cluster.getOredict(), cluster);
-            }
+            if (cluster.getOredict() != null) { OreDictionary.registerOre(cluster.getOredict(), cluster); }
         }
         for (ItemDustCluster cluster : ModItems.dustClusterListCompat) {
-            if (cluster.getOredict() != null) {
-                OreDictionary.registerOre(cluster.getOredict(), cluster);
-            }
+            if (cluster.getOredict() != null) { OreDictionary.registerOre(cluster.getOredict(), cluster); }
         }
     }
 
@@ -99,39 +139,7 @@ public class Register {
         for (ItemDustCluster cluster : ModItems.dustClusterListCompat) { if (cluster.getSmeltingOutput() != null) GameRegistry.addSmelting(cluster, cluster.getSmeltingOutput(), 1.0F); }
     }
 
-    //TODO: This is complete trash, need to replace with custom recipe factories and recipe.jsons
-    public static void registerCraftingRecipes() {
-        ResourceLocation hammer_group = new ResourceLocation(LibMeta.MOD_ID + ":" + "spalling_hammer_recipes");
-        ResourceLocation cluster_group = new ResourceLocation(LibMeta.MOD_ID + ":" + "cluster_spalling_recipes");
-        for (ItemSpallingHammer hammer : ModItems.spallingHammerList) {
-            for (ItemOreCluster cluster : ModItems.oreClusterList) { ResourceLocation recipe = new ResourceLocation("geoexpansion:" + hammer.getRef() + "_" + cluster.getRef());
-                if (cluster.getSpallingOutput() != null) GameRegistry.addShapelessRecipe(recipe, cluster_group, cluster.getSpallingOutput(), Ingredient.fromStacks(new ItemStack(hammer, 1, WILDCARD_VALUE)), Ingredient.fromItem(cluster));
-            }
-            for (ItemCrystalCluster cluster : ModItems.crystalClusterList) { ResourceLocation recipe = new ResourceLocation("geoexpansion:" + hammer.getRef() + "_" + cluster.getRef());
-                if (cluster.getSpallingOutput() != null) GameRegistry.addShapelessRecipe(recipe, cluster_group, cluster.getSpallingOutput(), Ingredient.fromStacks(new ItemStack(hammer, 1, WILDCARD_VALUE)), Ingredient.fromItem(cluster));
-            }
-            for (ItemDustCluster cluster : ModItems.dustClusterList) { ResourceLocation recipe = new ResourceLocation("geoexpansion:" + hammer.getRef() + "_" + cluster.getRef());
-                if (cluster.getSpallingOutput() != null) GameRegistry.addShapelessRecipe(recipe, cluster_group, cluster.getSpallingOutput(), Ingredient.fromStacks(new ItemStack(hammer, 1, WILDCARD_VALUE)), Ingredient.fromItem(cluster));
-            }
-
-            for (ItemOreCluster cluster : ModItems.oreClusterListCompat) { ResourceLocation recipe = new ResourceLocation("geoexpansion:" + hammer.getRef() + "_" + cluster.getRef());
-                if (cluster.getSpallingOutput() != null) GameRegistry.addShapelessRecipe(recipe, cluster_group, cluster.getSpallingOutput(), Ingredient.fromStacks(new ItemStack(hammer, 1, WILDCARD_VALUE)), Ingredient.fromItem(cluster));
-            }
-            for (ItemCrystalCluster cluster : ModItems.crystalClusterListCompat) { ResourceLocation recipe = new ResourceLocation("geoexpansion:" + hammer.getRef() + "_" + cluster.getRef());
-                if (cluster.getSpallingOutput() != null) GameRegistry.addShapelessRecipe(recipe, cluster_group, cluster.getSpallingOutput(), Ingredient.fromStacks(new ItemStack(hammer, 1, WILDCARD_VALUE)), Ingredient.fromItem(cluster));
-            }
-            for (ItemDustCluster cluster : ModItems.dustClusterListCompat) { ResourceLocation recipe = new ResourceLocation("geoexpansion:" + hammer.getRef() + "_" + cluster.getRef());
-                if (cluster.getSpallingOutput() != null) GameRegistry.addShapelessRecipe(recipe, cluster_group, cluster.getSpallingOutput(), Ingredient.fromStacks(new ItemStack(hammer, 1, WILDCARD_VALUE)), Ingredient.fromItem(cluster));
-            }
-
-            if (hammer.getMaterial() != null) {
-                GameRegistry.addShapedRecipe(new ResourceLocation("geoexpansion:" + hammer.getRef()), hammer_group, new ItemStack(hammer),
-                        "XX ", "XXX", " H ", 'X', new OreIngredient(hammer.getMaterial()), 'H', new OreIngredient("stickWood")
-                );
-            }
-        }
-    }
-
+    //  Creative Tabs
     public static CreativeTabs geoexpansionTabGeneral = new CreativeTabs("tab_geoexpansion_general") {
         @Override
         public ItemStack getTabIconItem() { return new ItemStack(ModItems.spallingHammerBase); }

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "minecraft:item_exists",
+      "item": "geoexpansion:mm.ore_cluster_zirconium"
+    }
+  ],
+  "ingredients":
+  [
+    {
+      "type": "forge:ore_dict",
+      "ore": "toolSpallingHammer"
+    },
+    {
+      "item": "geoexpansion:mm.ore_cluster_zirconium"
+    }
+  ],
+  "result":
+  {
+    "item": "modernmetals:zirconium_powder",
+    "count": 2,
+    "data": 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "minecraft:item_exists",
+      "item": "geoexpansion:mc.dust_cluster_lapis"
+    }
+  ],
+  "ingredients":
+  [
+    {
+      "type": "forge:ore_dict",
+      "ore": "toolSpallingHammer"
+    },
+    {
+      "item": "geoexpansion:mc.dust_cluster_lapis"
+    }
+  ],
+  "result":
+  {
+    "item": "minecraft:dye",
+    "count": 4,
+    "data": 4
+  }
+}

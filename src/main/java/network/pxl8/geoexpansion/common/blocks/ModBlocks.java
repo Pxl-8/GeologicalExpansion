@@ -74,8 +74,8 @@ public class ModBlocks {
         blockReg.register(new BlockOre("mc.ore_gold",      2.0F, "minecraft:gold_ore",      "geoexpansion:mc.ore_cluster_gold"));
         blockReg.register(new BlockOre("mc.ore_diamond",   2.0F, "minecraft:diamond_ore",   "geoexpansion:mc.crystal_cluster_diamond"));
         blockReg.register(new BlockOre("mc.ore_emerald",   2.0F, "minecraft:emerald_ore",   "geoexpansion:mc.crystal_cluster_emerald"));
-        blockReg.register(new BlockOre("mc.ore_redstone",  2.0F, "minecraft:redstone_ore",  "geoexpansion:mc.ore_cluster_redstone"));
-        blockReg.register(new BlockOre("mc.ore_lapis",     2.0F, "minecraft:lapis_ore",     "geoexpansion:mc.ore_cluster_lapis"));
+        blockReg.register(new BlockOre("mc.ore_redstone",  2.0F, "minecraft:redstone_ore",  "geoexpansion:mc.dust_cluster_redstone"));
+        blockReg.register(new BlockOre("mc.ore_lapis",     2.0F, "minecraft:lapis_ore",     "geoexpansion:mc.dust_cluster_lapis"));
     }
 
     @GameRegistry.ObjectHolder("bm.ore_antimony")               public static BlockOre oreBaseMetalsAntimony;
