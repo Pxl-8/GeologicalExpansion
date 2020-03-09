@@ -13,6 +13,8 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 import network.pxl8.geoexpansion.common.blocks.BlockOre;
@@ -83,6 +85,7 @@ public class Register {
         ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(resource_location, "inventory"));
     }
 
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void registerBlockColors(ColorHandlerEvent.Block event) {
         for(Block block : ModBlocks.blockStoneList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null ? BlockStone.getColor(state) : 0xFFFFFF, block); }
@@ -91,6 +94,7 @@ public class Register {
         for(Block block : ModBlocks.compatOreList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null ? BlockStone.getColor(state) : 0xFFFFFF, block); }
     }
 
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void registerItemColors(ColorHandlerEvent.Item event) {
         for(Item cluster : ModItems.spallingHammerList) { event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getHammerColour(stack), cluster); }
