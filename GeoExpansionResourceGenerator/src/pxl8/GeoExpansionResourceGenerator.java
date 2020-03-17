@@ -33,6 +33,8 @@ public class GeoExpansionResourceGenerator {
         resourceMap.put("mc.dirt",                      "minecraft:blocks/dirt");
         resourceMap.put("mc.clay",                      "minecraft:blocks/clay");
 
+        resourceMap.put("mc.bedrock",                   "minecraft:blocks/bedrock");
+
         resourceMap.put("mc.ore_coal",                  "minecraft:blocks/coal_ore");
         resourceMap.put("mc.ore_iron",                  "minecraft:blocks/iron_ore");
         resourceMap.put("mc.ore_gold",                  "minecraft:blocks/gold_ore");

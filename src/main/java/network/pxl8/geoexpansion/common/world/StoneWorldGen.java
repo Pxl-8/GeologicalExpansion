@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -54,9 +55,10 @@ public class StoneWorldGen implements IWorldGenerator {
     }
 
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-        if (!(world instanceof WorldServer)) {
-            return;
-        }
+
+        if (!(world instanceof WorldServer)) { return; }
+        if (world.provider.getDimensionType().equals(DimensionType.NETHER) || world.provider.getDimensionType().equals(DimensionType.THE_END)) { return; }
+
         int posX = (chunkX * 16) + 1;
         int posZ = (chunkZ * 16) + 1;
 

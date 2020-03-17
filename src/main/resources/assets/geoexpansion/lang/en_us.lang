@@ -43,8 +43,9 @@ tile.geoexpansion.mc.infested_stone_brick_cracked.name=Ancient Cracked Stone Bri
 tile.geoexpansion.mc.infested_stone_brick_chiseled.name=Ancient Chiseled Stone Brick
 
 tile.geoexpansion.mc.dirt.name=Dirt
-tile.geoexpansion.mc.gravel.name=Gravel
 tile.geoexpansion.mc.clay.name=Clay
+
+tile.geoexpansion.mc.bedrock.name=Bedrock
 # Ores
 tile.geoexpansion.mc.ore_coal.name=Coal Ore
 tile.geoexpansion.mc.ore_iron.name=Iron Ore

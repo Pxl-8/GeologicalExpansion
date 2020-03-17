@@ -39,6 +39,8 @@ public class ModBlocks {
     @GameRegistry.ObjectHolder("mc.dirt")                   public static BlockStone blockDirt;
     @GameRegistry.ObjectHolder("mc.clay")                   public static BlockStone blockClay;
 
+    @GameRegistry.ObjectHolder("mc.bedrock")                public static BlockBedrock blockBedrock;
+
     @GameRegistry.ObjectHolder("mc.ore_coal")               public static BlockOre oreCoal;
     @GameRegistry.ObjectHolder("mc.ore_iron")               public static BlockOre oreIron;
     @GameRegistry.ObjectHolder("mc.ore_gold")               public static BlockOre oreGold;
@@ -73,6 +75,8 @@ public class ModBlocks {
 
         blockStoneList.add(blockDirt);
         blockStoneList.add(blockClay);
+
+        blockStoneList.add(blockBedrock);
     }
 
     private static void addOreBlocks() {
@@ -113,6 +117,8 @@ public class ModBlocks {
 
         blockReg.register(new BlockStone("mc.dirt",        "shovel", 0.5F, "minecraft:dirt",    "minecraft:dirt", Material.GROUND).setSound(SoundType.GROUND));
         blockReg.register(new BlockStone("mc.clay",        "shovel", 0.6F, "minecraft:clay",    "minecraft:clay_ball/0/4", Material.CLAY).setSound(SoundType.GROUND));
+
+        blockReg.register(new BlockBedrock().setLightOpacity(14));
 
         blockReg.register(new BlockOre("mc.ore_coal",      2.0F, "minecraft:coal_ore",      "geoexpansion:mc.ore_cluster_coal"));
         blockReg.register(new BlockOre("mc.ore_iron",      2.0F, "minecraft:iron_ore",      "geoexpansion:mc.ore_cluster_iron"));
