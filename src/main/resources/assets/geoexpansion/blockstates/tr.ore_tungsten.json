@@ -1,0 +1,19 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "geoexpansion:tinted_block",
+    "textures": {
+      "particle": "techreborn:blocks/ore/tungsten_ore_stone",
+      "all": "techreborn:blocks/ore/tungsten_ore_stone"
+    },
+    "uvlock": true
+  },
+  "variants": {
+    "density": {
+      "soft": {},
+      "firm": {},
+      "solid": {},
+      "hard": {}
+    }
+  }
+}

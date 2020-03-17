@@ -25,23 +25,28 @@ public class StoneWorldGen implements IWorldGenerator {
 
     static {
         for (BlockStone block : ModBlocks.blockStoneList) {
-            if (block != ModBlocks.blockStone) { blockMap.put(block.getBlockToReplace(), block); }
+            if (block != ModBlocks.blockStone) {
+                if (!block.getBlockToReplace().equals(Blocks.AIR.getDefaultState())) {
+                    blockMap.put(block.getBlockToReplace(), block);
+                }
+            }
+
         }
 
         for (BlockOre ore : ModBlocks.blockOreList) {
-            if (ore.getBlockToReplace() != null) {
+            if (!ore.getBlockToReplace().equals(Blocks.AIR.getDefaultState())) {
                 blockMap.put(ore.getBlockToReplace(), ore);
             }
         }
 
         for (BlockStone block : ModBlocks.compatStoneList) {
-            if (block.getBlockToReplace() != null) {
+            if (!block.getBlockToReplace().equals(Blocks.AIR.getDefaultState())) {
                 blockMap.put(block.getBlockToReplace(), block);
             }
         }
 
         for (BlockOre ore : ModBlocks.compatOreList) {
-            if (ore.getBlockToReplace() != null) {
+            if (!ore.getBlockToReplace().equals(Blocks.AIR.getDefaultState())) {
                 blockMap.put(ore.getBlockToReplace(), ore);
             }
         }

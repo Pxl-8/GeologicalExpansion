@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "geoexpansion:blocks/nuclearcraft_override/ore_lithium"
+  }
+}

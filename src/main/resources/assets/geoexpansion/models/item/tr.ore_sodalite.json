@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "techreborn:blocks/ore/sodalite_ore_stone"
+  }
+}

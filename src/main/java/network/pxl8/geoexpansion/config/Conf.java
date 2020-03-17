@@ -23,21 +23,21 @@ public class Conf {
     public static class BaseConf {
         @Config.Comment("Hardness multiplier for soft blocks")
         public Float HARDNESS_MULT_1_SOFT = 1.0F;
-        @Config.Comment("Hardness multiplier for hard blocks")
+        @Config.Comment("Hardness multiplier for firm blocks")
         public Float HARDNESS_MULT_2_FIRM = 2.0F;
-        @Config.Comment("Hardness multiplier for dense blocks")
+        @Config.Comment("Hardness multiplier for solid blocks")
         public Float HARDNESS_MULT_3_SOLID = 4.0F;
-        @Config.Comment("Hardness multiplier for dense blocks")
+        @Config.Comment("Hardness multiplier for hard blocks")
         public Float HARDNESS_MULT_4_HARD = 8.0F;
 
-        @Config.Comment({"Color tint for soft blocks expressed in an RGB hex", "Default (0xFAF0E6)"})
-        public String TINT_COLOR_1_SOFT = "0xFAF0E6";
-        @Config.Comment({"Color tint for hard blocks expressed in an RGB hex", "Default (0xBBB4AD)"})
-        public String TINT_COLOR_2_FIRM = "0xBBB4AD";
-        @Config.Comment({"Color tint for dense blocks expressed in an RGB hex", "Default (0x7D7873)"})
-        public String TINT_COLOR_3_SOLID = "0x7D7873";
-        @Config.Comment({"Color tint for dense blocks expressed in an RGB hex", "Default (0x3E3C3A)"})
-        public String TINT_COLOR_4_HARD = "0x3E3C3A";
+        @Config.Comment({"Color tint for soft blocks expressed in an RGB hex", "Default (0xFFFFFF)"})
+        public String TINT_COLOR_1_SOFT = "0xFFFFFF";
+        @Config.Comment({"Color tint for firm blocks expressed in an RGB hex", "Default (0xCFCECE)"})
+        public String TINT_COLOR_2_FIRM = "0xCFCECE";
+        @Config.Comment({"Color tint for solid blocks expressed in an RGB hex", "Default (0x8E8D8C)"})
+        public String TINT_COLOR_3_SOLID = "0x8E8D8C";
+        @Config.Comment({"Color tint for hard blocks expressed in an RGB hex", "Default (0x4E4C4A)"})
+        public String TINT_COLOR_4_HARD = "0x4E4C4A";
 
         @Config.Comment({"Defines the upper range that hard blocks will generate to",
                 "Hard blocks will generate from 0 to this value",
@@ -71,8 +71,6 @@ public class Conf {
         public float DROP_BASE_3_SOLID = 1.5F;
         @Config.Comment({"Base amount of ore clusters that drop from hard ores", "Takes a float that gets rounded to the closest int after fortune is applied"})
         public float DROP_BASE_4_HARD = 2.0F;
-
-
     }
 
     public static class CompatConf {
@@ -91,7 +89,12 @@ public class Conf {
             MOD_COMPAT_ORDER.put("aroma1997sdimension",     10);
             MOD_COMPAT_ORDER.put("embers",                  11);
             MOD_COMPAT_ORDER.put("mekanism",                12);
+            MOD_COMPAT_ORDER.put("nuclearcraft",            13);
+            MOD_COMPAT_ORDER.put("draconicevolution",       14);
         }
+
+        @Config.Comment({"Only a single ore will be generated per ore dictionary type (eg. oreCopper) based on the compat list order"})
+        public boolean ONLY_REGISTER_UNIQUE_OREDIC = true;
     }
 
     public static class WorldConf {

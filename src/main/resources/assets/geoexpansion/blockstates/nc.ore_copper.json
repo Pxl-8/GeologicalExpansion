@@ -1,0 +1,19 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "geoexpansion:tinted_block",
+    "textures": {
+      "particle": "geoexpansion:blocks/nuclearcraft_override/ore_copper",
+      "all": "geoexpansion:blocks/nuclearcraft_override/ore_copper"
+    },
+    "uvlock": true
+  },
+  "variants": {
+    "density": {
+      "soft": {},
+      "firm": {},
+      "solid": {},
+      "hard": {}
+    }
+  }
+}

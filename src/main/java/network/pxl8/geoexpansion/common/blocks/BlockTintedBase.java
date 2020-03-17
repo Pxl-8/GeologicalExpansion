@@ -32,6 +32,18 @@ public class BlockTintedBase extends Block {
         this.harvestTool = harvestTool;
     }
 
+    BlockTintedBase(String registryName, Float hardness, String harvestTool, String replacedBlock, Material material) {
+        super(material);
+        this.setCreativeTab(Register.geoexpansionTabBlocks);
+
+        this.setRegistryName(registryName);
+        this.setUnlocalizedName(LibMeta.MOD_ID + "." + registryName);
+
+        this.replacedBlock = replacedBlock;
+        this.baseHardness = hardness;
+        this.harvestTool = harvestTool;
+    }
+
     @Override
     public IBlockState getStateFromMeta(int meta) { return this.getDefaultState().withProperty(LibMeta.PROPERTY_DENSITY, EnumDensity.byMetadata(meta)); }
     @Override

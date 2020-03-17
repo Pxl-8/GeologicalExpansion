@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "minecraft:item_exists",
+      "item": "geoexpansion:nc.ore_cluster_lithium"
+    }
+  ],
+  "ingredients":
+  [
+    {
+      "type": "forge:ore_dict",
+      "ore": "toolSpallingHammer"
+    },
+    {
+      "item": "geoexpansion:nc.ore_cluster_lithium"
+    }
+  ],
+  "result":
+  {
+    "item": "nuclearcraft:dust",
+    "count": 2,
+    "data": 6
+  }
+}

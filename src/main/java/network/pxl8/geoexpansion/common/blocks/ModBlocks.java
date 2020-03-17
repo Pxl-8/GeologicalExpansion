@@ -1,9 +1,12 @@
 package network.pxl8.geoexpansion.common.blocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import network.pxl8.geoexpansion.compat.CompatHandler;
+import network.pxl8.geoexpansion.config.Conf;
 import network.pxl8.geoexpansion.lib.LibMeta;
 
 import java.util.ArrayList;
@@ -13,22 +16,36 @@ import static network.pxl8.geoexpansion.compat.CompatHandler.modListLoaded;
 
 @GameRegistry.ObjectHolder(LibMeta.MOD_ID)
 public class ModBlocks {
-    @GameRegistry.ObjectHolder("mc.stone")                 public static BlockStone blockStone;
-    @GameRegistry.ObjectHolder("mc.andesite")              public static BlockStone blockAndesite;
-    @GameRegistry.ObjectHolder("mc.diorite")               public static BlockStone blockDiorite;
-    @GameRegistry.ObjectHolder("mc.granite")               public static BlockStone blockGranite;
+    @GameRegistry.ObjectHolder("mc.stone")                  public static BlockStone blockStone;
+    @GameRegistry.ObjectHolder("mc.andesite")               public static BlockStone blockAndesite;
+    @GameRegistry.ObjectHolder("mc.diorite")                public static BlockStone blockDiorite;
+    @GameRegistry.ObjectHolder("mc.granite")                public static BlockStone blockGranite;
 
-    @GameRegistry.ObjectHolder("mc.dirt")                  public static BlockStone blockDirt;
-    @GameRegistry.ObjectHolder("mc.gravel")                public static BlockStone blockGravel;
-    @GameRegistry.ObjectHolder("mc.clay")                  public static BlockStone blockClay;
+    @GameRegistry.ObjectHolder("mc.cobblestone")            public static BlockStone blockCobblestone;
+    @GameRegistry.ObjectHolder("mc.cobblestone_mossy")      public static BlockStone blockCobblestoneMossy;
 
-    @GameRegistry.ObjectHolder("mc.ore_coal")              public static BlockOre oreCoal;
-    @GameRegistry.ObjectHolder("mc.ore_iron")              public static BlockOre oreIron;
-    @GameRegistry.ObjectHolder("mc.ore_gold")              public static BlockOre oreGold;
-    @GameRegistry.ObjectHolder("mc.ore_diamond")           public static BlockOre oreDiamond;
-    @GameRegistry.ObjectHolder("mc.ore_emerald")           public static BlockOre oreEmerald;
-    @GameRegistry.ObjectHolder("mc.ore_redstone")          public static BlockOre oreRedstone;
-    @GameRegistry.ObjectHolder("mc.ore_lapis")             public static BlockOre oreLapis;
+    @GameRegistry.ObjectHolder("mc.stone_brick")            public static BlockStone blockStonebrick;
+    @GameRegistry.ObjectHolder("mc.stone_brick_mossy")      public static BlockStone blockStonebrickMossy;
+    @GameRegistry.ObjectHolder("mc.stone_brick_cracked")    public static BlockStone blockStonebrickCracked;
+    @GameRegistry.ObjectHolder("mc.stone_brick_chiseled")   public static BlockStone blockStonebrickChiseled;
+
+    @GameRegistry.ObjectHolder("mc.infested_stone")                 public static BlockStoneInfested blockInfestedStone;
+    @GameRegistry.ObjectHolder("mc.infested_cobblestone")           public static BlockStoneInfested blockInfestedCobblestone;
+    @GameRegistry.ObjectHolder("mc.infested_stone_brick")           public static BlockStoneInfested blockInfestedStonebrick;
+    @GameRegistry.ObjectHolder("mc.infested_stone_brick_mossy")     public static BlockStoneInfested blockInfestedStonebrickMossy;
+    @GameRegistry.ObjectHolder("mc.infested_stone_brick_cracked")   public static BlockStoneInfested blockInfestedStonebrickCracked;
+    @GameRegistry.ObjectHolder("mc.infested_stone_brick_chiseled")  public static BlockStoneInfested blockInfestedStonebrickChiseled;
+
+    @GameRegistry.ObjectHolder("mc.dirt")                   public static BlockStone blockDirt;
+    @GameRegistry.ObjectHolder("mc.clay")                   public static BlockStone blockClay;
+
+    @GameRegistry.ObjectHolder("mc.ore_coal")               public static BlockOre oreCoal;
+    @GameRegistry.ObjectHolder("mc.ore_iron")               public static BlockOre oreIron;
+    @GameRegistry.ObjectHolder("mc.ore_gold")               public static BlockOre oreGold;
+    @GameRegistry.ObjectHolder("mc.ore_diamond")            public static BlockOre oreDiamond;
+    @GameRegistry.ObjectHolder("mc.ore_emerald")            public static BlockOre oreEmerald;
+    @GameRegistry.ObjectHolder("mc.ore_redstone")           public static BlockOre oreRedstone;
+    @GameRegistry.ObjectHolder("mc.ore_lapis")              public static BlockOre oreLapis;
 
     public static List<BlockStone> blockStoneList = new ArrayList<>();
     public static List<BlockOre> blockOreList = new ArrayList<>();
@@ -39,8 +56,22 @@ public class ModBlocks {
         blockStoneList.add(blockDiorite);
         blockStoneList.add(blockGranite);
 
+        blockStoneList.add(blockCobblestone);
+        blockStoneList.add(blockCobblestoneMossy);
+
+        blockStoneList.add(blockStonebrick);
+        blockStoneList.add(blockStonebrickMossy);
+        blockStoneList.add(blockStonebrickCracked);
+        blockStoneList.add(blockStonebrickChiseled);
+
+        blockStoneList.add(blockInfestedStone);
+        blockStoneList.add(blockInfestedCobblestone);
+        blockStoneList.add(blockInfestedStonebrick);
+        blockStoneList.add(blockInfestedStonebrickMossy);
+        blockStoneList.add(blockInfestedStonebrickCracked);
+        blockStoneList.add(blockInfestedStonebrickChiseled);
+
         blockStoneList.add(blockDirt);
-        blockStoneList.add(blockGravel);
         blockStoneList.add(blockClay);
     }
 
@@ -65,9 +96,23 @@ public class ModBlocks {
         blockReg.register(new BlockStone("mc.diorite",     "pickaxe", 1.5F, "minecraft:stone/3",    "minecraft:stone/3"));
         blockReg.register(new BlockStone("mc.granite",     "pickaxe", 1.5F, "minecraft:stone/1",    "minecraft:stone/1"));
 
-        blockReg.register(new BlockStone("mc.dirt",        "shovel", 0.5F, "minecraft:dirt",    "minecraft:dirt"));
-        blockReg.register(new BlockStone("mc.gravel",      "shovel", 0.6F, "minecraft:gravel",  "minecraft:gravel"));
-        blockReg.register(new BlockStone("mc.clay",        "shovel", 0.6F, "minecraft:clay",    "minecraft:clay"));
+        blockReg.register(new BlockStone("mc.cobblestone",          "pickaxe", 1.5F, "minecraft:cobblestone", "minecraft:cobblestone"));
+        blockReg.register(new BlockStone("mc.cobblestone_mossy",    "pickaxe", 1.5F, "minecraft:mossy_cobblestone", "minecraft:mossy_cobblestone"));
+
+        blockReg.register(new BlockStone("mc.stone_brick",          "pickaxe", 1.5F, "minecraft:stonebrick/0", "minecraft:stonebrick/0"));
+        blockReg.register(new BlockStone("mc.stone_brick_mossy",    "pickaxe", 1.5F, "minecraft:stonebrick/1", "minecraft:stonebrick/1"));
+        blockReg.register(new BlockStone("mc.stone_brick_cracked",  "pickaxe", 1.5F, "minecraft:stonebrick/2", "minecraft:stonebrick/2"));
+        blockReg.register(new BlockStone("mc.stone_brick_chiseled", "pickaxe", 1.5F, "minecraft:stonebrick/3", "minecraft:stonebrick/3"));
+
+        blockReg.register(new BlockStoneInfested("mc.infested_stone",               "pickaxe", 1.5F, "minecraft:monster_egg/0", "minecraft:stone/0"));
+        blockReg.register(new BlockStoneInfested("mc.infested_cobblestone",         "pickaxe", 1.5F, "minecraft:monster_egg/1", "minecraft:cobblestone"));
+        blockReg.register(new BlockStoneInfested("mc.infested_stone_brick",         "pickaxe", 1.5F, "minecraft:monster_egg/2", "minecraft:stonebrick/0"));
+        blockReg.register(new BlockStoneInfested("mc.infested_stone_brick_mossy",   "pickaxe", 1.5F, "minecraft:monster_egg/3", "minecraft:stonebrick/1"));
+        blockReg.register(new BlockStoneInfested("mc.infested_stone_brick_cracked", "pickaxe", 1.5F, "minecraft:monster_egg/4", "minecraft:stonebrick/2"));
+        blockReg.register(new BlockStoneInfested("mc.infested_stone_brick_chiseled","pickaxe", 1.5F, "minecraft:monster_egg/5", "minecraft:stonebrick/3"));
+
+        blockReg.register(new BlockStone("mc.dirt",        "shovel", 0.5F, "minecraft:dirt",    "minecraft:dirt", Material.GROUND).setSound(SoundType.GROUND));
+        blockReg.register(new BlockStone("mc.clay",        "shovel", 0.6F, "minecraft:clay",    "minecraft:clay_ball/0/4", Material.CLAY).setSound(SoundType.GROUND));
 
         blockReg.register(new BlockOre("mc.ore_coal",      2.0F, "minecraft:coal_ore",      "geoexpansion:mc.ore_cluster_coal"));
         blockReg.register(new BlockOre("mc.ore_iron",      2.0F, "minecraft:iron_ore",      "geoexpansion:mc.ore_cluster_iron"));
@@ -135,6 +180,11 @@ public class ModBlocks {
     @GameRegistry.ObjectHolder("tr.ore_copper")                 public static BlockOre oreTechRebornCopper;
     @GameRegistry.ObjectHolder("tr.ore_tin")                    public static BlockOre oreTechRebornTin;
 
+    @GameRegistry.ObjectHolder("tr.ore_tungsten")               public static BlockOre oreTechRebornTungsten;
+    @GameRegistry.ObjectHolder("tr.ore_sheldonite")             public static BlockOre oreTechRebornSheldonite;
+    @GameRegistry.ObjectHolder("tr.ore_peridot")                public static BlockOre oreTechRebornPeridot;
+    @GameRegistry.ObjectHolder("tr.ore_sodalite")               public static BlockOre oreTechRebornSodalite;
+
     @GameRegistry.ObjectHolder("fr.ore_apatite")                public static BlockOre oreForestryApatite;
     @GameRegistry.ObjectHolder("fr.ore_copper")                 public static BlockOre oreForestryCopper;
     @GameRegistry.ObjectHolder("fr.ore_tin")                    public static BlockOre oreForestryTin;
@@ -168,11 +218,25 @@ public class ModBlocks {
     @GameRegistry.ObjectHolder("mk.ore_copper")                 public static BlockOre oreMekanismCopper;
     @GameRegistry.ObjectHolder("mk.ore_tin")                    public static BlockOre oreMekanismTin;
 
+    @GameRegistry.ObjectHolder("nc.ore_copper")                 public static BlockOre oreNuclearCraftCopper;
+    @GameRegistry.ObjectHolder("nc.ore_tin")                    public static BlockOre oreNuclearCraftTin;
+    @GameRegistry.ObjectHolder("nc.ore_lead")                   public static BlockOre oreNuclearCraftLead;
+    @GameRegistry.ObjectHolder("nc.ore_thorium")                public static BlockOre oreNuclearCraftThorium;
+    @GameRegistry.ObjectHolder("nc.ore_uranium")                public static BlockOre oreNuclearCraftUranium;
+    @GameRegistry.ObjectHolder("nc.ore_boron")                  public static BlockOre oreNuclearCraftBoron;
+    @GameRegistry.ObjectHolder("nc.ore_lithium")                public static BlockOre oreNuclearCraftLithium;
+    @GameRegistry.ObjectHolder("nc.ore_magnesium")              public static BlockOre oreNuclearCraftMagnesium;
+
+    @GameRegistry.ObjectHolder("de.ore_draconium")              public static BlockOre oreDraconicEvolutionDraconium;
+
     @GameRegistry.ObjectHolder("qk.basalt")                     public static BlockStone stoneQuarkBasalt;
     @GameRegistry.ObjectHolder("qk.marble")                     public static BlockStone stoneQuarkMarble;
     @GameRegistry.ObjectHolder("qk.limestone")                  public static BlockStone stoneQuarkLimestone;
     @GameRegistry.ObjectHolder("qk.jasper")                     public static BlockStone stoneQuarkJasper;
     @GameRegistry.ObjectHolder("qk.slate")                      public static BlockStone stoneQuarkSlate;
+    @GameRegistry.ObjectHolder("qk.brimstone")                  public static BlockStone stoneQuarkBrimstone;
+    @GameRegistry.ObjectHolder("qk.permafrost")                 public static BlockStone stoneQuarkPermafrost;
+    @GameRegistry.ObjectHolder("qk.cobbedstone")                public static BlockStone stoneQuarkCobbedstone;
 
     public static List<BlockStone> compatStoneList = new ArrayList<>();
     public static List<BlockOre> compatOreList = new ArrayList<>();
@@ -183,6 +247,9 @@ public class ModBlocks {
         if (stoneQuarkLimestone != null) {                              compatStoneList.add(stoneQuarkLimestone); }
         if (stoneQuarkJasper != null) {                                 compatStoneList.add(stoneQuarkJasper); }
         if (stoneQuarkSlate != null) {                                  compatStoneList.add(stoneQuarkSlate); }
+        if (stoneQuarkBrimstone != null) {                              compatStoneList.add(stoneQuarkBrimstone); }
+        if (stoneQuarkPermafrost != null) {                             compatStoneList.add(stoneQuarkPermafrost); }
+        if (stoneQuarkCobbedstone != null) {                            compatStoneList.add(stoneQuarkCobbedstone); }
     }
 
     private static void addCompatOres() {
@@ -242,6 +309,10 @@ public class ModBlocks {
         if (oreTechRebornSilver != null) {                              compatOreList.add(oreTechRebornSilver);}
         if (oreTechRebornCopper != null) {                              compatOreList.add(oreTechRebornCopper);}
         if (oreTechRebornTin != null) {                                 compatOreList.add(oreTechRebornTin);}
+        if (oreTechRebornTungsten != null) {                            compatOreList.add(oreTechRebornTungsten);}
+        if (oreTechRebornSheldonite != null) {                          compatOreList.add(oreTechRebornSheldonite);}
+        if (oreTechRebornPeridot != null) {                             compatOreList.add(oreTechRebornPeridot);}
+        if (oreTechRebornSodalite != null) {                            compatOreList.add(oreTechRebornSodalite);}
 
         if (oreForestryApatite != null) {                               compatOreList.add(oreForestryApatite);}
         if (oreForestryCopper != null) {                                compatOreList.add(oreForestryCopper);}
@@ -275,6 +346,17 @@ public class ModBlocks {
         if (oreMekanismOsmium != null) {                                compatOreList.add(oreMekanismOsmium);}
         if (oreMekanismCopper != null) {                                compatOreList.add(oreMekanismCopper);}
         if (oreMekanismTin != null) {                                   compatOreList.add(oreMekanismTin);}
+
+        if (oreNuclearCraftCopper != null) {                            compatOreList.add(oreNuclearCraftCopper);}
+        if (oreNuclearCraftTin != null) {                               compatOreList.add(oreNuclearCraftTin);}
+        if (oreNuclearCraftLead != null) {                              compatOreList.add(oreNuclearCraftLead);}
+        if (oreNuclearCraftThorium != null) {                           compatOreList.add(oreNuclearCraftThorium);}
+        if (oreNuclearCraftUranium != null) {                           compatOreList.add(oreNuclearCraftUranium);}
+        if (oreNuclearCraftBoron != null) {                             compatOreList.add(oreNuclearCraftBoron);}
+        if (oreNuclearCraftLithium != null) {                           compatOreList.add(oreNuclearCraftLithium);}
+        if (oreNuclearCraftMagnesium != null) {                         compatOreList.add(oreNuclearCraftMagnesium);}
+
+        if (oreDraconicEvolutionDraconium != null) {                    compatOreList.add(oreDraconicEvolutionDraconium);}
     }
 
     public static void addAllCompat() {
@@ -291,6 +373,9 @@ public class ModBlocks {
                     register(blockReg, "stoneLimestone", new BlockStone("qk.limestone", "pickaxe", 1.5F, "quark:limestone", "quark:limestone"));
                     register(blockReg, "stoneJasper", new BlockStone("qk.jasper", "pickaxe", 1.5F, "quark:jasper", "quark:jasper"));
                     register(blockReg, "stoneSlate", new BlockStone("qk.slate", "pickaxe", 1.5F, "quark:slate", "quark:slate"));
+                    register(blockReg, "stoneBrimstone", new BlockStone("qk.brimstone", "pickaxe", 1.5F, "quark:biome_cobblestone/0", "quark:biome_cobblestone/0"));
+                    register(blockReg, "stonePermafrost", new BlockStone("qk.permafrost", "pickaxe", 1.5F, "quark:biome_cobblestone/1", "quark:biome_cobblestone/1"));
+                    register(blockReg, "stoneCobbedstone", new BlockStone("qk.cobbedstone", "pickaxe", 1.5F, "quark:biome_cobblestone/2", "quark:biome_cobblestone/2"));
                     break;
                 case "basemetals":
                     register(blockReg, "oreAntimony", new BlockOre("bm.ore_antimony", 2.0F, "basemetals:antimony_ore", "geoexpansion:bm.ore_cluster_antimony"));
@@ -353,6 +438,10 @@ public class ModBlocks {
                     register(blockReg, "oreSilver", new BlockOre("tr.ore_silver", 2.0F, "techreborn:ore/13", "geoexpansion:tr.ore_cluster_silver"));
                     register(blockReg, "oreCopper", new BlockOre("tr.ore_copper", 2.0F, "techreborn:ore2/0", "geoexpansion:tr.ore_cluster_copper"));
                     register(blockReg, "oreTin", new BlockOre("tr.ore_tin", 2.0F, "techreborn:ore2/1", "geoexpansion:tr.ore_cluster_tin"));
+                    register(blockReg, "oreTungsten", new BlockOre("tr.ore_tungsten", 2.0F, "techreborn:ore/8", "geoexpansion:tr.ore_cluster_tungsten"));
+                    register(blockReg, "oreSheldonite", new BlockOre("tr.ore_sheldonite", 2.0F, "techreborn:ore/9", "geoexpansion:tr.ore_cluster_sheldonite"));
+                    register(blockReg, "orePeridot", new BlockOre("tr.ore_peridot", 2.0F, "techreborn:ore/10", "geoexpansion:tr.crystal_cluster_peridot"));
+                    register(blockReg, "oreSodalite", new BlockOre("tr.ore_sodalite", 2.0F, "techreborn:ore/11", "geoexpansion:tr.dust_cluster_sodalite"));
                     break;
                 case "forestry":
                     register(blockReg, "oreApatite", new BlockOre("fr.ore_apatite", 2.0F, "forestry:resources/0", "geoexpansion:fr.crystal_cluster_apatite"));
@@ -381,25 +470,43 @@ public class ModBlocks {
                     register(blockReg, "oreClay", new BlockOre("ad.ore_clay", 2.0F, "aroma1997sdimension:miningore/1", "geoexpansion:ad.dust_cluster_clay"));
                     break;
                 case "embers":
-                    register(blockReg, "oreCopper", new BlockOre("em.ore_copper", 2.0F, "embers:ore_copper", "geoexpansion.em.ore_cluster_copper"));
-                    register(blockReg, "oreLead", new BlockOre("em.ore_lead", 2.0F, "embers:ore_lead", "geoexpansion.em.ore_cluster_lead"));
-                    register(blockReg, "oreSilver", new BlockOre("em.ore_silver", 2.0F, "embers:ore_silver", "geoexpansion.em.ore_cluster_silver"));
-                    register(blockReg, "oreAluminum", new BlockOre("em.ore_aluminum", 2.0F, "embers:ore_aluminum", "geoexpansion.em.ore_cluster_aluminum"));
-                    register(blockReg, "oreNickel", new BlockOre("em.ore_nickel", 2.0F, "embers:ore_nickel", "geoexpansion.em.ore_cluster_nickel"));
-                    register(blockReg, "oreTin", new BlockOre("em.ore_tin", 2.0F, "embers:ore_tin", "geoexpansion.em.ore_cluster_tin"));
-                    register(blockReg, "oreQuartz", new BlockOre("em.ore_quartz", 2.0F, "embers:ore_quartz", "geoexpansion.em.crystal_cluster_quartz"));
+                    register(blockReg, "oreCopper", new BlockOre("em.ore_copper", 2.0F, "embers:ore_copper", "geoexpansion:em.ore_cluster_copper"));
+                    register(blockReg, "oreLead", new BlockOre("em.ore_lead", 2.0F, "embers:ore_lead", "geoexpansion:em.ore_cluster_lead"));
+                    register(blockReg, "oreSilver", new BlockOre("em.ore_silver", 2.0F, "embers:ore_silver", "geoexpansion:em.ore_cluster_silver"));
+                    register(blockReg, "oreAluminum", new BlockOre("em.ore_aluminum", 2.0F, "embers:ore_aluminum", "geoexpansion:em.ore_cluster_aluminum"));
+                    register(blockReg, "oreNickel", new BlockOre("em.ore_nickel", 2.0F, "embers:ore_nickel", "geoexpansion:em.ore_cluster_nickel"));
+                    register(blockReg, "oreTin", new BlockOre("em.ore_tin", 2.0F, "embers:ore_tin", "geoexpansion:em.ore_cluster_tin"));
+                    register(blockReg, "oreQuartz", new BlockOre("em.ore_quartz", 2.0F, "embers:ore_quartz", "geoexpansion:em.crystal_cluster_quartz"));
                     break;
                 case "mekanism":
-                    register(blockReg, "oreOsmium", new BlockOre("mk.ore_osmium", 2.0F, "mekanism:oreblock/0", "geoexpansion.mk.ore_cluster_osmium"));
-                    register(blockReg, "oreCopper", new BlockOre("mk.ore_copper", 2.0F, "mekanism:oreblock/1", "geoexpansion.mk.ore_cluster_copper"));
-                    register(blockReg, "oreTin", new BlockOre("mk.ore_tin", 2.0F, "mekanism:oreblock/2", "geoexpansion.mk.ore_cluster_tin"));
+                    register(blockReg, "oreOsmium", new BlockOre("mk.ore_osmium", 2.0F, "mekanism:oreblock/0", "geoexpansion:mk.ore_cluster_osmium"));
+                    register(blockReg, "oreCopper", new BlockOre("mk.ore_copper", 2.0F, "mekanism:oreblock/1", "geoexpansion:mk.ore_cluster_copper"));
+                    register(blockReg, "oreTin", new BlockOre("mk.ore_tin", 2.0F, "mekanism:oreblock/2", "geoexpansion:mk.ore_cluster_tin"));
+                    break;
+                case "nuclearcraft":
+                    register(blockReg, "oreCopper", new BlockOre("nc.ore_copper", 2.0F, "nuclearcraft:ore/0", "geoexpansion:nc.ore_cluster_copper"));
+                    register(blockReg, "oreTin", new BlockOre("nc.ore_tin", 2.0F, "nuclearcraft:ore/1", "geoexpansion:nc.ore_cluster_tin"));
+                    register(blockReg, "oreLead", new BlockOre("nc.ore_lead", 2.0F, "nuclearcraft:ore/2", "geoexpansion:nc.ore_cluster_lead"));
+                    register(blockReg, "oreThorium", new BlockOre("nc.ore_thorium", 2.0F, "nuclearcraft:ore/3", "geoexpansion:nc.ore_cluster_thorium"));
+                    register(blockReg, "oreUranium", new BlockOre("nc.ore_uranium", 2.0F, "nuclearcraft:ore/4", "geoexpansion:nc.ore_cluster_uranium"));
+                    register(blockReg, "oreBoron", new BlockOre("nc.ore_boron", 2.0F, "nuclearcraft:ore/5", "geoexpansion:nc.ore_cluster_boron"));
+                    register(blockReg, "oreLithium", new BlockOre("nc.ore_lithium", 2.0F, "nuclearcraft:ore/6", "geoexpansion:nc.ore_cluster_lithium"));
+                    register(blockReg, "oreMagnesium", new BlockOre("nc.ore_magnesium", 2.0F, "nuclearcraft:ore/7", "geoexpansion:nc.ore_cluster_magnesium"));
+                    break;
+                case "draconicevolution":
+                    register(blockReg, "oreDraconium", new BlockOre("de.ore_draconium", 2.0F, "draconicevolution:draconium_ore/0", "geoexpansion:de.dust_cluster_draconium"));
                     break;
             }
         }
     }
 
     private static void register(IForgeRegistry<Block> blockReg, String oreDict, Block block) {
-        if (!CompatHandler.isRegistered(oreDict)) {
+        if (Conf.compat_config.ONLY_REGISTER_UNIQUE_OREDIC) {
+            if (!CompatHandler.isRegistered(oreDict)) {
+                CompatHandler.setRegistered(oreDict);
+                blockReg.register(block);
+            }
+        } else {
             CompatHandler.setRegistered(oreDict);
             blockReg.register(block);
         }

@@ -46,8 +46,10 @@ public class CompatHandler {
         oresRegistered.put("oreClathrateRedstone",      false);
         oresRegistered.put("oreClay",                   false);
         oresRegistered.put("oreCopper",                 false);
+        oresRegistered.put("oreDraconium",              false);
         oresRegistered.put("oreGalena",                 false);
         oresRegistered.put("oreIridium",                false);
+        oresRegistered.put("oreLithium",                false);
         oresRegistered.put("oreLead",                   false);
         oresRegistered.put("oreMagnesium",              false);
         oresRegistered.put("oreManganese",              false);
@@ -55,13 +57,16 @@ public class CompatHandler {
         oresRegistered.put("oreMithril",                false);
         oresRegistered.put("oreNickel",                 false);
         oresRegistered.put("oreOsmium",                 false);
+        oresRegistered.put("orePeridot",                false);
         oresRegistered.put("orePlatinum",               false);
         oresRegistered.put("orePlutonium",              false);
         oresRegistered.put("oreQuartz",                 false);
         oresRegistered.put("oreRuby",                   false);
         oresRegistered.put("oreRutile",                 false);
         oresRegistered.put("oreSapphire",               false);
+        oresRegistered.put("oreSheldonite",             false);
         oresRegistered.put("oreSilver",                 false);
+        oresRegistered.put("oreSodalite",               false);
         oresRegistered.put("oreSticky",                 false);
         oresRegistered.put("oreTantalum",               false);
         oresRegistered.put("oreTeslatite",              false);
@@ -79,7 +84,9 @@ public class CompatHandler {
         oresRegistered.put("stoneLimestone",            false);
         oresRegistered.put("stoneJasper",               false);
         oresRegistered.put("stoneSlate",                false);
-
+        oresRegistered.put("stoneBrimstone",            false);
+        oresRegistered.put("stonePermafrost",           false);
+        oresRegistered.put("stoneCobbedstone",          false);
         //oresRegistered.put("",        false);
     }
 

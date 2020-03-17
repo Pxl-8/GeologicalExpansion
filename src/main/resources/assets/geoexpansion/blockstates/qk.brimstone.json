@@ -1,0 +1,19 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "geoexpansion:tinted_block",
+    "textures": {
+      "particle": "quark:blocks/fire_stone",
+      "all": "quark:blocks/fire_stone"
+    },
+    "uvlock": true
+  },
+  "variants": {
+    "density": {
+      "soft": {},
+      "firm": {},
+      "solid": {},
+      "hard": {}
+    }
+  }
+}

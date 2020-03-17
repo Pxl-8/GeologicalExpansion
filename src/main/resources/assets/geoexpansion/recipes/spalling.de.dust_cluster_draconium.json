@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "minecraft:item_exists",
+      "item": "geoexpansion:de.dust_cluster_draconium"
+    }
+  ],
+  "ingredients":
+  [
+    {
+      "type": "forge:ore_dict",
+      "ore": "toolSpallingHammer"
+    },
+    {
+      "item": "geoexpansion:de.dust_cluster_draconium"
+    }
+  ],
+  "result":
+  {
+    "item": "draconicevolution:draconium_dust",
+    "count": 2,
+    "data": 0
+  }
+}

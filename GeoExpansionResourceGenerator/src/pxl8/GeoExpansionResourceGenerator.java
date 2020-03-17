@@ -14,8 +14,23 @@ public class GeoExpansionResourceGenerator {
         resourceMap.put("mc.andesite",                  "minecraft:blocks/stone_andesite");
         resourceMap.put("mc.diorite",                   "minecraft:blocks/stone_diorite");
         resourceMap.put("mc.granite",                   "minecraft:blocks/stone_granite");
+
+        resourceMap.put("mc.cobblestone",               "minecraft:blocks/cobblestone");
+        resourceMap.put("mc.cobblestone_mossy",         "minecraft:blocks/cobblestone_mossy");
+
+        resourceMap.put("mc.stone_brick",               "minecraft:blocks/stonebrick");
+        resourceMap.put("mc.stone_brick_mossy",         "minecraft:blocks/stonebrick_mossy");
+        resourceMap.put("mc.stone_brick_cracked",       "minecraft:blocks/stonebrick_cracked");
+        resourceMap.put("mc.stone_brick_chiseled",      "minecraft:blocks/stonebrick_carved");
+
+        resourceMap.put("mc.infested_stone",                "minecraft:blocks/stone");
+        resourceMap.put("mc.infested_cobblestone",          "minecraft:blocks/cobblestone");
+        resourceMap.put("mc.infested_stone_brick",          "minecraft:blocks/stonebrick");
+        resourceMap.put("mc.infested_stone_brick_mossy",    "minecraft:blocks/stonebrick_mossy");
+        resourceMap.put("mc.infested_stone_brick_cracked",  "minecraft:blocks/stonebrick_cracked");
+        resourceMap.put("mc.infested_stone_brick_chiseled", "minecraft:blocks/stonebrick_carved");
+
         resourceMap.put("mc.dirt",                      "minecraft:blocks/dirt");
-        resourceMap.put("mc.gravel",                    "minecraft:blocks/gravel");
         resourceMap.put("mc.clay",                      "minecraft:blocks/clay");
 
         resourceMap.put("mc.ore_coal",                  "minecraft:blocks/coal_ore");
@@ -84,6 +99,11 @@ public class GeoExpansionResourceGenerator {
         resourceMap.put("tr.ore_copper",                "techreborn:blocks/ore/copper_ore");
         resourceMap.put("tr.ore_tin",                   "techreborn:blocks/ore/tin_ore");
 
+        resourceMap.put("tr.ore_tungsten",              "techreborn:blocks/ore/tungsten_ore_stone");
+        resourceMap.put("tr.ore_sheldonite",            "techreborn:blocks/ore/sheldonite_ore_stone");
+        resourceMap.put("tr.ore_peridot",               "techreborn:blocks/ore/peridot_ore_stone");
+        resourceMap.put("tr.ore_sodalite",              "techreborn:blocks/ore/sodalite_ore_stone");
+
         resourceMap.put("fr.ore_apatite",               "forestry:blocks/ores/apatite");
         resourceMap.put("fr.ore_copper",                "forestry:blocks/ores/copper");
         resourceMap.put("fr.ore_tin",                   "forestry:blocks/ores/tin");
@@ -117,12 +137,25 @@ public class GeoExpansionResourceGenerator {
         resourceMap.put("ad.ore_sticky",                "aroma1997sdimension:blocks/stickyore");
         resourceMap.put("ad.ore_clay",                  "aroma1997sdimension:blocks/clayore");
 
+        resourceMap.put("nc.ore_copper",                "geoexpansion:blocks/nuclearcraft_override/ore_copper");
+        resourceMap.put("nc.ore_tin",                   "geoexpansion:blocks/nuclearcraft_override/ore_tin");
+        resourceMap.put("nc.ore_lead",                  "geoexpansion:blocks/nuclearcraft_override/ore_lead");
+        resourceMap.put("nc.ore_thorium",               "geoexpansion:blocks/nuclearcraft_override/ore_thorium");
+        resourceMap.put("nc.ore_uranium",               "geoexpansion:blocks/nuclearcraft_override/ore_uranium");
+        resourceMap.put("nc.ore_boron",                 "geoexpansion:blocks/nuclearcraft_override/ore_boron");
+        resourceMap.put("nc.ore_lithium",               "geoexpansion:blocks/nuclearcraft_override/ore_lithium");
+        resourceMap.put("nc.ore_magnesium",             "geoexpansion:blocks/nuclearcraft_override/ore_magnesium");
+
+        resourceMap.put("de.ore_draconium",             "draconicevolution:blocks/animated/draconium_ore");
+
         resourceMap.put("qk.basalt",                    "quark:blocks/stone_basalt");
         resourceMap.put("qk.marble",                    "quark:blocks/stone_marble");
         resourceMap.put("qk.limestone",                 "quark:blocks/stone_limestone");
         resourceMap.put("qk.jasper",                    "quark:blocks/stone_jasper");
         resourceMap.put("qk.slate",                     "quark:blocks/stone_slate");
-
+        resourceMap.put("qk.brimstone",                 "quark:blocks/fire_stone");
+        resourceMap.put("qk.permafrost",                "quark:blocks/icy_stone");
+        resourceMap.put("qk.cobbedstone",               "quark:blocks/cobbed_stone");
         //resourceMap.put("", "");
     }
 
@@ -195,12 +228,23 @@ public class GeoExpansionResourceGenerator {
         spallingMap.put("tr.ore_cluster_silver",                "techreborn:dust/47/2");
         spallingMap.put("tr.ore_cluster_copper",                "techreborn:dust/14/2");
         spallingMap.put("tr.ore_cluster_tin",                   "techreborn:dust/53/2");
+        spallingMap.put("tr.ore_cluster_tungsten",              "techreborn:dust/55/2");
+        spallingMap.put("tr.ore_cluster_sheldonite",            "techreborn:dust/38/2");
         spallingMap.put("er.ore_cluster_yellorite",             "bigreactors:dustyellorium/0/2");
         spallingMap.put("mk.ore_cluster_osmium",                "mekanism:dust/2/2");
         spallingMap.put("mk.ore_cluster_copper",                "mekanism:dust/3/2");
         spallingMap.put("mk.ore_cluster_tin",                   "mekanism:dust/4/2");
+        spallingMap.put("nc.ore_cluster_copper",                "nuclearcraft:dust/0/2");
+        spallingMap.put("nc.ore_cluster_tin",                   "nuclearcraft:dust/1/2");
+        spallingMap.put("nc.ore_cluster_lead",                  "nuclearcraft:dust/2/2");
+        spallingMap.put("nc.ore_cluster_thorium",               "nuclearcraft:dust/3/2");
+        spallingMap.put("nc.ore_cluster_uranium",               "nuclearcraft:dust/4/2");
+        spallingMap.put("nc.ore_cluster_boron",                 "nuclearcraft:dust/5/2");
+        spallingMap.put("nc.ore_cluster_lithium",               "nuclearcraft:dust/6/2");
+        spallingMap.put("nc.ore_cluster_magnesium",             "nuclearcraft:dust/7/2");
         spallingMap.put("tr.crystal_cluster_ruby",              "techreborn:gem/0/2");
         spallingMap.put("tr.crystal_cluster_sapphire",          "techreborn:gem/1/2");
+        spallingMap.put("tr.crystal_cluster_peridot",           "techreborn:gem/2/2");
         spallingMap.put("fr.crystal_cluster_apatite",           "forestry:apatite/0/2");
         spallingMap.put("bp.crystal_cluster_ruby",              "bluepower:ruby_gem/0/2");
         spallingMap.put("bp.crystal_cluster_sapphire",          "bluepower:sapphire_gem/0/2");
@@ -209,9 +253,11 @@ public class GeoExpansionResourceGenerator {
         spallingMap.put("ae.crystal_cluster_charged_quartz",    "appliedenergistics2:material/1/2");
         spallingMap.put("em.crystal_cluster_quartz",            "minecraft:quartz/0/2");
         spallingMap.put("tf.fluid_cluster_redstone",            "thermalfoundation:material/893/2");
+        spallingMap.put("tr.dust_cluster_sodalite",             "techreborn:dust/48/8");
         spallingMap.put("bp.dust_cluster_teslatite",            "bluepower:teslatite_dust/0/2");
-        spallingMap.put("ad.dust_cluster_sticky",               "minecraft:slime_ball/0/2");
-        spallingMap.put("ad.dust_cluster_clay",                 "minecraft:clay_ball/0/2");
+        spallingMap.put("ad.dust_cluster_sticky",               "minecraft:slime_ball/0/4");
+        spallingMap.put("ad.dust_cluster_clay",                 "minecraft:clay_ball/0/4");
+        spallingMap.put("de.dust_cluster_draconium",            "draconicevolution:draconium_dust/0/2");
     }
 
     static void genResources() {

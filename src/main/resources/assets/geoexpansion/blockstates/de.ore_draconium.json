@@ -1,0 +1,19 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "geoexpansion:tinted_block",
+    "textures": {
+      "particle": "draconicevolution:blocks/animated/draconium_ore",
+      "all": "draconicevolution:blocks/animated/draconium_ore"
+    },
+    "uvlock": true
+  },
+  "variants": {
+    "density": {
+      "soft": {},
+      "firm": {},
+      "solid": {},
+      "hard": {}
+    }
+  }
+}

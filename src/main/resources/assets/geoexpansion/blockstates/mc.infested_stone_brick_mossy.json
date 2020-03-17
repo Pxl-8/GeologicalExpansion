@@ -1,0 +1,19 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "geoexpansion:tinted_block",
+    "textures": {
+      "particle": "minecraft:blocks/stonebrick_mossy",
+      "all": "minecraft:blocks/stonebrick_mossy"
+    },
+    "uvlock": true
+  },
+  "variants": {
+    "density": {
+      "soft": {},
+      "firm": {},
+      "solid": {},
+      "hard": {}
+    }
+  }
+}

@@ -159,6 +159,10 @@ public class ModItems {
         clusterColourMap.put("geoexpansion:tr.ore_cluster_silver",                  "0x6B7179");
         clusterColourMap.put("geoexpansion:tr.ore_cluster_copper",                  "0x4C6259");
         clusterColourMap.put("geoexpansion:tr.ore_cluster_tin",                     "0x7B8188");
+        clusterColourMap.put("geoexpansion:tr.ore_cluster_tungsten",                "0x2c241b");
+        clusterColourMap.put("geoexpansion:tr.ore_cluster_sheldonite",              "0x426166");
+        clusterColourMap.put("geoexpansion:tr.crystal_cluster_peridot",             "0x5f872f");
+        clusterColourMap.put("geoexpansion:tr.dust_cluster_sodalite",               "0x5087c3");
         clusterColourMap.put("geoexpansion:fr.crystal_cluster_apatite",             "0x88D1F5");
         clusterColourMap.put("geoexpansion:fr.ore_cluster_copper",                  "0x7B461F");
         clusterColourMap.put("geoexpansion:fr.ore_cluster_tin",                     "0x9C9A94");
@@ -185,6 +189,15 @@ public class ModItems {
         clusterColourMap.put("geoexpansion:mk.ore_cluster_osmium",                  "0x757A87");
         clusterColourMap.put("geoexpansion:mk.ore_cluster_copper",                  "0x7D5644");
         clusterColourMap.put("geoexpansion:mk.ore_cluster_tin",                     "0x8E8E8E");
+        clusterColourMap.put("geoexpansion:nc.ore_cluster_copper",                  "0x5a331d");
+        clusterColourMap.put("geoexpansion:nc.ore_cluster_tin",                     "0xc5c5ce");
+        clusterColourMap.put("geoexpansion:nc.ore_cluster_lead",                    "0x5e6e6e");
+        clusterColourMap.put("geoexpansion:nc.ore_cluster_thorium",                 "0x2c2c2c");
+        clusterColourMap.put("geoexpansion:nc.ore_cluster_uranium",                 "0x364d35");
+        clusterColourMap.put("geoexpansion:nc.ore_cluster_boron",                   "0x575757");
+        clusterColourMap.put("geoexpansion:nc.ore_cluster_lithium",                 "0xcdcdcd");
+        clusterColourMap.put("geoexpansion:nc.ore_cluster_magnesium",               "0xdbc1da");
+        clusterColourMap.put("geoexpansion:de.dust_cluster_draconium",              "0x3e1661");
     }
 
     public static void registerModItems(IForgeRegistry<Item> itemReg) {
@@ -269,6 +282,10 @@ public class ModItems {
     @GameRegistry.ObjectHolder("tr.ore_cluster_silver")                 public static ItemOreCluster clusterTechRebornSilver;
     @GameRegistry.ObjectHolder("tr.ore_cluster_copper")                 public static ItemOreCluster clusterTechRebornCopper;
     @GameRegistry.ObjectHolder("tr.ore_cluster_tin")                    public static ItemOreCluster clusterTechRebornTin;
+    @GameRegistry.ObjectHolder("tr.ore_cluster_tungsten")               public static ItemOreCluster clusterTechRebornTungsten;
+    @GameRegistry.ObjectHolder("tr.ore_cluster_sheldonite")             public static ItemOreCluster clusterTechRebornSheldonite;
+    @GameRegistry.ObjectHolder("tr.crystal_cluster_peridot")            public static ItemCrystalCluster clusterTechRebornPeridot;
+    @GameRegistry.ObjectHolder("tr.dust_cluster_sodalite")              public static ItemDustCluster clusterTechRebornSodalite;
 
     @GameRegistry.ObjectHolder("fr.crystal_cluster_apatite")            public static ItemCrystalCluster clusterForestryApatite;
     @GameRegistry.ObjectHolder("fr.ore_cluster_copper")                 public static ItemOreCluster clusterForestryCopper;
@@ -302,6 +319,17 @@ public class ModItems {
     @GameRegistry.ObjectHolder("mk.ore_cluster_osmium")                 public static ItemOreCluster clusterMekanismOsmium;
     @GameRegistry.ObjectHolder("mk.ore_cluster_copper")                 public static ItemOreCluster clusterMekanismCopper;
     @GameRegistry.ObjectHolder("mk.ore_cluster_tin")                    public static ItemOreCluster clusterMekanismTin;
+
+    @GameRegistry.ObjectHolder("nc.ore_cluster_copper")                 public static ItemOreCluster clusterNuclearCraftCopper;
+    @GameRegistry.ObjectHolder("nc.ore_cluster_tin")                    public static ItemOreCluster clusterNuclearCraftTin;
+    @GameRegistry.ObjectHolder("nc.ore_cluster_lead")                   public static ItemOreCluster clusterNuclearCraftLead;
+    @GameRegistry.ObjectHolder("nc.ore_cluster_thorium")                public static ItemOreCluster clusterNuclearCraftThorium;
+    @GameRegistry.ObjectHolder("nc.ore_cluster_uranium")                public static ItemOreCluster clusterNuclearCraftUranium;
+    @GameRegistry.ObjectHolder("nc.ore_cluster_boron")                  public static ItemOreCluster clusterNuclearCraftBoron;
+    @GameRegistry.ObjectHolder("nc.ore_cluster_lithium")                public static ItemOreCluster clusterNuclearCraftLithium;
+    @GameRegistry.ObjectHolder("nc.ore_cluster_magnesium")              public static ItemOreCluster clusterNuclearCraftMagnesium;
+
+    @GameRegistry.ObjectHolder("de.dust_cluster_draconium")             public static ItemDustCluster clusterDraconicEvolutionDraconium;
 
     public static List<ItemOreCluster> oreClusterListCompat = new ArrayList<>();
     public static List<ItemCrystalCluster> crystalClusterListCompat = new ArrayList<>();
@@ -357,6 +385,8 @@ public class ModItems {
         if (ModBlocks.oreTechRebornSilver != null) {                                oreClusterListCompat.add(clusterTechRebornSilver);}
         if (ModBlocks.oreTechRebornCopper != null) {                                oreClusterListCompat.add(clusterTechRebornCopper);}
         if (ModBlocks.oreTechRebornTin != null) {                                   oreClusterListCompat.add(clusterTechRebornTin);}
+        if (ModBlocks.oreTechRebornTungsten != null) {                              oreClusterListCompat.add(clusterTechRebornTungsten);}
+        if (ModBlocks.oreTechRebornSheldonite != null) {                            oreClusterListCompat.add(clusterTechRebornSheldonite);}
         if (ModBlocks.oreForestryCopper != null) {                                  oreClusterListCompat.add(clusterForestryCopper);}
         if (ModBlocks.oreForestryTin != null) {                                     oreClusterListCompat.add(clusterForestryTin);}
         if (ModBlocks.oreBluePowerCopper != null) {                                 oreClusterListCompat.add(clusterBluePowerCopper);}
@@ -373,10 +403,19 @@ public class ModItems {
         if (ModBlocks.oreMekanismOsmium != null) {                                  oreClusterListCompat.add(clusterMekanismOsmium);}
         if (ModBlocks.oreMekanismCopper != null) {                                  oreClusterListCompat.add(clusterMekanismCopper);}
         if (ModBlocks.oreMekanismTin != null) {                                     oreClusterListCompat.add(clusterMekanismTin);}
+        if (ModBlocks.oreNuclearCraftCopper != null) {                              oreClusterListCompat.add(clusterNuclearCraftCopper);}
+        if (ModBlocks.oreNuclearCraftTin != null) {                                 oreClusterListCompat.add(clusterNuclearCraftTin);}
+        if (ModBlocks.oreNuclearCraftLead != null) {                                oreClusterListCompat.add(clusterNuclearCraftLead);}
+        if (ModBlocks.oreNuclearCraftThorium != null) {                             oreClusterListCompat.add(clusterNuclearCraftThorium);}
+        if (ModBlocks.oreNuclearCraftUranium != null) {                             oreClusterListCompat.add(clusterNuclearCraftUranium);}
+        if (ModBlocks.oreNuclearCraftBoron != null) {                               oreClusterListCompat.add(clusterNuclearCraftBoron);}
+        if (ModBlocks.oreNuclearCraftLithium != null) {                             oreClusterListCompat.add(clusterNuclearCraftLithium);}
+        if (ModBlocks.oreNuclearCraftMagnesium != null) {                           oreClusterListCompat.add(clusterNuclearCraftMagnesium);}
     }
     private static void addCrystalClustersCompat() {
         if (ModBlocks.oreTechRebornRuby != null) {                                  crystalClusterListCompat.add(clusterTechRebornRuby);}
         if (ModBlocks.oreTechRebornSapphire != null) {                              crystalClusterListCompat.add(clusterTechRebornSapphire);}
+        if (ModBlocks.oreTechRebornPeridot != null) {                               crystalClusterListCompat.add(clusterTechRebornPeridot);}
         if (ModBlocks.oreForestryApatite != null) {                                 crystalClusterListCompat.add(clusterForestryApatite);}
         if (ModBlocks.oreBluePowerRuby != null) {                                   crystalClusterListCompat.add(clusterBluePowerRuby);}
         if (ModBlocks.oreBluePowerSapphire != null) {                               crystalClusterListCompat.add(clusterBluePowerSapphire);}
@@ -386,10 +425,13 @@ public class ModItems {
         if (ModBlocks.oreEmbersQuartz != null) {                                    crystalClusterListCompat.add(clusterEmbersQuartz);}
     }
     private static void addDustClustersCompat() {
+
+        if (ModBlocks.oreTechRebornSodalite != null) {                              dustClusterListCompat.add(clusterTechRebornSodalite);}
         if (ModBlocks.oreThermalFoundationClathrateRedstone != null) {              dustClusterListCompat.add(clusterThermalFoundationClathrateRedstone);}
         if (ModBlocks.oreBluePowerTeslatite != null) {                              dustClusterListCompat.add(clusterBluePowerTeslatite);}
         if (ModBlocks.oreAromaDimensionSticky != null) {                            dustClusterListCompat.add(clusterAromaDimensionSticky);}
         if (ModBlocks.oreAromaDimensionClay != null) {                              dustClusterListCompat.add(clusterAromaDimensionClay);}
+        if (ModBlocks.oreDraconicEvolutionDraconium != null) {                      dustClusterListCompat.add(clusterDraconicEvolutionDraconium);}
     }
 
     public static void addAllCompat() {
@@ -448,6 +490,8 @@ public class ModItems {
         register(itemReg, ModBlocks.oreTechRebornSilver,                new ItemOreCluster("tr.ore_cluster_silver",        "oreSilver",        "techreborn:ingot/11"));
         register(itemReg, ModBlocks.oreTechRebornCopper,                new ItemOreCluster("tr.ore_cluster_copper",        "oreCopper",        "techreborn:ingot/4"));
         register(itemReg, ModBlocks.oreTechRebornTin,                   new ItemOreCluster("tr.ore_cluster_tin",           "oreTin",           "techreborn:ingot/13"));
+        register(itemReg, ModBlocks.oreTechRebornTungsten,              new ItemOreCluster("tr.ore_cluster_tungsten",      "oreTungsten",      "techreborn:ingot/15"));
+        register(itemReg, ModBlocks.oreTechRebornSheldonite,            new ItemOreCluster("tr.ore_cluster_sheldonite",    "oreSheldonite",    "techreborn:ingot/10"));
         register(itemReg, ModBlocks.oreForestryCopper,                  new ItemOreCluster("fr.ore_cluster_copper",        "oreCopper",        "forestry:ingot_copper"));
         register(itemReg, ModBlocks.oreForestryTin,                     new ItemOreCluster("fr.ore_cluster_tin",           "oreTin",           "forestry:ingot_tin"));
         register(itemReg, ModBlocks.oreBluePowerCopper,                 new ItemOreCluster("bp.ore_cluster_copper",        "oreCopper",        "bluepower:copper_ingot"));
@@ -464,9 +508,18 @@ public class ModItems {
         register(itemReg, ModBlocks.oreMekanismOsmium,                  new ItemOreCluster("mk.ore_cluster_osmium",        "oreOsmium",        "mekanism:ingot/1"));
         register(itemReg, ModBlocks.oreMekanismCopper,                  new ItemOreCluster("mk.ore_cluster_copper",        "oreCopper",        "mekanism:ingot/5"));
         register(itemReg, ModBlocks.oreMekanismTin,                     new ItemOreCluster("mk.ore_cluster_tin",           "oreTin",           "mekanism:ingot/6"));
+        register(itemReg, ModBlocks.oreNuclearCraftCopper,              new ItemOreCluster("nc.ore_cluster_copper",        "oreCopper",        "nuclearcraft:ingot/0"));
+        register(itemReg, ModBlocks.oreNuclearCraftTin,                 new ItemOreCluster("nc.ore_cluster_tin",           "oreTin",           "nuclearcraft:ingot/1"));
+        register(itemReg, ModBlocks.oreNuclearCraftLead,                new ItemOreCluster("nc.ore_cluster_lead",          "oreLead",          "nuclearcraft:ingot/2"));
+        register(itemReg, ModBlocks.oreNuclearCraftThorium,             new ItemOreCluster("nc.ore_cluster_thorium",       "oreThorium",       "nuclearcraft:ingot/3"));
+        register(itemReg, ModBlocks.oreNuclearCraftUranium,             new ItemOreCluster("nc.ore_cluster_uranium",       "oreUranium",       "nuclearcraft:ingot/4"));
+        register(itemReg, ModBlocks.oreNuclearCraftBoron,               new ItemOreCluster("nc.ore_cluster_boron",         "oreBoron",         "nuclearcraft:ingot/5"));
+        register(itemReg, ModBlocks.oreNuclearCraftLithium,             new ItemOreCluster("nc.ore_cluster_lithium",       "oreLithium",       "nuclearcraft:ingot/6"));
+        register(itemReg, ModBlocks.oreNuclearCraftMagnesium,           new ItemOreCluster("nc.ore_cluster_magnesium",     "oreMagnesium",     "nuclearcraft:ingot/7"));
 
         register(itemReg, ModBlocks.oreTechRebornRuby,                          new ItemCrystalCluster("tr.crystal_cluster_ruby",              "oreRuby",                  null));
         register(itemReg, ModBlocks.oreTechRebornSapphire,                      new ItemCrystalCluster("tr.crystal_cluster_sapphire",          "oreSapphire",              null));
+        register(itemReg, ModBlocks.oreTechRebornPeridot,                       new ItemCrystalCluster("tr.crystal_cluster_peridot",           "orePeridot",               null));
         register(itemReg, ModBlocks.oreForestryApatite,                         new ItemCrystalCluster("fr.crystal_cluster_apatite",           "oreApatite",               null));
         register(itemReg, ModBlocks.oreBluePowerRuby,                           new ItemCrystalCluster("bp.crystal_cluster_ruby",              "oreRuby",                  null));
         register(itemReg, ModBlocks.oreBluePowerSapphire,                       new ItemCrystalCluster("bp.crystal_cluster_sapphire",          "oreSapphire",              null));
@@ -475,11 +528,12 @@ public class ModItems {
         register(itemReg, ModBlocks.oreAppliedEnergisticsChargedCertusQuartz,   new ItemCrystalCluster("ae.crystal_cluster_charged_quartz",    "oreChargedCertusQuartz",   null));
         register(itemReg, ModBlocks.oreEmbersQuartz,                            new ItemCrystalCluster("em.crystal_cluster_quartz",            "oreQuartz",                null));
 
-
         register(itemReg, ModBlocks.oreThermalFoundationClathrateRedstone,  new ItemDustCluster("tf.fluid_cluster_redstone",   "oreClathrateRedstone",     null));
         register(itemReg, ModBlocks.oreBluePowerTeslatite,                  new ItemDustCluster("bp.dust_cluster_teslatite",   "oreTeslatite",             null));
-        register(itemReg, ModBlocks.oreAromaDimensionSticky,                new ItemDustCluster("ad.dust_cluster_sticky",      "oreSticky",                "minecraft:slime_ball"));
-        register(itemReg, ModBlocks.oreAromaDimensionClay,                  new ItemDustCluster("ad.dust_cluster_clay",        "oreClay",                  "minecraft:clay_ball"));
+        register(itemReg, ModBlocks.oreAromaDimensionSticky,                new ItemDustCluster("ad.dust_cluster_sticky",      "oreSticky",                "minecraft:slime_ball/0/4"));
+        register(itemReg, ModBlocks.oreAromaDimensionClay,                  new ItemDustCluster("ad.dust_cluster_clay",        "oreClay",                  "minecraft:clay"));
+        register(itemReg, ModBlocks.oreTechRebornSodalite,                  new ItemDustCluster("tr.dust_cluster_sodalite",    "oreSodalite",              null));
+        register(itemReg, ModBlocks.oreDraconicEvolutionDraconium,          new ItemDustCluster("de.dust_cluster_draconium",   "oreDraconium",             "draconicevolution:draconium_ingot"));
     }
 
     private static void register(IForgeRegistry<Item> itemReg, Block ore, Item item) {

@@ -70,6 +70,11 @@
 |oreSilver                       |techreborn:ore/13                           |techreborn:ingot/11                 |techreborn:dust/47                          |techreborn:blocks/ore/silver_ore
 |oreCopper                       |techreborn:ore2/0                           |techreborn:ingot/4                  |techreborn:dust/14                          |techreborn:blocks/ore/copper_ore
 |oreTin                          |techreborn:ore2/1                           |techreborn:ingot/13                 |techreborn:dust/53                          |techreborn:blocks/ore/tin_ore
+|
+|oreTungsten                     |techreborn:ore/8                            |techreborn:ingot/15                 |techreborn:dust/55                          |techreborn:blocks/ore/tungsten_ore_stone
+|oreSheldonite                   |techreborn:ore/9                            |techreborn:ingot/10                 |techreborn:dust/38                          |techreborn:blocks/ore/sheldonite_ore_stone
+|orePeridot                      |techreborn:ore/10                           |null                                |techreborn:gem/2                            |techreborn:blocks/ore/peridot_ore_stone
+|oreSodalite                     |techreborn:ore/11                           |null                                |techreborn:dust/48                          |techreborn:blocks/ore/sodalite_ore_stone
 |# **Forestry** fr.
 |oreApatite                      |forestry:resources/0                        |null                                |forestry:apatite                            |forestry:blocks/ores/apatite
 |oreCopper                       |forestry:resources/1                        |forestry:ingot_copper               |null                                        |forestry:blocks/ores/copper
@@ -105,14 +110,27 @@
 |oreOsmium                       |mekanism:oreblock/0                         |mekanism:ingot/1                    |mekanism:dust/2                             |mekanism:blocks/osmiumore
 |oreCopper                       |mekanism:oreblock/1                         |mekanism:ingot/5                    |mekanism:dust/3                             |mekanism:blocks/copperore
 |oreTin                          |mekanism:oreblock/2                         |mekanism:ingot/6                    |mekanism:dust/4                             |mekanism:blocks/tinore
+|# **NuclearCraft** nc.
+|oreCopper                       |nuclearcraft:ore/0                          |nuclearcraft:ingot/0                |nuclearcraft:dust/0                         |nuclearcraft:blocks/ore/copper
+|oreTin                          |nuclearcraft:ore/1                          |nuclearcraft:ingot/1                |nuclearcraft:dust/1                         |nuclearcraft:blocks/ore/tin
+|oreLead                         |nuclearcraft:ore/2                          |nuclearcraft:ingot/2                |nuclearcraft:dust/2                         |nuclearcraft:blocks/ore/lead
+|oreThorium                      |nuclearcraft:ore/3                          |nuclearcraft:ingot/3                |nuclearcraft:dust/3                         |nuclearcraft:blocks/ore/thorium
+|oreUranium                      |nuclearcraft:ore/4                          |nuclearcraft:ingot/4                |nuclearcraft:dust/4                         |nuclearcraft:blocks/ore/uranium
+|oreBoron                        |nuclearcraft:ore/5                          |nuclearcraft:ingot/5                |nuclearcraft:dust/5                         |nuclearcraft:blocks/ore/boron
+|oreLithium                      |nuclearcraft:ore/6                          |nuclearcraft:ingot/6                |nuclearcraft:dust/6                         |nuclearcraft:blocks/ore/lithium
+|oreMagnesium                    |nuclearcraft:ore/7                          |nuclearcraft:ingot/7                |nuclearcraft:dust/7                         |nuclearcraft:blocks/ore/magnesium
+|# **Draconic Evolution** de.
+|oreDraconium                    |draconicevolution:draconium_ore/0           |draconicevolution:draconium_ingot   |draconicevolution:draconium_dust            |draconicevolution:blocks/animated/draconium_ore
 |## **Stone**
 |# **Quark** qk.
-|stoneBasalt                     |quark:basalt                                |                                    |                                            |quark:blocks/basalt
-|stoneMarble                     |quark:marble                                |                                    |                                            |quark:blocks/marble
-|stoneLimestone                  |quark:limestone                             |                                    |                                            |quark:blocks/limestone
-|stoneJasper                     |quark:jasper                                |                                    |                                            |quark:blocks/jasper
-|stoneSlate                      |quark:slate                                 |                                    |                                            |quark:blocks/slate
-
+|stoneBasalt                     |quark:basalt                                |                                    |                                            |quark:blocks/stone_basalt
+|stoneMarble                     |quark:marble                                |                                    |                                            |quark:blocks/stone_marble
+|stoneLimestone                  |quark:limestone                             |                                    |                                            |quark:blocks/stone_limestone
+|stoneJasper                     |quark:jasper                                |                                    |                                            |quark:blocks/stone_jasper
+|stoneSlate                      |quark:slate                                 |                                    |                                            |quark:blocks/stone_slate
+|stoneBrimstone                  |quark:biome_cobblestone/0                   |                                    |                                            |quark:fire_stone
+|stonePermafrost                 |quark:biome_cobblestone/1                   |                                    |                                            |quark:ice_stone
+|stoneCobbedstone
 
 |Ore Dictionary List|
 |-------------------|

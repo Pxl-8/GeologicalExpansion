@@ -26,6 +26,22 @@ tile.geoexpansion.mc.stone.name=Stone
 tile.geoexpansion.mc.andesite.name=Andesite
 tile.geoexpansion.mc.diorite.name=Diorite
 tile.geoexpansion.mc.granite.name=Granite
+
+tile.geoexpansion.mc.cobblestone.name=Ancient Cobblestone
+tile.geoexpansion.mc.cobblestone_mossy.name=Ancient Moss Stone
+
+tile.geoexpansion.mc.stone_brick.name=Ancient Stone Brick
+tile.geoexpansion.mc.stone_brick_mossy.name=Ancient Mossy Stone Brick
+tile.geoexpansion.mc.stone_brick_cracked.name=Ancient Cracked Stone Brick
+tile.geoexpansion.mc.stone_brick_chiseled.name=Ancient Chiseled Stone Brick
+
+tile.geoexpansion.mc.infested_stone.name=Stone
+tile.geoexpansion.mc.infested_cobblestone.name=Ancient Cobblestone
+tile.geoexpansion.mc.infested_stone_brick.name=Ancient Stone Brick
+tile.geoexpansion.mc.infested_stone_brick_mossy.name=Ancient Mossy Stone Brick
+tile.geoexpansion.mc.infested_stone_brick_cracked.name=Ancient Cracked Stone Brick
+tile.geoexpansion.mc.infested_stone_brick_chiseled.name=Ancient Chiseled Stone Brick
+
 tile.geoexpansion.mc.dirt.name=Dirt
 tile.geoexpansion.mc.gravel.name=Gravel
 tile.geoexpansion.mc.clay.name=Clay
@@ -159,6 +175,10 @@ tile.geoexpansion.tr.ore_lead.name=Lead Ore
 tile.geoexpansion.tr.ore_silver.name=Silver Ore
 tile.geoexpansion.tr.ore_copper.name=Copper Ore
 tile.geoexpansion.tr.ore_tin.name=Tin Ore
+tile.geoexpansion.tr.ore_tungsten.name=Tungsten Ore
+tile.geoexpansion.tr.ore_sheldonite.name=Sheldonite Ore
+tile.geoexpansion.tr.ore_peridot.name=Peridot Ore
+tile.geoexpansion.tr.ore_sodalite.name=Sodalite Ore
 # Clusters
 item.geoexpansion.tr.ore_cluster_galena.name=Galena Ore Cluster
 item.geoexpansion.tr.ore_cluster_iridium.name=Iridium Ore Cluster
@@ -169,6 +189,10 @@ item.geoexpansion.tr.ore_cluster_lead.name=Lead Ore Cluster
 item.geoexpansion.tr.ore_cluster_silver.name=Silver Ore Cluster
 item.geoexpansion.tr.ore_cluster_copper.name=Copper Ore Cluster
 item.geoexpansion.tr.ore_cluster_tin.name=Tin Ore Cluster
+item.geoexpansion.tr.ore_cluster_tungsten.name=Tungsten Ore Cluster
+item.geoexpansion.tr.ore_cluster_sheldonite.name=Sheldonite Ore Cluster
+item.geoexpansion.tr.crystal_cluster_peridot.name=Peridot Crystal Cluster
+item.geoexpansion.tr.dust_cluster_sodalite.name=Sodalite Dust Cluster
 
 ## Forestry
 # Ores
@@ -250,6 +274,32 @@ item.geoexpansion.mk.ore_cluster_osmium.name=Osmium Ore Cluster
 item.geoexpansion.mk.ore_cluster_copper.name=Copper Ore Cluster
 item.geoexpansion.mk.ore_cluster_tin.name=Tin Ore Cluster
 
+## NuclearCraft
+# Ores
+tile.geoexpansion.nc.ore_copper.name=Copper Ore
+tile.geoexpansion.nc.ore_tin.name=Tin Ore
+tile.geoexpansion.nc.ore_lead.name=Lead Ore
+tile.geoexpansion.nc.ore_thorium.name=Thorium Ore
+tile.geoexpansion.nc.ore_uranium.name=Uranium Ore
+tile.geoexpansion.nc.ore_boron.name=Boron Ore
+tile.geoexpansion.nc.ore_lithium.name=Lithium Ore
+tile.geoexpansion.nc.ore_magnesium.name=Magnesium Ore
+# Clusters
+item.geoexpansion.nc.ore_cluster_copper.name=Copper Ore Cluster
+item.geoexpansion.nc.ore_cluster_tin.name=Tin Ore Cluster
+item.geoexpansion.nc.ore_cluster_lead.name=Lead Ore Cluster
+item.geoexpansion.nc.ore_cluster_thorium.name=Thorium Ore Cluster
+item.geoexpansion.nc.ore_cluster_uranium.name=Uranium Ore Cluster
+item.geoexpansion.nc.ore_cluster_boron.name=Boron Ore Cluster
+item.geoexpansion.nc.ore_cluster_lithium.name=Lithium Ore Cluster
+item.geoexpansion.nc.ore_cluster_magnesium.name=Magnesium Ore Cluster
+
+## Draconic Evolution
+# Ores
+tile.geoexpansion.de.ore_draconium.name=Draconium Ore
+# Clusters
+item.geoexpansion.de.dust_cluster_draconium.name=Draconium Dust Cluster
+
 ## Quark
 # Stone
 tile.geoexpansion.qk.basalt.name=Basalt
@@ -257,3 +307,6 @@ tile.geoexpansion.qk.marble.name=Marble
 tile.geoexpansion.qk.limestone.name=Limestone
 tile.geoexpansion.qk.jasper.name=Jasper
 tile.geoexpansion.qk.slate.name=Slate
+tile.geoexpansion.qk.brimstone.name=Brimstone
+tile.geoexpansion.qk.permafrost.name=Permafrost
+tile.geoexpansion.qk.cobbedstone.name=Cobbedstone

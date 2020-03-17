@@ -21,6 +21,7 @@ import network.pxl8.geoexpansion.common.blocks.BlockOre;
 import network.pxl8.geoexpansion.common.blocks.BlockStone;
 import network.pxl8.geoexpansion.common.blocks.ModBlocks;
 import network.pxl8.geoexpansion.common.items.*;
+import network.pxl8.geoexpansion.lib.LibMeta;
 import network.pxl8.geoexpansion.lib.LibTools;
 
 
@@ -88,10 +89,10 @@ public class Register {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void registerBlockColors(ColorHandlerEvent.Block event) {
-        for(Block block : ModBlocks.blockStoneList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null ? BlockStone.getColor(state) : 0xFFFFFF, block); }
-        for(Block block : ModBlocks.blockOreList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null ? BlockStone.getColor(state) : 0xFFFFFF, block); }
-        for(Block block : ModBlocks.compatStoneList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null ? BlockStone.getColor(state) : 0xFFFFFF, block); }
-        for(Block block : ModBlocks.compatOreList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null ? BlockStone.getColor(state) : 0xFFFFFF, block); }
+        for(Block block : ModBlocks.blockStoneList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null && tintIndex == 0 ? BlockStone.getColor(state) : -1, block); }
+        for(Block block : ModBlocks.blockOreList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null && tintIndex == 0 ? BlockStone.getColor(state) : -1, block); }
+        for(Block block : ModBlocks.compatStoneList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null && tintIndex == 0 ? BlockStone.getColor(state) : -1, block); }
+        for(Block block : ModBlocks.compatOreList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null && tintIndex == 0 ? BlockStone.getColor(state) : -1, block); }
     }
 
     @SideOnly(Side.CLIENT)
