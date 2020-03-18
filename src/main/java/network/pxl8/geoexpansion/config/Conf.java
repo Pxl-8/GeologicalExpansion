@@ -59,7 +59,8 @@ public class Conf {
     }
 
     public static class StoneConf {
-
+        @Config.Comment("Generate bedrock as a flat layer")
+        public boolean FLAT_BEDROCK = false;
     }
 
     public static class OreConf {

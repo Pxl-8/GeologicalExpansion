@@ -1,10 +1,12 @@
 package network.pxl8.geoexpansion.common.blocks;
 
+import com.google.common.base.Predicate;
 import net.minecraft.block.material.EnumPushReaction;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 
 import java.util.Random;
 
@@ -36,4 +38,7 @@ public class BlockBedrock extends BlockStone {
     {
         return false;
     }
+
+    @Override
+    public boolean isReplaceableOreGen(IBlockState state, IBlockAccess world, BlockPos pos, Predicate<IBlockState> target) { return false; }
 }
