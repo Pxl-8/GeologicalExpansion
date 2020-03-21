@@ -2,9 +2,8 @@ language: java
 jdk:
 - openjdk8
 
-before_install: chmod +x gradlew
-install: "./gradlew setupCIWorkspace -s"
-script: "./gradlew build -s"
+install: "gradle wrapper setupCIWorkspace -s"
+script: "gradle wrapper build -s"
 
 deploy:
   provider: releases
