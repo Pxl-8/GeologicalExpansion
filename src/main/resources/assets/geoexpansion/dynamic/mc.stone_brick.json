@@ -1,0 +1,11 @@
+{
+  "name": "mc.stone_brick",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "minecraft:stonebrick"
+  },
+  "drops": {
+    "resource": "minecraft:stonebrick"
+  }
+}

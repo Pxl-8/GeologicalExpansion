@@ -5,19 +5,16 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import network.pxl8.geoexpansion.lib.LibTools;
 
 public class BlockStone extends BlockTintedBase {
     private ItemStack blockDrop;
-    private String dropId;
     private ItemStack silkBlockDrop;
+    private String dropId;
     private String silkDropId;
 
     BlockStone(String name, String harvestTool, Float hardness, String replacedBlock, String drop) {

@@ -1,10 +1,11 @@
 package network.pxl8.geoexpansion.common.blocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
+import network.pxl8.geoexpansion.common.blocks.dynamic.DynamicBlockLoader;
+import network.pxl8.geoexpansion.common.blocks.dynamic.DynamicTintedBlock;
+import network.pxl8.geoexpansion.common.blocks.dynamic.IReplacingBlock;
 import network.pxl8.geoexpansion.compat.CompatHandler;
 import network.pxl8.geoexpansion.config.Conf;
 import network.pxl8.geoexpansion.lib.LibMeta;
@@ -16,18 +17,18 @@ import static network.pxl8.geoexpansion.compat.CompatHandler.modListLoaded;
 
 @GameRegistry.ObjectHolder(LibMeta.MOD_ID)
 public class ModBlocks {
-    @GameRegistry.ObjectHolder("mc.stone")                  public static BlockStone blockStone;
-    @GameRegistry.ObjectHolder("mc.andesite")               public static BlockStone blockAndesite;
-    @GameRegistry.ObjectHolder("mc.diorite")                public static BlockStone blockDiorite;
-    @GameRegistry.ObjectHolder("mc.granite")                public static BlockStone blockGranite;
+    @GameRegistry.ObjectHolder("mc.stone")                  public static DynamicTintedBlock blockStone;
+    @GameRegistry.ObjectHolder("mc.andesite")               public static DynamicTintedBlock blockAndesite;
+    @GameRegistry.ObjectHolder("mc.diorite")                public static DynamicTintedBlock blockDiorite;
+    @GameRegistry.ObjectHolder("mc.granite")                public static DynamicTintedBlock blockGranite;
 
-    @GameRegistry.ObjectHolder("mc.cobblestone")            public static BlockStone blockCobblestone;
-    @GameRegistry.ObjectHolder("mc.cobblestone_mossy")      public static BlockStone blockCobblestoneMossy;
+    @GameRegistry.ObjectHolder("mc.cobblestone")            public static DynamicTintedBlock blockCobblestone;
+    @GameRegistry.ObjectHolder("mc.cobblestone_mossy")      public static DynamicTintedBlock blockCobblestoneMossy;
 
-    @GameRegistry.ObjectHolder("mc.stone_brick")            public static BlockStone blockStonebrick;
-    @GameRegistry.ObjectHolder("mc.stone_brick_mossy")      public static BlockStone blockStonebrickMossy;
-    @GameRegistry.ObjectHolder("mc.stone_brick_cracked")    public static BlockStone blockStonebrickCracked;
-    @GameRegistry.ObjectHolder("mc.stone_brick_chiseled")   public static BlockStone blockStonebrickChiseled;
+    @GameRegistry.ObjectHolder("mc.stone_brick")            public static DynamicTintedBlock blockStonebrick;
+    @GameRegistry.ObjectHolder("mc.stone_brick_mossy")      public static DynamicTintedBlock blockStonebrickMossy;
+    @GameRegistry.ObjectHolder("mc.stone_brick_cracked")    public static DynamicTintedBlock blockStonebrickCracked;
+    @GameRegistry.ObjectHolder("mc.stone_brick_chiseled")   public static DynamicTintedBlock blockStonebrickChiseled;
 
     @GameRegistry.ObjectHolder("mc.infested_stone")                 public static BlockStoneInfested blockInfestedStone;
     @GameRegistry.ObjectHolder("mc.infested_cobblestone")           public static BlockStoneInfested blockInfestedCobblestone;
@@ -36,10 +37,10 @@ public class ModBlocks {
     @GameRegistry.ObjectHolder("mc.infested_stone_brick_cracked")   public static BlockStoneInfested blockInfestedStonebrickCracked;
     @GameRegistry.ObjectHolder("mc.infested_stone_brick_chiseled")  public static BlockStoneInfested blockInfestedStonebrickChiseled;
 
-    @GameRegistry.ObjectHolder("mc.dirt")                   public static BlockStone blockDirt;
-    @GameRegistry.ObjectHolder("mc.clay")                   public static BlockStone blockClay;
+    @GameRegistry.ObjectHolder("mc.dirt")                   public static DynamicTintedBlock blockDirt;
+    @GameRegistry.ObjectHolder("mc.clay")                   public static DynamicTintedBlock blockClay;
 
-    @GameRegistry.ObjectHolder("mc.bedrock")                public static BlockBedrock blockBedrock;
+//    @GameRegistry.ObjectHolder("mc.bedrock")                public static BlockBedrock blockBedrock;
 
     @GameRegistry.ObjectHolder("mc.ore_coal")               public static BlockOre oreCoal;
     @GameRegistry.ObjectHolder("mc.ore_iron")               public static BlockOre oreIron;
@@ -49,44 +50,59 @@ public class ModBlocks {
     @GameRegistry.ObjectHolder("mc.ore_redstone")           public static BlockOre oreRedstone;
     @GameRegistry.ObjectHolder("mc.ore_lapis")              public static BlockOre oreLapis;
 
-    public static List<BlockStone> blockStoneList = new ArrayList<>();
-    public static List<BlockOre> blockOreList = new ArrayList<>();
+    public static List<IReplacingBlock> replacingBlocksList = new ArrayList<>();
+    public static List<Block> allModBlocks = new ArrayList<>();
 
     private static void addStoneBlocks() {
-        blockStoneList.add(blockStone);
-        blockStoneList.add(blockAndesite);
-        blockStoneList.add(blockDiorite);
-        blockStoneList.add(blockGranite);
+        replacingBlocksList.add(blockStone);
+        replacingBlocksList.add(blockAndesite);
+        replacingBlocksList.add(blockDiorite);
+        replacingBlocksList.add(blockGranite);
 
-        blockStoneList.add(blockCobblestone);
-        blockStoneList.add(blockCobblestoneMossy);
+        replacingBlocksList.add(blockCobblestone);
+        replacingBlocksList.add(blockCobblestoneMossy);
 
-        blockStoneList.add(blockStonebrick);
-        blockStoneList.add(blockStonebrickMossy);
-        blockStoneList.add(blockStonebrickCracked);
-        blockStoneList.add(blockStonebrickChiseled);
+        replacingBlocksList.add(blockStonebrick);
+        replacingBlocksList.add(blockStonebrickMossy);
+        replacingBlocksList.add(blockStonebrickCracked);
+        replacingBlocksList.add(blockStonebrickChiseled);
 
-        blockStoneList.add(blockInfestedStone);
-        blockStoneList.add(blockInfestedCobblestone);
-        blockStoneList.add(blockInfestedStonebrick);
-        blockStoneList.add(blockInfestedStonebrickMossy);
-        blockStoneList.add(blockInfestedStonebrickCracked);
-        blockStoneList.add(blockInfestedStonebrickChiseled);
+//        replacingBlocksList.add(blockInfestedStone);
+//        replacingBlocksList.add(blockInfestedCobblestone);
+//        replacingBlocksList.add(blockInfestedStonebrick);
+//        replacingBlocksList.add(blockInfestedStonebrickMossy);
+//        replacingBlocksList.add(blockInfestedStonebrickCracked);
+//        replacingBlocksList.add(blockInfestedStonebrickChiseled);
 
-        blockStoneList.add(blockDirt);
-        blockStoneList.add(blockClay);
+        replacingBlocksList.add(blockDirt);
+        replacingBlocksList.add(blockClay);
 
-        blockStoneList.add(blockBedrock);
+        allModBlocks.add(blockStone);
+        allModBlocks.add(blockAndesite);
+        allModBlocks.add(blockDiorite);
+        allModBlocks.add(blockGranite);
+
+        allModBlocks.add(blockCobblestone);
+        allModBlocks.add(blockCobblestoneMossy);
+        allModBlocks.add(blockStonebrick);
+        allModBlocks.add(blockStonebrickMossy);
+        allModBlocks.add(blockStonebrickCracked);
+        allModBlocks.add(blockStonebrickChiseled);
+
+//        allModBlocks.add(blockCobblestoneMossy);
+
+        allModBlocks.add(blockDirt);
+        allModBlocks.add(blockClay);
     }
 
     private static void addOreBlocks() {
-        blockOreList.add(oreCoal);
-        blockOreList.add(oreIron);
-        blockOreList.add(oreGold);
-        blockOreList.add(oreDiamond);
-        blockOreList.add(oreEmerald);
-        blockOreList.add(oreRedstone);
-        blockOreList.add(oreLapis);
+        allModBlocks.add(oreCoal);
+        allModBlocks.add(oreIron);
+        allModBlocks.add(oreGold);
+        allModBlocks.add(oreDiamond);
+        allModBlocks.add(oreEmerald);
+        allModBlocks.add(oreRedstone);
+        allModBlocks.add(oreLapis);
     }
 
     public static void addAll() {
@@ -95,18 +111,36 @@ public class ModBlocks {
     }
 
     public static void registerModBlocks(IForgeRegistry<Block> blockReg) {
-        blockReg.register(new BlockStone("mc.stone",       "pickaxe", 1.5F, "minecraft:stone/0",    "minecraft:cobblestone", "minecraft:stone/0"));
-        blockReg.register(new BlockStone("mc.andesite",    "pickaxe", 1.5F, "minecraft:stone/5",    "minecraft:stone/5"));
-        blockReg.register(new BlockStone("mc.diorite",     "pickaxe", 1.5F, "minecraft:stone/3",    "minecraft:stone/3"));
-        blockReg.register(new BlockStone("mc.granite",     "pickaxe", 1.5F, "minecraft:stone/1",    "minecraft:stone/1"));
+        DynamicBlockLoader loader = new DynamicBlockLoader();
 
-        blockReg.register(new BlockStone("mc.cobblestone",          "pickaxe", 1.5F, "minecraft:cobblestone", "minecraft:cobblestone"));
-        blockReg.register(new BlockStone("mc.cobblestone_mossy",    "pickaxe", 1.5F, "minecraft:mossy_cobblestone", "minecraft:mossy_cobblestone"));
+        blockReg.register(loader.load("mc.stone").createBlock(blockReg::getValue));
+        blockReg.register(loader.load("mc.andesite").createBlock(blockReg::getValue));
+        blockReg.register(loader.load("mc.diorite").createBlock(blockReg::getValue));
+        blockReg.register(loader.load("mc.granite").createBlock(blockReg::getValue));
 
-        blockReg.register(new BlockStone("mc.stone_brick",          "pickaxe", 1.5F, "minecraft:stonebrick/0", "minecraft:stonebrick/0"));
-        blockReg.register(new BlockStone("mc.stone_brick_mossy",    "pickaxe", 1.5F, "minecraft:stonebrick/1", "minecraft:stonebrick/1"));
-        blockReg.register(new BlockStone("mc.stone_brick_cracked",  "pickaxe", 1.5F, "minecraft:stonebrick/2", "minecraft:stonebrick/2"));
-        blockReg.register(new BlockStone("mc.stone_brick_chiseled", "pickaxe", 1.5F, "minecraft:stonebrick/3", "minecraft:stonebrick/3"));
+        blockReg.register(loader.load("mc.cobblestone").createBlock(blockReg::getValue));
+        blockReg.register(loader.load("mc.cobblestone_mossy").createBlock(blockReg::getValue));
+
+        blockReg.register(loader.load("mc.stone_brick").createBlock(blockReg::getValue));
+        blockReg.register(loader.load("mc.stone_brick_mossy").createBlock(blockReg::getValue));
+        blockReg.register(loader.load("mc.stone_brick_cracked").createBlock(blockReg::getValue));
+        blockReg.register(loader.load("mc.stone_brick_chiseled").createBlock(blockReg::getValue));
+
+        blockReg.register(loader.load("mc.dirt").createBlock(blockReg::getValue));
+        blockReg.register(loader.load("mc.clay").createBlock(blockReg::getValue));
+
+//        blockReg.register(new BlockStone("mc.stone",       "pickaxe", 1.5F, "minecraft:stone/0",    "minecraft:cobblestone", "minecraft:stone/0"));
+//        blockReg.register(new BlockStone("mc.andesite",    "pickaxe", 1.5F, "minecraft:stone/5",    "minecraft:stone/5"));
+//        blockReg.register(new BlockStone("mc.diorite",     "pickaxe", 1.5F, "minecraft:stone/3",    "minecraft:stone/3"));
+//        blockReg.register(new BlockStone("mc.granite",     "pickaxe", 1.5F, "minecraft:stone/1",    "minecraft:stone/1"));
+
+//        blockReg.register(new BlockStone("mc.cobblestone",          "pickaxe", 1.5F, "minecraft:cobblestone", "minecraft:cobblestone"));
+//        blockReg.register(new BlockStone("mc.cobblestone_mossy",    "pickaxe", 1.5F, "minecraft:mossy_cobblestone", "minecraft:mossy_cobblestone"));
+
+//        blockReg.register(new BlockStone("mc.stone_brick",          "pickaxe", 1.5F, "minecraft:stonebrick/0", "minecraft:stonebrick/0"));
+//        blockReg.register(new BlockStone("mc.stone_brick_mossy",    "pickaxe", 1.5F, "minecraft:stonebrick/1", "minecraft:stonebrick/1"));
+//        blockReg.register(new BlockStone("mc.stone_brick_cracked",  "pickaxe", 1.5F, "minecraft:stonebrick/2", "minecraft:stonebrick/2"));
+//        blockReg.register(new BlockStone("mc.stone_brick_chiseled", "pickaxe", 1.5F, "minecraft:stonebrick/3", "minecraft:stonebrick/3"));
 
         blockReg.register(new BlockStoneInfested("mc.infested_stone",               "pickaxe", 1.5F, "minecraft:monster_egg/0", "minecraft:stone/0"));
         blockReg.register(new BlockStoneInfested("mc.infested_cobblestone",         "pickaxe", 1.5F, "minecraft:monster_egg/1", "minecraft:cobblestone"));
@@ -115,10 +149,10 @@ public class ModBlocks {
         blockReg.register(new BlockStoneInfested("mc.infested_stone_brick_cracked", "pickaxe", 1.5F, "minecraft:monster_egg/4", "minecraft:stonebrick/2"));
         blockReg.register(new BlockStoneInfested("mc.infested_stone_brick_chiseled","pickaxe", 1.5F, "minecraft:monster_egg/5", "minecraft:stonebrick/3"));
 
-        blockReg.register(new BlockStone("mc.dirt",        "shovel", 0.5F, "minecraft:dirt",    "minecraft:dirt", Material.GROUND).setSound(SoundType.GROUND));
-        blockReg.register(new BlockStone("mc.clay",        "shovel", 0.6F, "minecraft:clay",    "minecraft:clay_ball/0/4", Material.CLAY).setSound(SoundType.GROUND));
+//        blockReg.register(new BlockStone("mc.dirt",        "shovel", 0.5F, "minecraft:dirt",    "minecraft:dirt", Material.GROUND).setSound(SoundType.GROUND));
+//        blockReg.register(new BlockStone("mc.clay",        "shovel", 0.6F, "minecraft:clay",    "minecraft:clay_ball/0/4", Material.CLAY).setSound(SoundType.GROUND));
 
-        blockReg.register(new BlockBedrock().setLightOpacity(14));
+//        blockReg.register(new BlockBedrock().setLightOpacity(14));
 
         blockReg.register(new BlockOre("mc.ore_coal",      2.0F, "minecraft:coal_ore",      "geoexpansion:mc.ore_cluster_coal"));
         blockReg.register(new BlockOre("mc.ore_iron",      2.0F, "minecraft:iron_ore",      "geoexpansion:mc.ore_cluster_iron"));

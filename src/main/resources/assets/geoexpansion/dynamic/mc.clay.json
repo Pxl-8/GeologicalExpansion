@@ -1,0 +1,14 @@
+{
+  "name": "mc.clay",
+  "tool": "shovel",
+  "hardness": 0.6,
+  "material": "ground",
+  "sound": "ground",
+  "replaces": {
+    "resource": "minecraft:clay"
+  },
+  "drops": {
+    "resource": "minecraft:clay_ball",
+    "amount": 4
+  }
+}

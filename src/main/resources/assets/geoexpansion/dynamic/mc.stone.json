@@ -1,0 +1,14 @@
+{
+  "name": "mc.stone",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "minecraft:stone"
+  },
+  "drops": {
+    "resource": "minecraft:cobblestone"
+  },
+  "silkDrops": {
+    "resource": "minecraft:stone"
+  }
+}

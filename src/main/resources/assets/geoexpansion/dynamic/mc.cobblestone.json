@@ -1,0 +1,11 @@
+{
+  "name": "mc.cobblestone",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "minecraft:cobblestone"
+  },
+  "drops": {
+    "resource": "minecraft:cobblestone"
+  }
+}

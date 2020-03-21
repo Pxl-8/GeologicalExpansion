@@ -18,7 +18,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
-import network.pxl8.geoexpansion.common.blocks.BlockOre;
 import network.pxl8.geoexpansion.common.blocks.BlockStone;
 import network.pxl8.geoexpansion.common.blocks.ModBlocks;
 import network.pxl8.geoexpansion.common.items.*;
@@ -43,10 +42,7 @@ public class Register {
         ModBlocks.addAll();
         ModBlocks.addAllCompat();
 
-        for (BlockStone block : ModBlocks.blockStoneList) { itemReg.register(createItemBlock(block)); }
-        for (BlockOre ore : ModBlocks.blockOreList) { itemReg.register(createItemBlock(ore)); }
-        for (BlockStone block : ModBlocks.compatStoneList) { itemReg.register(createItemBlock(block)); }
-        for (BlockOre ore : ModBlocks.compatOreList) { itemReg.register(createItemBlock(ore)); }
+        for (Block block : ModBlocks.allModBlocks) { itemReg.register(createItemBlock(block)); }
 
         ModItems.registerModItems(itemReg);
         ModItems.registerCompat(itemReg);
@@ -64,14 +60,13 @@ public class Register {
         Register.registerFurnaceRecipes(lists);
     }
 
-    private static Item createItemBlock(Block block) { return new ItemBlock(block).setRegistryName(block.getRegistryName()); }
+    private static Item createItemBlock(Block block) {
+        return new ItemBlock(block).setRegistryName(block.getRegistryName());
+    }
 
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
-        for (BlockStone block : ModBlocks.blockStoneList) { registerBlockModel(block); }
-        for (BlockOre ore : ModBlocks.blockOreList) { registerBlockModel(ore); }
-        for (BlockStone block : ModBlocks.compatStoneList) { registerBlockModel(block); }
-        for (BlockOre ore : ModBlocks.compatOreList) { registerBlockModel(ore); }
+        for (Block block : ModBlocks.allModBlocks) { registerBlockModel(block); }
 
         ItemLists lists = new ItemLists();
         ModItems.addAllTo(lists);
@@ -100,10 +95,10 @@ public class Register {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void registerBlockColors(ColorHandlerEvent.Block event) {
-        for(Block block : ModBlocks.blockStoneList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null && tintIndex == 0 ? BlockStone.getColor(state) : -1, block); }
-        for(Block block : ModBlocks.blockOreList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null && tintIndex == 0 ? BlockStone.getColor(state) : -1, block); }
-        for(Block block : ModBlocks.compatStoneList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null && tintIndex == 0 ? BlockStone.getColor(state) : -1, block); }
-        for(Block block : ModBlocks.compatOreList) { event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> world != null && pos != null && tintIndex == 0 ? BlockStone.getColor(state) : -1, block); }
+        for(Block block : ModBlocks.allModBlocks) {
+            event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) ->
+                    world != null && pos != null && tintIndex == 0 ? BlockStone.getColor(state) : -1, block);
+        }
     }
 
     @SideOnly(Side.CLIENT)

@@ -1,0 +1,13 @@
+{
+  "name": "mc.granite",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "minecraft:stone",
+    "meta": 1
+  },
+  "drops": {
+    "resource": "minecraft:stone",
+    "meta": 1
+  }
+}
