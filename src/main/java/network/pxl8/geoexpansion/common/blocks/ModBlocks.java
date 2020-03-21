@@ -5,6 +5,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import network.pxl8.geoexpansion.common.blocks.dynamic.DynamicBlockLoader;
 import network.pxl8.geoexpansion.common.blocks.dynamic.DynamicTintedBlock;
+import network.pxl8.geoexpansion.common.blocks.dynamic.IGenerationCheck;
+import network.pxl8.geoexpansion.common.world.CommonBlockGenerationCheck;
 import network.pxl8.geoexpansion.compat.CompatHandler;
 import network.pxl8.geoexpansion.config.Conf;
 import network.pxl8.geoexpansion.lib.LibMeta;
@@ -53,8 +55,9 @@ public class ModBlocks {
 
     public static void registerModBlocks(IForgeRegistry<Block> blockReg) {
         DynamicBlockLoader loader = new DynamicBlockLoader();
+        IGenerationCheck commonGenCheck = new CommonBlockGenerationCheck();
 
-        allModBlocks.add(loader.load("mc.stone").createBlock(blockReg::getValue));
+        allModBlocks.add(loader.load("mc.stone").createBlock(blockReg::getValue).setCustomGenCheck(commonGenCheck));
         allModBlocks.add(loader.load("mc.andesite").createBlock(blockReg::getValue));
         allModBlocks.add(loader.load("mc.diorite").createBlock(blockReg::getValue));
         allModBlocks.add(loader.load("mc.granite").createBlock(blockReg::getValue));
@@ -69,7 +72,7 @@ public class ModBlocks {
 
         allModBlocks.add(loader.load("mc.bedrock").createBlock(blockReg::getValue));
 
-        allModBlocks.add(loader.load("mc.dirt").createBlock(blockReg::getValue));
+        allModBlocks.add(loader.load("mc.dirt").createBlock(blockReg::getValue).setCustomGenCheck(commonGenCheck));
         allModBlocks.add(loader.load("mc.clay").createBlock(blockReg::getValue));
 
         allModBlocks.add(loader.load("mc.infested_stone").createBlock(blockReg::getValue));

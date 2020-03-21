@@ -12,6 +12,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import network.pxl8.geoexpansion.DensityHelper;
 import network.pxl8.geoexpansion.common.blocks.ModBlocks;
+import network.pxl8.geoexpansion.common.blocks.dynamic.IGenerationCheck;
 import network.pxl8.geoexpansion.common.blocks.dynamic.IReplacingBlock;
 import network.pxl8.geoexpansion.config.Conf;
 import network.pxl8.geoexpansion.lib.LibMeta;
@@ -59,6 +60,11 @@ public class StoneWorldGen implements IWorldGenerator {
                     if (blockReplaceMap.containsKey(oldBlock)) {
                         Block replacement = blockReplaceMap.get(oldBlock);
 
+                        if (replacement instanceof IGenerationCheck) {
+                            if (!((IGenerationCheck) replacement).checkShouldGenerate(x, z, posX, posZ))
+                                continue;
+                        }
+
                         world.setBlockState(pos,
                                 replacement.getDefaultState().withProperty(
                                         LibMeta.PROPERTY_DENSITY,
@@ -71,28 +77,6 @@ public class StoneWorldGen implements IWorldGenerator {
                                 .withProperty(LibMeta.PROPERTY_DENSITY, DensityHelper.getDensityFromDepth(y)),
                                 20);
                     }
-
-//                    if (oldBlock == Blocks.STONE.getDefaultState() && x > (posX+6) && x < (posX+23)  && z > (posZ+6) && z < (posZ+23)) {
-//                        world.setBlockState(new BlockPos(x, y, z), ModBlocks.blockStone.getDefaultState().withProperty(LibMeta.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 20);
-//                    } else if (oldBlock == Blocks.DIRT.getDefaultState() && x > (posX+6) && x < (posX+23)  && z > (posZ+6) && z < (posZ+23)) {
-//                        world.setBlockState(new BlockPos(x, y, z), ModBlocks.blockDirt.getDefaultState().withProperty(LibMeta.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 20);
-//                    } else if (oldBlock == Blocks.BEDROCK.getDefaultState()) {
-//                        if (Conf.stone_config.FLAT_BEDROCK) {
-//                            if (y > 0) {
-//                                world.setBlockState(new BlockPos(x, y, z), ModBlocks.blockStone.getDefaultState().withProperty(LibMeta.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 20);
-//                            } else {
-//                                world.setBlockState(new BlockPos(x, y, z), ModBlocks.blockBedrock.getDefaultState().withProperty(LibMeta.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 20);
-//                            }
-//                        } else {
-//                            world.setBlockState(new BlockPos(x, y, z), ModBlocks.blockBedrock.getDefaultState().withProperty(LibMeta.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 20);
-//                        }
-//                    } else {
-//                        for (IBlockState block : blockReplaceMap.keySet()) {
-//                            if (oldBlock == block) {
-//                                world.setBlockState(new BlockPos(x, y, z), blockReplaceMap.get(block).getDefaultState().withProperty(LibMeta.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 20);
-//                            }
-//                        }
-//                    }
                 }
             }
         }

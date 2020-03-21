@@ -21,9 +21,10 @@ import network.pxl8.geoexpansion.lib.LibMeta;
 
 import java.util.Random;
 
-public class DynamicTintedBlock extends Block implements IReplacingBlock, IItemReceiver {
+public class DynamicTintedBlock extends Block implements IReplacingBlock, IItemReceiver, IGenerationCheck {
 	private DynamicBlockData data;
 	private Random random = new Random();
+	private IGenerationCheck customGenCheck = null;
 
 	private ItemRef drops;
 	private ItemRef silkDrops = null;
@@ -59,6 +60,19 @@ public class DynamicTintedBlock extends Block implements IReplacingBlock, IItemR
 
 		if (data.getSilkDrops() != null)
 			silkDrops = data.getSilkDrops().toItemRef(lookup);
+	}
+
+	@Override
+	public boolean checkShouldGenerate(int x, int z, int chunkX, int chunkZ) {
+		if (customGenCheck != null)
+			return customGenCheck.checkShouldGenerate(x, z, chunkX, chunkZ);
+
+		return true;
+	}
+
+	public DynamicTintedBlock setCustomGenCheck(IGenerationCheck customGenCheck) {
+		this.customGenCheck = customGenCheck;
+		return this;
 	}
 
 	private float getDropBase(IBlockState state) {
