@@ -26,7 +26,7 @@ public class StoneWorldGen implements IWorldGenerator {
 
     static {
         for (BlockStone block : ModBlocks.blockStoneList) {
-            if (block != ModBlocks.blockStone && block != ModBlocks.blockBedrock) {
+            if (block != ModBlocks.blockStone && block != ModBlocks.blockBedrock && block != ModBlocks.blockDirt) {
                 if (!block.getBlockToReplace().equals(Blocks.AIR.getDefaultState())) {
                     blockMap.put(block.getBlockToReplace(), block);
                 }
@@ -77,6 +77,8 @@ public class StoneWorldGen implements IWorldGenerator {
                     IBlockState oldBlock = world.getBlockState(new BlockPos(x, y, z));
                     if (oldBlock == Blocks.STONE.getDefaultState() && x > (posX+6) && x < (posX+23)  && z > (posZ+6) && z < (posZ+23)) {
                         world.setBlockState(new BlockPos(x, y, z), ModBlocks.blockStone.getDefaultState().withProperty(LibMeta.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 20);
+                    } else if (oldBlock == Blocks.DIRT.getDefaultState() && x > (posX+6) && x < (posX+23)  && z > (posZ+6) && z < (posZ+23)) {
+                        world.setBlockState(new BlockPos(x, y, z), ModBlocks.blockDirt.getDefaultState().withProperty(LibMeta.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 20);
                     } else if (oldBlock == Blocks.BEDROCK.getDefaultState()) {
                         if (Conf.stone_config.FLAT_BEDROCK) {
                             if (y > 0) {

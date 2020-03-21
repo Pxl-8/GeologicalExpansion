@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import network.pxl8.geoexpansion.lib.LibMeta;
 import network.pxl8.geoexpansion.proxy.Proxy;
 
-@Mod(modid = LibMeta.MOD_ID, version = LibMeta.VERSION)
+@Mod(modid = LibMeta.MOD_ID, version = LibMeta.VERSION, dependencies = "after:cofhworld;after:reccomplex;after:quark")
 public class GeologicalExpansion {
     @Mod.Instance
     public static GeologicalExpansion instance;
