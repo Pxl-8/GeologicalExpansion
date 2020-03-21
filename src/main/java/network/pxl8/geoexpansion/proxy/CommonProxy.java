@@ -6,8 +6,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import network.pxl8.geoexpansion.common.blocks.BlockOre;
 import network.pxl8.geoexpansion.common.blocks.BlockStone;
 import network.pxl8.geoexpansion.common.blocks.ModBlocks;
+import network.pxl8.geoexpansion.common.event.ItemLists;
 import network.pxl8.geoexpansion.common.event.OreGenOverride;
 import network.pxl8.geoexpansion.common.event.Register;
+import network.pxl8.geoexpansion.common.items.ModItems;
 import network.pxl8.geoexpansion.common.world.StoneWorldGen;
 import network.pxl8.geoexpansion.compat.CompatHandler;
 import network.pxl8.geoexpansion.lib.LibMeta;
@@ -22,8 +24,12 @@ public class CommonProxy implements Proxy {
     @Override
     public void init() {
         GameRegistry.registerWorldGenerator(new StoneWorldGen(), Integer.MAX_VALUE);
-        Register.registerOreDictionary();
-        Register.registerFurnaceRecipes();
+
+        ItemLists lists = new ItemLists();
+        ModItems.addAllTo(lists);
+
+        Register.registerOreDictionary(lists);
+        Register.registerFurnaceRecipes(lists);
 
         for (BlockStone block : ModBlocks.blockStoneList) { block.setDrops(); }
         for (BlockStone block : ModBlocks.compatStoneList) { block.setDrops(); }

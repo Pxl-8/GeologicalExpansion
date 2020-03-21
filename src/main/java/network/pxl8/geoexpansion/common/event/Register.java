@@ -57,23 +57,23 @@ public class Register {
 
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
-        ModItems.addAll();
-        ModItems.addAllCompat();
-
         for (BlockStone block : ModBlocks.blockStoneList) { registerBlockModel(block); }
         for (BlockOre ore : ModBlocks.blockOreList) { registerBlockModel(ore); }
         for (BlockStone block : ModBlocks.compatStoneList) { registerBlockModel(block); }
         for (BlockOre ore : ModBlocks.compatOreList) { registerBlockModel(ore); }
 
-        for (ItemOreCluster cluster : ModItems.oreClusterList) { registerItemModel(cluster, "geoexpansion:ge.ore_cluster"); }
-        for (ItemCrystalCluster cluster : ModItems.crystalClusterList) { registerItemModel(cluster, "geoexpansion:ge.crystal_cluster"); }
-        for (ItemDustCluster cluster : ModItems.dustClusterList) { registerItemModel(cluster, "geoexpansion:ge.dust_cluster"); }
+        ItemLists lists = new ItemLists();
+        ModItems.addAllTo(lists);
 
-        for (ItemSpallingHammer hammer : ModItems.spallingHammerList) { registerItemModel(hammer, "geoexpansion:ge.spalling_hammer"); }
+        for (ItemOreCluster cluster : lists.getOreClusterList()) {
+            registerItemModel(cluster, "geoexpansion:ge.ore_cluster"); }
+        for (ItemCrystalCluster cluster : lists.getCrystalClusterList()) {
+            registerItemModel(cluster, "geoexpansion:ge.crystal_cluster"); }
+        for (ItemDustCluster cluster : lists.getDustClusterList()) {
+            registerItemModel(cluster, "geoexpansion:ge.dust_cluster"); }
 
-        for (ItemOreCluster cluster : ModItems.oreClusterListCompat) { registerItemModel(cluster, "geoexpansion:ge.ore_cluster"); }
-        for (ItemCrystalCluster cluster : ModItems.crystalClusterListCompat) { registerItemModel(cluster, "geoexpansion:ge.crystal_cluster"); }
-        for (ItemDustCluster cluster : ModItems.dustClusterListCompat) { registerItemModel(cluster, "geoexpansion:ge.dust_cluster"); }
+        for (ItemSpallingHammer hammer : lists.getSpallingHammerList()) {
+            registerItemModel(hammer, "geoexpansion:ge.spalling_hammer"); }
     }
 
     private static void registerBlockModel(Block block) {
@@ -98,50 +98,50 @@ public class Register {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void registerItemColors(ColorHandlerEvent.Item event) {
-        for(Item cluster : ModItems.spallingHammerList) { event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getHammerColour(stack), cluster); }
+        ItemLists lists = new ItemLists();
+        ModItems.addAllTo(lists);
 
-        for(Item cluster : ModItems.oreClusterList) { event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack), cluster); }
-        for(Item cluster : ModItems.crystalClusterList) { event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack), cluster); }
-        for(Item cluster : ModItems.dustClusterList) { event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack), cluster); }
+        for(Item cluster : lists.getSpallingHammerList()) {
+            event.getItemColors().registerItemColorHandler((stack, tintIndex) ->
+                    tintIndex == 0 ? 0xFFFFFF : LibTools.getHammerColour(stack), cluster); }
 
-        for(Item cluster : ModItems.oreClusterListCompat) { event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack), cluster); }
-        for(Item cluster : ModItems.crystalClusterListCompat) { event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack), cluster); }
-        for(Item cluster : ModItems.dustClusterListCompat) { event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack), cluster); }
+        for(Item cluster : lists.getOreClusterList()) {
+            event.getItemColors().registerItemColorHandler((stack, tintIndex) ->
+                    tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack), cluster); }
+        for(Item cluster : lists.getCrystalClusterList()) {
+            event.getItemColors().registerItemColorHandler((stack, tintIndex) ->
+                    tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack), cluster); }
+        for(Item cluster : lists.getDustClusterList()) {
+            event.getItemColors().registerItemColorHandler((stack, tintIndex) ->
+                    tintIndex == 0 ? 0xFFFFFF : LibTools.getClusterColour(stack), cluster); }
     }
 
     //  Recipe register methods
-    public static void registerOreDictionary(){
-        for (ItemSpallingHammer hammer : ModItems.spallingHammerList) { OreDictionary.registerOre("toolSpallingHammer", new ItemStack(hammer, 1, WILDCARD_VALUE)); }
+    public static void registerOreDictionary(ItemLists lists){
+        for (ItemSpallingHammer hammer : lists.getSpallingHammerList()) {
+            OreDictionary.registerOre("toolSpallingHammer", new ItemStack(hammer, 1, WILDCARD_VALUE)); }
 
-        for (ItemOreCluster cluster : ModItems.oreClusterList) {
+        for (ItemOreCluster cluster : lists.getOreClusterList()) {
             if (cluster.getOredict() != null) { OreDictionary.registerOre(cluster.getOredict(), cluster); }
         }
-        for (ItemCrystalCluster cluster : ModItems.crystalClusterList) {
+        for (ItemCrystalCluster cluster : lists.getCrystalClusterList()) {
             if (cluster.getOredict() != null) { OreDictionary.registerOre(cluster.getOredict(), cluster); }
         }
-        for (ItemDustCluster cluster : ModItems.dustClusterList) {
-            if (cluster.getOredict() != null) { OreDictionary.registerOre(cluster.getOredict(), cluster); }
-        }
-
-        for (ItemOreCluster cluster : ModItems.oreClusterListCompat) {
-            if (cluster.getOredict() != null) { OreDictionary.registerOre(cluster.getOredict(), cluster); }
-        }
-        for (ItemCrystalCluster cluster : ModItems.crystalClusterListCompat) {
-            if (cluster.getOredict() != null) { OreDictionary.registerOre(cluster.getOredict(), cluster); }
-        }
-        for (ItemDustCluster cluster : ModItems.dustClusterListCompat) {
+        for (ItemDustCluster cluster : lists.getDustClusterList()) {
             if (cluster.getOredict() != null) { OreDictionary.registerOre(cluster.getOredict(), cluster); }
         }
     }
 
-    public static void registerFurnaceRecipes() {
-        for (ItemOreCluster cluster : ModItems.oreClusterList) { if (cluster.getSmeltingOutput() != null) GameRegistry.addSmelting(cluster, cluster.getSmeltingOutput(), 1.0F); }
-        for (ItemCrystalCluster cluster : ModItems.crystalClusterList) { if (cluster.getSmeltingOutput() != null) GameRegistry.addSmelting(cluster, cluster.getSmeltingOutput(), 1.0F); }
-        for (ItemDustCluster cluster : ModItems.dustClusterList) { if (cluster.getSmeltingOutput() != null) GameRegistry.addSmelting(cluster, cluster.getSmeltingOutput(), 1.0F); }
-
-        for (ItemOreCluster cluster : ModItems.oreClusterListCompat) { if (cluster.getSmeltingOutput() != null) GameRegistry.addSmelting(cluster, cluster.getSmeltingOutput(), 1.0F); }
-        for (ItemCrystalCluster cluster : ModItems.crystalClusterListCompat) { if (cluster.getSmeltingOutput() != null) GameRegistry.addSmelting(cluster, cluster.getSmeltingOutput(), 1.0F); }
-        for (ItemDustCluster cluster : ModItems.dustClusterListCompat) { if (cluster.getSmeltingOutput() != null) GameRegistry.addSmelting(cluster, cluster.getSmeltingOutput(), 1.0F); }
+    public static void registerFurnaceRecipes(ItemLists lists) {
+        for (ItemOreCluster cluster : lists.getOreClusterList()) {
+            if (cluster.getSmeltingOutput() != null)
+                GameRegistry.addSmelting(cluster, cluster.getSmeltingOutput(), 1.0F); }
+        for (ItemCrystalCluster cluster : lists.getCrystalClusterList()) {
+            if (cluster.getSmeltingOutput() != null)
+                GameRegistry.addSmelting(cluster, cluster.getSmeltingOutput(), 1.0F); }
+        for (ItemDustCluster cluster : lists.getDustClusterList()) {
+            if (cluster.getSmeltingOutput() != null)
+                GameRegistry.addSmelting(cluster, cluster.getSmeltingOutput(), 1.0F); }
     }
 
     //  Creative Tabs

@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import network.pxl8.geoexpansion.common.blocks.ModBlocks;
+import network.pxl8.geoexpansion.common.event.ItemLists;
 import network.pxl8.geoexpansion.compat.CompatHandler;
 import network.pxl8.geoexpansion.lib.LibMeta;
 
@@ -39,45 +40,33 @@ public class ModItems {
     @GameRegistry.ObjectHolder("ge.spalling_hammer_nickel")     public static ItemSpallingHammer spallingHammerNickel;
     @GameRegistry.ObjectHolder("ge.spalling_hammer_platinum")   public static ItemSpallingHammer spallingHammerPlatinum;
 
-    public static List<ItemOreCluster> oreClusterList = new ArrayList<>();
-    public static List<ItemCrystalCluster> crystalClusterList = new ArrayList<>();
-    public static List<ItemDustCluster> dustClusterList = new ArrayList<>();
-    public static List<ItemSpallingHammer> spallingHammerList = new ArrayList<>();
-
-    private static void addOreClusters() {
-        oreClusterList.add(oreClusterBase);
-        oreClusterList.add(oreClusterCoal);
-        oreClusterList.add(oreClusterIron);
-        oreClusterList.add(oreClusterGold);
+    private static void addOreClusters(ItemLists target) {
+        target.addOreCluster(oreClusterBase);
+        target.addOreCluster(oreClusterCoal);
+        target.addOreCluster(oreClusterIron);
+        target.addOreCluster(oreClusterGold);
     }
-    private static void addCrystalClusters() {
-        crystalClusterList.add(crystalClusterBase);
-        crystalClusterList.add(crystalClusterDiamond);
-        crystalClusterList.add(crystalClusterEmerald);
+    private static void addCrystalClusters(ItemLists target) {
+        target.addCrystalCluster(crystalClusterBase);
+        target.addCrystalCluster(crystalClusterDiamond);
+        target.addCrystalCluster(crystalClusterEmerald);
     }
-    private static void addDustClusters() {
-        dustClusterList.add(dustClusterBase);
-        dustClusterList.add(dustClusterRedstone);
-        dustClusterList.add(dustClusterLapis);
+    private static void addDustClusters(ItemLists target) {
+        target.addDustCluster(dustClusterBase);
+        target.addDustCluster(dustClusterRedstone);
+        target.addDustCluster(dustClusterLapis);
     }
-    private static void addSpallingHammers() {
-        spallingHammerList.add(spallingHammerBase);
-        spallingHammerList.add(spallingHammerIron);
-        spallingHammerList.add(spallingHammerDiamond);
-        if (spallingHammerSilver != null) spallingHammerList.add(spallingHammerSilver);
-        if (spallingHammerLead != null) spallingHammerList.add(spallingHammerLead);
-        if (spallingHammerTin != null) spallingHammerList.add(spallingHammerTin);
-        if (spallingHammerCopper != null) spallingHammerList.add(spallingHammerCopper);
-        if (spallingHammerAluminum != null) spallingHammerList.add(spallingHammerAluminum);
-        if (spallingHammerNickel != null) spallingHammerList.add(spallingHammerNickel);
-        if (spallingHammerPlatinum != null) spallingHammerList.add(spallingHammerPlatinum);
-    }
-
-    public static void addAll() {
-        addOreClusters();
-        addCrystalClusters();
-        addDustClusters();
-        addSpallingHammers();
+    private static void addSpallingHammers(ItemLists target) {
+        target.addHammer(spallingHammerBase);
+        target.addHammer(spallingHammerIron);
+        target.addHammer(spallingHammerDiamond);
+        if (spallingHammerSilver != null) target.addHammer(spallingHammerSilver);
+        if (spallingHammerLead != null) target.addHammer(spallingHammerLead);
+        if (spallingHammerTin != null) target.addHammer(spallingHammerTin);
+        if (spallingHammerCopper != null) target.addHammer(spallingHammerCopper);
+        if (spallingHammerAluminum != null) target.addHammer(spallingHammerAluminum);
+        if (spallingHammerNickel != null) target.addHammer(spallingHammerNickel);
+        if (spallingHammerPlatinum != null) target.addHammer(spallingHammerPlatinum);
     }
 
     public static Map<String, String> clusterColourMap = new HashMap<>();
@@ -331,113 +320,114 @@ public class ModItems {
 
     @GameRegistry.ObjectHolder("de.dust_cluster_draconium")             public static ItemDustCluster clusterDraconicEvolutionDraconium;
 
-    public static List<ItemOreCluster> oreClusterListCompat = new ArrayList<>();
-    public static List<ItemCrystalCluster> crystalClusterListCompat = new ArrayList<>();
-    public static List<ItemDustCluster> dustClusterListCompat = new ArrayList<>();
-
-    private static void addOreClustersCompat() {
-        if (ModBlocks.oreBaseMetalsAntimony != null) {                              oreClusterListCompat.add(clusterBaseMetalsAntimony);}
-        if (ModBlocks.oreBaseMetalsBismuth != null) {                               oreClusterListCompat.add(clusterBaseMetalsBismuth);}
-        if (ModBlocks.oreBaseMetalsCopper != null) {                                oreClusterListCompat.add(clusterBaseMetalsCopper);}
-        if (ModBlocks.oreBaseMetalsLead != null) {                                  oreClusterListCompat.add(clusterBaseMetalsLead);}
-        if (ModBlocks.oreBaseMetalsMercury != null) {                               oreClusterListCompat.add(clusterBaseMetalsMercury);}
-        if (ModBlocks.oreBaseMetalsNickel != null) {                                oreClusterListCompat.add(clusterBaseMetalsNickel);}
-        if (ModBlocks.oreBaseMetalsPlatinum != null) {                              oreClusterListCompat.add(clusterBaseMetalsPlatinum);}
-        if (ModBlocks.oreBaseMetalsSilver != null) {                                oreClusterListCompat.add(clusterBaseMetalsSilver);}
-        if (ModBlocks.oreBaseMetalsTin != null) {                                   oreClusterListCompat.add(clusterBaseMetalsTin);}
-        if (ModBlocks.oreBaseMetalsZinc != null) {                                  oreClusterListCompat.add(clusterBaseMetalsZinc);}
-        if (ModBlocks.oreModernMetalsAluminum != null) {                            oreClusterListCompat.add(clusterModernMetalsAluminum);}
-        if (ModBlocks.oreModernMetalsBeryllium != null) {                           oreClusterListCompat.add(clusterModernMetalsBeryllium);}
-        if (ModBlocks.oreModernMetalsBoron != null) {                               oreClusterListCompat.add(clusterModernMetalsBoron);}
-        if (ModBlocks.oreModernMetalsCadmium != null) {                             oreClusterListCompat.add(clusterModernMetalsCadmium);}
-        if (ModBlocks.oreModernMetalsChromium != null) {                            oreClusterListCompat.add(clusterModernMetalsChromium);}
-        if (ModBlocks.oreModernMetalsIridium != null) {                             oreClusterListCompat.add(clusterModernMetalsIridium);}
-        if (ModBlocks.oreModernMetalsMagnesium != null) {                           oreClusterListCompat.add(clusterModernMetalsMagnesium);}
-        if (ModBlocks.oreModernMetalsManganese != null) {                           oreClusterListCompat.add(clusterModernMetalsManganese);}
-        if (ModBlocks.oreModernMetalsOsmium != null) {                              oreClusterListCompat.add(clusterModernMetalsOsmium);}
-        if (ModBlocks.oreModernMetalsPlutonium != null) {                           oreClusterListCompat.add(clusterModernMetalsPlutonium);}
-        if (ModBlocks.oreModernMetalsRutile != null) {                              oreClusterListCompat.add(clusterModernMetalsRutile);}
-        if (ModBlocks.oreModernMetalsTantalum != null) {                            oreClusterListCompat.add(clusterModernMetalsTantalum);}
-        if (ModBlocks.oreModernMetalsThorium != null) {                             oreClusterListCompat.add(clusterModernMetalsThorium);}
-        if (ModBlocks.oreModernMetalsTitanium != null) {                            oreClusterListCompat.add(clusterModernMetalsTitanium);}
-        if (ModBlocks.oreModernMetalsTungsten != null) {                            oreClusterListCompat.add(clusterModernMetalsTungsten);}
-        if (ModBlocks.oreModernMetalsUranium != null) {                             oreClusterListCompat.add(clusterModernMetalsUranium);}
-        if (ModBlocks.oreModernMetalsZirconium != null) {                           oreClusterListCompat.add(clusterModernMetalsZirconium);}
-        if (ModBlocks.oreThermalFoundationCopper != null) {                         oreClusterListCompat.add(clusterThermalFoundationCopper);}
-        if (ModBlocks.oreThermalFoundationTin != null) {                            oreClusterListCompat.add(clusterThermalFoundationTin);}
-        if (ModBlocks.oreThermalFoundationSilver != null) {                         oreClusterListCompat.add(clusterThermalFoundationSilver);}
-        if (ModBlocks.oreThermalFoundationLead != null) {                           oreClusterListCompat.add(clusterThermalFoundationLead);}
-        if (ModBlocks.oreThermalFoundationAluminum != null) {                       oreClusterListCompat.add(clusterThermalFoundationAluminum);}
-        if (ModBlocks.oreThermalFoundationNickel != null) {                         oreClusterListCompat.add(clusterThermalFoundationNickel);}
-        if (ModBlocks.oreThermalFoundationPlatinum != null) {                       oreClusterListCompat.add(clusterThermalFoundationPlatinum);}
-        if (ModBlocks.oreThermalFoundationIridium != null) {                        oreClusterListCompat.add(clusterThermalFoundationIridium);}
-        if (ModBlocks.oreThermalFoundationMithril != null) {                        oreClusterListCompat.add(clusterThermalFoundationMithril);}
-        if (ModBlocks.oreImmersiveEngineeringCopper != null) {                      oreClusterListCompat.add(clusterImmersiveEngineeringCopper);}
-        if (ModBlocks.oreImmersiveEngineeringAluminum != null) {                    oreClusterListCompat.add(clusterImmersiveEngineeringAluminum);}
-        if (ModBlocks.oreImmersiveEngineeringLead != null) {                        oreClusterListCompat.add(clusterImmersiveEngineeringLead);}
-        if (ModBlocks.oreImmersiveEngineeringSilver != null) {                      oreClusterListCompat.add(clusterImmersiveEngineeringSilver);}
-        if (ModBlocks.oreImmersiveEngineeringNickel != null) {                      oreClusterListCompat.add(clusterImmersiveEngineeringNickel);}
-        if (ModBlocks.oreImmersiveEngineeringUranium != null) {                     oreClusterListCompat.add(clusterImmersiveEngineeringUranium);}
-        if (ModBlocks.oreTechRebornGalena != null) {                                oreClusterListCompat.add(clusterTechRebornGalena);}
-        if (ModBlocks.oreTechRebornIridium != null) {                               oreClusterListCompat.add(clusterTechRebornIridium);}
-        if (ModBlocks.oreTechRebornBauxite != null) {                               oreClusterListCompat.add(clusterTechRebornBauxite);}
-        if (ModBlocks.oreTechRebornLead != null) {                                  oreClusterListCompat.add(clusterTechRebornLead);}
-        if (ModBlocks.oreTechRebornSilver != null) {                                oreClusterListCompat.add(clusterTechRebornSilver);}
-        if (ModBlocks.oreTechRebornCopper != null) {                                oreClusterListCompat.add(clusterTechRebornCopper);}
-        if (ModBlocks.oreTechRebornTin != null) {                                   oreClusterListCompat.add(clusterTechRebornTin);}
-        if (ModBlocks.oreTechRebornTungsten != null) {                              oreClusterListCompat.add(clusterTechRebornTungsten);}
-        if (ModBlocks.oreTechRebornSheldonite != null) {                            oreClusterListCompat.add(clusterTechRebornSheldonite);}
-        if (ModBlocks.oreForestryCopper != null) {                                  oreClusterListCompat.add(clusterForestryCopper);}
-        if (ModBlocks.oreForestryTin != null) {                                     oreClusterListCompat.add(clusterForestryTin);}
-        if (ModBlocks.oreBluePowerCopper != null) {                                 oreClusterListCompat.add(clusterBluePowerCopper);}
-        if (ModBlocks.oreBluePowerSilver != null) {                                 oreClusterListCompat.add(clusterBluePowerSilver);}
-        if (ModBlocks.oreBluePowerZinc != null) {                                   oreClusterListCompat.add(clusterBluePowerZinc);}
-        if (ModBlocks.oreBluePowerTungsten != null) {                               oreClusterListCompat.add(clusterBluePowerTungsten);}
-        if (ModBlocks.oreExtremeReactorsYellorite != null) {                        oreClusterListCompat.add(clusterExtremeReactorsYellorite);}
-        if (ModBlocks.oreEmbersCopper != null) {                                    oreClusterListCompat.add(clusterEmbersCopper);}
-        if (ModBlocks.oreEmbersLead != null) {                                      oreClusterListCompat.add(clusterEmbersLead);}
-        if (ModBlocks.oreEmbersSilver != null) {                                    oreClusterListCompat.add(clusterEmbersSilver);}
-        if (ModBlocks.oreEmbersAluminum != null) {                                  oreClusterListCompat.add(clusterEmbersAluminum);}
-        if (ModBlocks.oreEmbersNickel != null) {                                    oreClusterListCompat.add(clusterEmbersNickel);}
-        if (ModBlocks.oreEmbersTin != null) {                                       oreClusterListCompat.add(clusterEmbersTin);}
-        if (ModBlocks.oreMekanismOsmium != null) {                                  oreClusterListCompat.add(clusterMekanismOsmium);}
-        if (ModBlocks.oreMekanismCopper != null) {                                  oreClusterListCompat.add(clusterMekanismCopper);}
-        if (ModBlocks.oreMekanismTin != null) {                                     oreClusterListCompat.add(clusterMekanismTin);}
-        if (ModBlocks.oreNuclearCraftCopper != null) {                              oreClusterListCompat.add(clusterNuclearCraftCopper);}
-        if (ModBlocks.oreNuclearCraftTin != null) {                                 oreClusterListCompat.add(clusterNuclearCraftTin);}
-        if (ModBlocks.oreNuclearCraftLead != null) {                                oreClusterListCompat.add(clusterNuclearCraftLead);}
-        if (ModBlocks.oreNuclearCraftThorium != null) {                             oreClusterListCompat.add(clusterNuclearCraftThorium);}
-        if (ModBlocks.oreNuclearCraftUranium != null) {                             oreClusterListCompat.add(clusterNuclearCraftUranium);}
-        if (ModBlocks.oreNuclearCraftBoron != null) {                               oreClusterListCompat.add(clusterNuclearCraftBoron);}
-        if (ModBlocks.oreNuclearCraftLithium != null) {                             oreClusterListCompat.add(clusterNuclearCraftLithium);}
-        if (ModBlocks.oreNuclearCraftMagnesium != null) {                           oreClusterListCompat.add(clusterNuclearCraftMagnesium);}
+    private static void addOreClustersCompat(ItemLists target) {
+        if (ModBlocks.oreBaseMetalsAntimony != null) {                              target.addOreCluster(clusterBaseMetalsAntimony);}
+        if (ModBlocks.oreBaseMetalsBismuth != null) {                               target.addOreCluster(clusterBaseMetalsBismuth);}
+        if (ModBlocks.oreBaseMetalsCopper != null) {                                target.addOreCluster(clusterBaseMetalsCopper);}
+        if (ModBlocks.oreBaseMetalsLead != null) {                                  target.addOreCluster(clusterBaseMetalsLead);}
+        if (ModBlocks.oreBaseMetalsMercury != null) {                               target.addOreCluster(clusterBaseMetalsMercury);}
+        if (ModBlocks.oreBaseMetalsNickel != null) {                                target.addOreCluster(clusterBaseMetalsNickel);}
+        if (ModBlocks.oreBaseMetalsPlatinum != null) {                              target.addOreCluster(clusterBaseMetalsPlatinum);}
+        if (ModBlocks.oreBaseMetalsSilver != null) {                                target.addOreCluster(clusterBaseMetalsSilver);}
+        if (ModBlocks.oreBaseMetalsTin != null) {                                   target.addOreCluster(clusterBaseMetalsTin);}
+        if (ModBlocks.oreBaseMetalsZinc != null) {                                  target.addOreCluster(clusterBaseMetalsZinc);}
+        if (ModBlocks.oreModernMetalsAluminum != null) {                            target.addOreCluster(clusterModernMetalsAluminum);}
+        if (ModBlocks.oreModernMetalsBeryllium != null) {                           target.addOreCluster(clusterModernMetalsBeryllium);}
+        if (ModBlocks.oreModernMetalsBoron != null) {                               target.addOreCluster(clusterModernMetalsBoron);}
+        if (ModBlocks.oreModernMetalsCadmium != null) {                             target.addOreCluster(clusterModernMetalsCadmium);}
+        if (ModBlocks.oreModernMetalsChromium != null) {                            target.addOreCluster(clusterModernMetalsChromium);}
+        if (ModBlocks.oreModernMetalsIridium != null) {                             target.addOreCluster(clusterModernMetalsIridium);}
+        if (ModBlocks.oreModernMetalsMagnesium != null) {                           target.addOreCluster(clusterModernMetalsMagnesium);}
+        if (ModBlocks.oreModernMetalsManganese != null) {                           target.addOreCluster(clusterModernMetalsManganese);}
+        if (ModBlocks.oreModernMetalsOsmium != null) {                              target.addOreCluster(clusterModernMetalsOsmium);}
+        if (ModBlocks.oreModernMetalsPlutonium != null) {                           target.addOreCluster(clusterModernMetalsPlutonium);}
+        if (ModBlocks.oreModernMetalsRutile != null) {                              target.addOreCluster(clusterModernMetalsRutile);}
+        if (ModBlocks.oreModernMetalsTantalum != null) {                            target.addOreCluster(clusterModernMetalsTantalum);}
+        if (ModBlocks.oreModernMetalsThorium != null) {                             target.addOreCluster(clusterModernMetalsThorium);}
+        if (ModBlocks.oreModernMetalsTitanium != null) {                            target.addOreCluster(clusterModernMetalsTitanium);}
+        if (ModBlocks.oreModernMetalsTungsten != null) {                            target.addOreCluster(clusterModernMetalsTungsten);}
+        if (ModBlocks.oreModernMetalsUranium != null) {                             target.addOreCluster(clusterModernMetalsUranium);}
+        if (ModBlocks.oreModernMetalsZirconium != null) {                           target.addOreCluster(clusterModernMetalsZirconium);}
+        if (ModBlocks.oreThermalFoundationCopper != null) {                         target.addOreCluster(clusterThermalFoundationCopper);}
+        if (ModBlocks.oreThermalFoundationTin != null) {                            target.addOreCluster(clusterThermalFoundationTin);}
+        if (ModBlocks.oreThermalFoundationSilver != null) {                         target.addOreCluster(clusterThermalFoundationSilver);}
+        if (ModBlocks.oreThermalFoundationLead != null) {                           target.addOreCluster(clusterThermalFoundationLead);}
+        if (ModBlocks.oreThermalFoundationAluminum != null) {                       target.addOreCluster(clusterThermalFoundationAluminum);}
+        if (ModBlocks.oreThermalFoundationNickel != null) {                         target.addOreCluster(clusterThermalFoundationNickel);}
+        if (ModBlocks.oreThermalFoundationPlatinum != null) {                       target.addOreCluster(clusterThermalFoundationPlatinum);}
+        if (ModBlocks.oreThermalFoundationIridium != null) {                        target.addOreCluster(clusterThermalFoundationIridium);}
+        if (ModBlocks.oreThermalFoundationMithril != null) {                        target.addOreCluster(clusterThermalFoundationMithril);}
+        if (ModBlocks.oreImmersiveEngineeringCopper != null) {                      target.addOreCluster(clusterImmersiveEngineeringCopper);}
+        if (ModBlocks.oreImmersiveEngineeringAluminum != null) {                    target.addOreCluster(clusterImmersiveEngineeringAluminum);}
+        if (ModBlocks.oreImmersiveEngineeringLead != null) {                        target.addOreCluster(clusterImmersiveEngineeringLead);}
+        if (ModBlocks.oreImmersiveEngineeringSilver != null) {                      target.addOreCluster(clusterImmersiveEngineeringSilver);}
+        if (ModBlocks.oreImmersiveEngineeringNickel != null) {                      target.addOreCluster(clusterImmersiveEngineeringNickel);}
+        if (ModBlocks.oreImmersiveEngineeringUranium != null) {                     target.addOreCluster(clusterImmersiveEngineeringUranium);}
+        if (ModBlocks.oreTechRebornGalena != null) {                                target.addOreCluster(clusterTechRebornGalena);}
+        if (ModBlocks.oreTechRebornIridium != null) {                               target.addOreCluster(clusterTechRebornIridium);}
+        if (ModBlocks.oreTechRebornBauxite != null) {                               target.addOreCluster(clusterTechRebornBauxite);}
+        if (ModBlocks.oreTechRebornLead != null) {                                  target.addOreCluster(clusterTechRebornLead);}
+        if (ModBlocks.oreTechRebornSilver != null) {                                target.addOreCluster(clusterTechRebornSilver);}
+        if (ModBlocks.oreTechRebornCopper != null) {                                target.addOreCluster(clusterTechRebornCopper);}
+        if (ModBlocks.oreTechRebornTin != null) {                                   target.addOreCluster(clusterTechRebornTin);}
+        if (ModBlocks.oreTechRebornTungsten != null) {                              target.addOreCluster(clusterTechRebornTungsten);}
+        if (ModBlocks.oreTechRebornSheldonite != null) {                            target.addOreCluster(clusterTechRebornSheldonite);}
+        if (ModBlocks.oreForestryCopper != null) {                                  target.addOreCluster(clusterForestryCopper);}
+        if (ModBlocks.oreForestryTin != null) {                                     target.addOreCluster(clusterForestryTin);}
+        if (ModBlocks.oreBluePowerCopper != null) {                                 target.addOreCluster(clusterBluePowerCopper);}
+        if (ModBlocks.oreBluePowerSilver != null) {                                 target.addOreCluster(clusterBluePowerSilver);}
+        if (ModBlocks.oreBluePowerZinc != null) {                                   target.addOreCluster(clusterBluePowerZinc);}
+        if (ModBlocks.oreBluePowerTungsten != null) {                               target.addOreCluster(clusterBluePowerTungsten);}
+        if (ModBlocks.oreExtremeReactorsYellorite != null) {                        target.addOreCluster(clusterExtremeReactorsYellorite);}
+        if (ModBlocks.oreEmbersCopper != null) {                                    target.addOreCluster(clusterEmbersCopper);}
+        if (ModBlocks.oreEmbersLead != null) {                                      target.addOreCluster(clusterEmbersLead);}
+        if (ModBlocks.oreEmbersSilver != null) {                                    target.addOreCluster(clusterEmbersSilver);}
+        if (ModBlocks.oreEmbersAluminum != null) {                                  target.addOreCluster(clusterEmbersAluminum);}
+        if (ModBlocks.oreEmbersNickel != null) {                                    target.addOreCluster(clusterEmbersNickel);}
+        if (ModBlocks.oreEmbersTin != null) {                                       target.addOreCluster(clusterEmbersTin);}
+        if (ModBlocks.oreMekanismOsmium != null) {                                  target.addOreCluster(clusterMekanismOsmium);}
+        if (ModBlocks.oreMekanismCopper != null) {                                  target.addOreCluster(clusterMekanismCopper);}
+        if (ModBlocks.oreMekanismTin != null) {                                     target.addOreCluster(clusterMekanismTin);}
+        if (ModBlocks.oreNuclearCraftCopper != null) {                              target.addOreCluster(clusterNuclearCraftCopper);}
+        if (ModBlocks.oreNuclearCraftTin != null) {                                 target.addOreCluster(clusterNuclearCraftTin);}
+        if (ModBlocks.oreNuclearCraftLead != null) {                                target.addOreCluster(clusterNuclearCraftLead);}
+        if (ModBlocks.oreNuclearCraftThorium != null) {                             target.addOreCluster(clusterNuclearCraftThorium);}
+        if (ModBlocks.oreNuclearCraftUranium != null) {                             target.addOreCluster(clusterNuclearCraftUranium);}
+        if (ModBlocks.oreNuclearCraftBoron != null) {                               target.addOreCluster(clusterNuclearCraftBoron);}
+        if (ModBlocks.oreNuclearCraftLithium != null) {                             target.addOreCluster(clusterNuclearCraftLithium);}
+        if (ModBlocks.oreNuclearCraftMagnesium != null) {                           target.addOreCluster(clusterNuclearCraftMagnesium);}
     }
-    private static void addCrystalClustersCompat() {
-        if (ModBlocks.oreTechRebornRuby != null) {                                  crystalClusterListCompat.add(clusterTechRebornRuby);}
-        if (ModBlocks.oreTechRebornSapphire != null) {                              crystalClusterListCompat.add(clusterTechRebornSapphire);}
-        if (ModBlocks.oreTechRebornPeridot != null) {                               crystalClusterListCompat.add(clusterTechRebornPeridot);}
-        if (ModBlocks.oreForestryApatite != null) {                                 crystalClusterListCompat.add(clusterForestryApatite);}
-        if (ModBlocks.oreBluePowerRuby != null) {                                   crystalClusterListCompat.add(clusterBluePowerRuby);}
-        if (ModBlocks.oreBluePowerSapphire != null) {                               crystalClusterListCompat.add(clusterBluePowerSapphire);}
-        if (ModBlocks.oreBluePowerAmethyst != null) {                               crystalClusterListCompat.add(clusterBluePowerAmethyst);}
-        if (ModBlocks.oreAppliedEnergisticsCertusQuartz != null) {                  crystalClusterListCompat.add(clusterAppliedEnergisticsCertusQuartz);}
-        if (ModBlocks.oreAppliedEnergisticsChargedCertusQuartz != null) {           crystalClusterListCompat.add(clusterAppliedEnergisticsChargedCertusQuartz);}
-        if (ModBlocks.oreEmbersQuartz != null) {                                    crystalClusterListCompat.add(clusterEmbersQuartz);}
+    private static void addCrystalClustersCompat(ItemLists target) {
+        if (ModBlocks.oreTechRebornRuby != null) {                                  target.addCrystalCluster(clusterTechRebornRuby);}
+        if (ModBlocks.oreTechRebornSapphire != null) {                              target.addCrystalCluster(clusterTechRebornSapphire);}
+        if (ModBlocks.oreTechRebornPeridot != null) {                               target.addCrystalCluster(clusterTechRebornPeridot);}
+        if (ModBlocks.oreForestryApatite != null) {                                 target.addCrystalCluster(clusterForestryApatite);}
+        if (ModBlocks.oreBluePowerRuby != null) {                                   target.addCrystalCluster(clusterBluePowerRuby);}
+        if (ModBlocks.oreBluePowerSapphire != null) {                               target.addCrystalCluster(clusterBluePowerSapphire);}
+        if (ModBlocks.oreBluePowerAmethyst != null) {                               target.addCrystalCluster(clusterBluePowerAmethyst);}
+        if (ModBlocks.oreAppliedEnergisticsCertusQuartz != null) {                  target.addCrystalCluster(clusterAppliedEnergisticsCertusQuartz);}
+        if (ModBlocks.oreAppliedEnergisticsChargedCertusQuartz != null) {           target.addCrystalCluster(clusterAppliedEnergisticsChargedCertusQuartz);}
+        if (ModBlocks.oreEmbersQuartz != null) {                                    target.addCrystalCluster(clusterEmbersQuartz);}
     }
-    private static void addDustClustersCompat() {
+    private static void addDustClustersCompat(ItemLists target) {
 
-        if (ModBlocks.oreTechRebornSodalite != null) {                              dustClusterListCompat.add(clusterTechRebornSodalite);}
-        if (ModBlocks.oreThermalFoundationClathrateRedstone != null) {              dustClusterListCompat.add(clusterThermalFoundationClathrateRedstone);}
-        if (ModBlocks.oreBluePowerTeslatite != null) {                              dustClusterListCompat.add(clusterBluePowerTeslatite);}
-        if (ModBlocks.oreAromaDimensionSticky != null) {                            dustClusterListCompat.add(clusterAromaDimensionSticky);}
-        if (ModBlocks.oreAromaDimensionClay != null) {                              dustClusterListCompat.add(clusterAromaDimensionClay);}
-        if (ModBlocks.oreDraconicEvolutionDraconium != null) {                      dustClusterListCompat.add(clusterDraconicEvolutionDraconium);}
+        if (ModBlocks.oreTechRebornSodalite != null) {                              target.addDustCluster(clusterTechRebornSodalite);}
+        if (ModBlocks.oreThermalFoundationClathrateRedstone != null) {              target.addDustCluster(clusterThermalFoundationClathrateRedstone);}
+        if (ModBlocks.oreBluePowerTeslatite != null) {                              target.addDustCluster(clusterBluePowerTeslatite);}
+        if (ModBlocks.oreAromaDimensionSticky != null) {                            target.addDustCluster(clusterAromaDimensionSticky);}
+        if (ModBlocks.oreAromaDimensionClay != null) {                              target.addDustCluster(clusterAromaDimensionClay);}
+        if (ModBlocks.oreDraconicEvolutionDraconium != null) {                      target.addDustCluster(clusterDraconicEvolutionDraconium);}
     }
 
-    public static void addAllCompat() {
-        addOreClustersCompat();
-        addCrystalClustersCompat();
-        addDustClustersCompat();
+    public static void addAllTo(ItemLists target) {
+        addOreClusters(target);
+        addCrystalClusters(target);
+        addDustClusters(target);
+        addSpallingHammers(target);
+
+        addOreClustersCompat(target);
+        addCrystalClustersCompat(target);
+        addDustClustersCompat(target);
     }
 
     public static void registerCompat(IForgeRegistry<Item> itemReg) {
