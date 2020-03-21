@@ -21,11 +21,12 @@ import network.pxl8.geoexpansion.lib.LibMeta;
 
 import java.util.Random;
 
-public class DynamicTintedBlock extends Block implements IReplacingBlock, IItemReceiver, IGenerationCheck {
+public class DynamicTintedBlock extends Block implements IReplacingBlock, IHolderRefresh, IGenerationCheck {
 	private DynamicBlockData data;
 	private Random random = new Random();
 	private IGenerationCheck customGenCheck = null;
 
+	private BlockRef replaces;
 	private ItemRef drops;
 	private ItemRef silkDrops = null;
 
@@ -36,7 +37,7 @@ public class DynamicTintedBlock extends Block implements IReplacingBlock, IItemR
 		setRegistryName(data.getName());
 		setUnlocalizedName(LibMeta.MOD_ID + "." + data.getName());
 		setCreativeTab(Register.geoexpansionTabBlocks);
-		setSoundType(data.getSoundType());
+		setSoundType(data.getSound());
 
 		if (data.getBehaviour() == DynamicBlockBehaviour.BEDROCK) {
 			this.setResistance(6000000.0F);
@@ -46,7 +47,7 @@ public class DynamicTintedBlock extends Block implements IReplacingBlock, IItemR
 
 	@Override
 	public IBlockState getTarget() {
-		return data.getReplaces().getState();
+		return replaces.getState();
 	}
 
 	@Override
@@ -55,11 +56,12 @@ public class DynamicTintedBlock extends Block implements IReplacingBlock, IItemR
 	}
 
 	@Override
-	public void setDrops(IItemLookup lookup) {
-		drops = data.getDrops().toItemRef(lookup);
+	public void provideRefs(IItemLookup items, IBlockLookup blocks) {
+		replaces = data.getReplaces().toBlockRef(blocks);
+		drops = data.getDrops().toItemRef(items);
 
 		if (data.getSilkDrops() != null)
-			silkDrops = data.getSilkDrops().toItemRef(lookup);
+			silkDrops = data.getSilkDrops().toItemRef(items);
 	}
 
 	@Override

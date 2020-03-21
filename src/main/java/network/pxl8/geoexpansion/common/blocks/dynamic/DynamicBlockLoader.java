@@ -21,12 +21,12 @@ public class DynamicBlockLoader {
 			.registerTypeAdapter(DynamicBlockBehaviour.class, new BehaviourDeserializer())
 			.create();
 
-	public DynamicBlockFactory load(String name) {
+	public DynamicBlockData load(String name) {
 		String assetPath = String.format("/assets/geoexpansion/dynamic/%s.json", name);
 		InputStream stream = getClass().getResourceAsStream(assetPath);
 		InputStreamReader reader = new InputStreamReader(stream);
 
-		DynamicBlockFactory factory = gson.fromJson(reader, DynamicBlockFactory.class);
+		DynamicBlockData factory = gson.fromJson(reader, DynamicBlockData.class);
 		if (!factory.isValid()) throw new IllegalArgumentException("Invalid dynamic block entry: " + name);
 
 		return factory;
