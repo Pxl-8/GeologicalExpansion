@@ -1,0 +1,13 @@
+{
+  "name": "ie.ore_lead",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "immersiveengineering:ore",
+    "meta": 2
+  },
+  "drops": {
+    "resource": "geoexpansion:ie.ore_cluster_lead"
+  },
+  "behaviour": "ore"
+}

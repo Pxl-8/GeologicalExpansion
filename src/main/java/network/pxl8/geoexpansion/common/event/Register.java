@@ -20,6 +20,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 import network.pxl8.geoexpansion.common.blocks.BlockStone;
 import network.pxl8.geoexpansion.common.blocks.ModBlocks;
+import network.pxl8.geoexpansion.common.blocks.dynamic.IItemReceiver;
 import network.pxl8.geoexpansion.common.items.*;
 import network.pxl8.geoexpansion.lib.LibTools;
 
@@ -32,20 +33,22 @@ public class Register {
         IForgeRegistry<Block> blockReg = event.getRegistry();
 
         ModBlocks.registerModBlocks(blockReg);
-        ModBlocks.registerCompat(blockReg);
     }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> itemReg = event.getRegistry();
 
-        ModBlocks.addAll();
-        ModBlocks.addAllCompat();
-
-        for (Block block : ModBlocks.allModBlocks) { itemReg.register(createItemBlock(block)); }
+        for (Block block : ModBlocks.allModBlocks) {
+            itemReg.register(createItemBlock(block));
+        }
 
         ModItems.registerModItems(itemReg);
         ModItems.registerCompat(itemReg);
+
+        for (IItemReceiver receiver : ModBlocks.allModBlocks) {
+            receiver.setDrops(itemReg::getValue);
+        }
     }
 
     @SubscribeEvent

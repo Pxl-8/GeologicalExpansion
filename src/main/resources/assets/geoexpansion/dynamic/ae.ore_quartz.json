@@ -1,0 +1,12 @@
+{
+  "name": "ae.ore_quartz",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "appliedenergistics2:quartz_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:ae.crystal_cluster_quartz"
+  },
+  "behaviour": "ore"
+}

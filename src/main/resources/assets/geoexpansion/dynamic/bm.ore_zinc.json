@@ -1,0 +1,12 @@
+{
+  "name": "bm.ore_zinc",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "basemetals:zinc_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:bm.ore_cluster_zinc"
+  },
+  "behaviour": "ore"
+}

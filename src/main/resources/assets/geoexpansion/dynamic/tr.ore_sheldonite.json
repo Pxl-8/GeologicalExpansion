@@ -1,0 +1,13 @@
+{
+  "name": "tr.ore_sheldonite",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "techreborn:ore",
+    "meta": 9
+  },
+  "drops": {
+    "resource": "geoexpansion:tr.ore_cluster_sheldonite"
+  },
+  "behaviour": "ore"
+}

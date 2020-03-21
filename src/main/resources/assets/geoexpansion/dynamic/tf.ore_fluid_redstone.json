@@ -1,0 +1,13 @@
+{
+  "name": "tf.ore_fluid_redstone",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "thermalfoundation:ore_fluid",
+    "meta": 2
+  },
+  "drops": {
+    "resource": "geoexpansion:tf.fluid_cluster_redstone"
+  },
+  "behaviour": "ore"
+}

@@ -12,15 +12,19 @@ public class DynamicBlockData {
 	private float hardness;
 	private Material material;
 	private SoundType soundType;
+	private DynamicBlockBehaviour behaviour;
 
 	private BlockRef replaces;
-	private BlockRef drops;
-	private BlockRef silkDrops;
+	private WeakRegistryRef drops;
+	private WeakRegistryRef silkDrops;
 
-	public DynamicBlockData(String name, String tool, float hardness, Material material, SoundType sound, BlockRef replaces, BlockRef drops, BlockRef silkDrops) {
+	public DynamicBlockData(String name, String tool, float hardness,
+	                        DynamicBlockBehaviour behaviour, Material material, SoundType sound,
+	                        BlockRef replaces, WeakRegistryRef drops, WeakRegistryRef silkDrops) {
 		this.name = name;
 		this.tool = tool;
 		this.hardness = hardness;
+		this.behaviour = behaviour;
 		this.material = material;
 		this.soundType = sound;
 		this.replaces = replaces;
@@ -52,18 +56,22 @@ public class DynamicBlockData {
 		return soundType;
 	}
 
+	public DynamicBlockBehaviour getBehaviour() {
+		return behaviour;
+	}
+
 	@Nonnull
 	public BlockRef getReplaces() {
 		return replaces;
 	}
 
 	@Nonnull
-	public BlockRef getDrops() {
+	public WeakRegistryRef getDrops() {
 		return drops;
 	}
 
 	@Nullable
-	public BlockRef getSilkDrops() {
+	public WeakRegistryRef getSilkDrops() {
 		return silkDrops;
 	}
 }

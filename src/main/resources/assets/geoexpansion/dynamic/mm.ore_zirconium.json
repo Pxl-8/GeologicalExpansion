@@ -1,0 +1,12 @@
+{
+  "name": "mm.ore_zirconium",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "modernmetals:zirconium_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:mm.ore_cluster_zirconium"
+  },
+  "behaviour": "ore"
+}

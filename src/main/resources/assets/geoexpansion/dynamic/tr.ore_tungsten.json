@@ -1,0 +1,13 @@
+{
+  "name": "tr.ore_tungsten",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "techreborn:ore",
+    "meta": 8
+  },
+  "drops": {
+    "resource": "geoexpansion:tr.ore_cluster_tungsten"
+  },
+  "behaviour": "ore"
+}

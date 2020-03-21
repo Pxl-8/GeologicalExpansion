@@ -1,0 +1,12 @@
+{
+  "name": "mm.ore_plutonium",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "modernmetals:plutonium_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:mm.ore_cluster_plutonium"
+  },
+  "behaviour": "ore"
+}

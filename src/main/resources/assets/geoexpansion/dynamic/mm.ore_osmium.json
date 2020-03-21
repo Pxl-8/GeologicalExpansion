@@ -1,0 +1,12 @@
+{
+  "name": "mm.ore_osmium",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "modernmetals:osmium_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:mm.ore_cluster_osmium"
+  },
+  "behaviour": "ore"
+}

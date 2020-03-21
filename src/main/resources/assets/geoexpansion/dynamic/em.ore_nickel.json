@@ -1,0 +1,12 @@
+{
+  "name": "em.ore_nickel",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "embers:ore_nickel"
+  },
+  "drops": {
+    "resource": "geoexpansion:em.ore_cluster_nickel"
+  },
+  "behaviour": "ore"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "mm.ore_iridium",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "modernmetals:iridium_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:mm.ore_cluster_iridium"
+  },
+  "behaviour": "ore"
+}

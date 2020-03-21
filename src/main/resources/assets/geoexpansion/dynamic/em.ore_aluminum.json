@@ -1,0 +1,12 @@
+{
+  "name": "em.ore_aluminum",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "embers:ore_aluminum"
+  },
+  "drops": {
+    "resource": "geoexpansion:em.ore_cluster_aluminum"
+  },
+  "behaviour": "ore"
+}

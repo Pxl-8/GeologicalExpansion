@@ -1,0 +1,12 @@
+{
+  "name": "bp.ore_silver",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "bluepower:silver_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:bp.ore_cluster_silver"
+  },
+  "behaviour": "ore"
+}

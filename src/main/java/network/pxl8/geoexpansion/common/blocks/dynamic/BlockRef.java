@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 
-public class BlockRef {
+public class BlockRef implements IRegistryItemRef {
 	private Block block;
 	private int meta;
 	private int amount;

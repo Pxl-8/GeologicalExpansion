@@ -1,0 +1,12 @@
+{
+  "name": "bp.ore_teslatite",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "bluepower:teslatite_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:bp.dust_cluster_teslatite"
+  },
+  "behaviour": "ore"
+}

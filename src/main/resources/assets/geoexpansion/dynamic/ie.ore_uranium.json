@@ -1,0 +1,13 @@
+{
+  "name": "ie.ore_uranium",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "immersiveengineering:ore",
+    "meta": 5
+  },
+  "drops": {
+    "resource": "geoexpansion:ie.ore_cluster_uranium"
+  },
+  "behaviour": "ore"
+}

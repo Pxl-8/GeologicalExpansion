@@ -1,0 +1,13 @@
+{
+  "name": "qk.permafrost",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "quark:biome_cobblestone",
+    "meta": 1
+  },
+  "drops": {
+    "resource": "quark:biome_cobblestone",
+    "meta": 1
+  }
+}

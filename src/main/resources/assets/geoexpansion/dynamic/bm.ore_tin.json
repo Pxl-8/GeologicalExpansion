@@ -1,0 +1,12 @@
+{
+  "name": "bm.ore_tin",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "basemetals:tin_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:bm.ore_cluster_tin"
+  },
+  "behaviour": "ore"
+}

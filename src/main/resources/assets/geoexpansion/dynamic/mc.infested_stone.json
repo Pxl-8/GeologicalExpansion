@@ -1,0 +1,14 @@
+{
+  "name": "mc.infested_stone",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "minecraft:monster_egg",
+    "meta": 0
+  },
+  "drops": {
+    "resource": "minecraft:stone",
+    "meta": 0
+  },
+  "behaviour": "infested"
+}

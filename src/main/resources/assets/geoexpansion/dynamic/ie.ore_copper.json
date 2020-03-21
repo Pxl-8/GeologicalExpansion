@@ -1,0 +1,13 @@
+{
+  "name": "ie.ore_copper",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "immersiveengineering:ore",
+    "meta": 0
+  },
+  "drops": {
+    "resource": "geoexpansion:ie.ore_cluster_copper"
+  },
+  "behaviour": "ore"
+}

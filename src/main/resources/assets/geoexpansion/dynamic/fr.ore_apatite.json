@@ -1,0 +1,13 @@
+{
+  "name": "fr.ore_apatite",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "forestry:resources",
+    "meta": 0
+  },
+  "drops": {
+    "resource": "geoexpansion:fr.crystal_cluster_apatite"
+  },
+  "behaviour": "ore"
+}

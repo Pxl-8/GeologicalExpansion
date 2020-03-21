@@ -1,0 +1,12 @@
+{
+  "name": "bm.ore_nickel",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "basemetals:nickel_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:bm.ore_cluster_nickel"
+  },
+  "behaviour": "ore"
+}

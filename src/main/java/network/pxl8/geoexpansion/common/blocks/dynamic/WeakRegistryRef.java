@@ -2,7 +2,7 @@ package network.pxl8.geoexpansion.common.blocks.dynamic;
 
 import net.minecraft.util.ResourceLocation;
 
-public class WeakBlockRef {
+public class WeakRegistryRef {
 	private ResourceLocation resource;
 	private int meta = 0;
 	private int amount = 1;
@@ -19,7 +19,11 @@ public class WeakBlockRef {
 		return amount;
 	}
 
-	public BlockRef strengthen(IBlockLookup lookup) {
+	public BlockRef toBlockRef(IBlockLookup lookup) {
 		return new BlockRef(lookup.lookup(resource), meta, amount);
+	}
+
+	public ItemRef toItemRef(IItemLookup lookup) {
+		return new ItemRef(lookup.lookup(resource), meta, amount);
 	}
 }

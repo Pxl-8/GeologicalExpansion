@@ -1,0 +1,12 @@
+{
+  "name": "mm.ore_tungsten",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "modernmetals:tungsten_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:mm.ore_cluster_tungsten"
+  },
+  "behaviour": "ore"
+}

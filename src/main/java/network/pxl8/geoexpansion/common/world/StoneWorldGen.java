@@ -24,7 +24,7 @@ public class StoneWorldGen implements IWorldGenerator {
     private HashMap<IBlockState, Block> blockMap = new HashMap<>();
 
     {
-        for (IReplacingBlock block : ModBlocks.replacingBlocksList) {
+        for (IReplacingBlock block : ModBlocks.allModBlocks) {
             if (!block.getTarget().equals(Blocks.AIR.getDefaultState())) {
                 blockMap.put(block.getTarget(), block.getReplacement());
             }

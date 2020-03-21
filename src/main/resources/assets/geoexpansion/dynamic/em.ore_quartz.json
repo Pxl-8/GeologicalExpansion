@@ -1,0 +1,12 @@
+{
+  "name": "em.ore_quartz",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "embers:ore_quartz"
+  },
+  "drops": {
+    "resource": "geoexpansion:em.crystal_cluster_quartz"
+  },
+  "behaviour": "ore"
+}

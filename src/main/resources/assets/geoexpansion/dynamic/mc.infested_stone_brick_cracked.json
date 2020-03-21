@@ -1,0 +1,14 @@
+{
+  "name": "mc.infested_stone_brick_cracked",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "minecraft:monster_egg",
+    "meta": 4
+  },
+  "drops": {
+    "resource": "minecraft:stonebrick",
+    "meta": 2
+  },
+  "behaviour": "infested"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "em.ore_copper",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "embers:ore_copper"
+  },
+  "drops": {
+    "resource": "geoexpansion:em.ore_cluster_copper"
+  },
+  "behaviour": "ore"
+}

@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.ResourceLocation;
+import network.pxl8.geoexpansion.common.blocks.dynamic.deserializers.BehaviourDeserializer;
 import network.pxl8.geoexpansion.common.blocks.dynamic.deserializers.MaterialDeserializer;
 import network.pxl8.geoexpansion.common.blocks.dynamic.deserializers.ResourceLocationDeserializer;
 import network.pxl8.geoexpansion.common.blocks.dynamic.deserializers.SoundTypeDeserializer;
@@ -17,6 +18,7 @@ public class DynamicBlockLoader {
 			.registerTypeAdapter(Material.class, new MaterialDeserializer())
 			.registerTypeAdapter(ResourceLocation.class, new ResourceLocationDeserializer())
 			.registerTypeAdapter(SoundType.class, new SoundTypeDeserializer())
+			.registerTypeAdapter(DynamicBlockBehaviour.class, new BehaviourDeserializer())
 			.create();
 
 	public DynamicBlockFactory load(String name) {

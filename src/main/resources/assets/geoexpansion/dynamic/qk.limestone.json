@@ -1,0 +1,11 @@
+{
+  "name": "qk.limestone",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "quark:limestone"
+  },
+  "drops": {
+    "resource": "quark:limestone"
+  }
+}

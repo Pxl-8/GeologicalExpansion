@@ -1,6 +1,5 @@
 package network.pxl8.geoexpansion.common.blocks.dynamic;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 
@@ -10,29 +9,29 @@ public class DynamicBlockFactory {
 	private float hardness;
 	private Material material;
 	private SoundType sound;
+	private DynamicBlockBehaviour behaviour;
 
-	private WeakBlockRef replaces;
-	private WeakBlockRef drops;
-	private WeakBlockRef silkDrops;
+	private WeakRegistryRef replaces;
+	private WeakRegistryRef drops;
+	private WeakRegistryRef silkDrops;
 
 	public boolean isValid() {
 		return name != null
-				&& tool != null
 				&& replaces != null
 				&& drops != null;
 	}
 
 	public DynamicBlockData toData(IBlockLookup lookup) {
 		return new DynamicBlockData(name, tool, hardness,
+				behaviour != null ? behaviour : DynamicBlockBehaviour.NORMAL,
 				material != null ? material : Material.ROCK,
 				sound != null ? sound : SoundType.STONE,
-				replaces.strengthen(lookup),
-				drops.strengthen(lookup),
-				silkDrops != null ? silkDrops.strengthen(lookup) : null
+				replaces.toBlockRef(lookup),
+				drops, silkDrops
 		);
 	}
 
-	public Block createBlock(IBlockLookup lookup) {
+	public DynamicTintedBlock createBlock(IBlockLookup lookup) {
 		return new DynamicTintedBlock(this.toData(lookup));
 	}
 }

@@ -1,0 +1,12 @@
+{
+  "name": "mc.ore_emerald",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "minecraft:emerald_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:mc.crystal_cluster_emerald"
+  },
+  "behaviour": "ore"
+}

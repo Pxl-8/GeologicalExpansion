@@ -1,0 +1,13 @@
+{
+  "name": "ad.ore_clay",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "aroma1997sdimension:miningore",
+    "meta": 1
+  },
+  "drops": {
+    "resource": "geoexpansion:ad.dust_cluster_clay"
+  },
+  "behaviour": "ore"
+}
