@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "forge:ore_shapeless",
   "conditions": [
     {
       "type": "minecraft:item_exists",
@@ -9,7 +9,7 @@
   "ingredients":
   [
     {
-      "type": "forge:ore_dict",
+      "type": "geoexpansion:ore_dict_wildcard",
       "ore": "toolSpallingHammer"
     },
     {

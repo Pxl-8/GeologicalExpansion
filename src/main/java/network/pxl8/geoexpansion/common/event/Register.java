@@ -6,6 +6,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -21,9 +22,7 @@ import network.pxl8.geoexpansion.common.blocks.BlockOre;
 import network.pxl8.geoexpansion.common.blocks.BlockStone;
 import network.pxl8.geoexpansion.common.blocks.ModBlocks;
 import network.pxl8.geoexpansion.common.items.*;
-import network.pxl8.geoexpansion.lib.LibMeta;
 import network.pxl8.geoexpansion.lib.LibTools;
-
 
 import static net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE;
 
@@ -51,6 +50,18 @@ public class Register {
 
         ModItems.registerModItems(itemReg);
         ModItems.registerCompat(itemReg);
+    }
+
+    @SubscribeEvent
+    public static void registerOreDict(RegistryEvent.Register<Biome> event) {
+        // we use the biome event because it's guaranteed to fire *after* the item event and after object holders
+        // have been refreshed.
+
+        ItemLists lists = new ItemLists();
+        ModItems.addAllTo(lists);
+
+        Register.registerOreDictionary(lists);
+        Register.registerFurnaceRecipes(lists);
     }
 
     private static Item createItemBlock(Block block) { return new ItemBlock(block).setRegistryName(block.getRegistryName()); }

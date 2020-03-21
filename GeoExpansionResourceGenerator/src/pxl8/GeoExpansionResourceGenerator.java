@@ -384,7 +384,7 @@ public class GeoExpansionResourceGenerator {
                 System.out.println("Creating: " + file + ".json for spalling recipes");
 
                 recipe.write("{\n");
-                recipe.write("  \"type\": \"minecraft:crafting_shapeless\",\n");
+                recipe.write("  \"type\": \"forge:ore_shapeless\",\n");
                 recipe.write("  \"conditions\": [\n");
                 recipe.write("    {\n");
                 recipe.write("      \"type\": \"minecraft:item_exists\",\n");
@@ -394,7 +394,7 @@ public class GeoExpansionResourceGenerator {
                 recipe.write("  \"ingredients\":\n");
                 recipe.write("  [\n");
                 recipe.write("    {\n");
-                recipe.write("      \"type\": \"forge:ore_dict\",\n");
+                recipe.write("      \"type\": \"geoexpansion:ore_dict_wildcard\",\n");
                 recipe.write("      \"ore\": \"toolSpallingHammer\"\n");
                 recipe.write("    },\n");
                 recipe.write("    {\n");
