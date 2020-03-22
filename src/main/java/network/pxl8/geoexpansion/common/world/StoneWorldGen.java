@@ -12,7 +12,6 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import network.pxl8.geoexpansion.DensityHelper;
 import network.pxl8.geoexpansion.common.blocks.ModBlocks;
-import network.pxl8.geoexpansion.common.blocks.dynamic.IGenerationCheck;
 import network.pxl8.geoexpansion.common.blocks.dynamic.IReplacingBlock;
 import network.pxl8.geoexpansion.config.Conf;
 import network.pxl8.geoexpansion.lib.LibMeta;
@@ -29,8 +28,6 @@ public class StoneWorldGen implements IWorldGenerator {
             if (!block.getTarget().equals(Blocks.AIR.getDefaultState())) {
                 blockMap.put(block.getTarget(), block.getReplacement());
             }
-//          if (block != ModBlocks.blockStone && block != ModBlocks.blockBedrock && block != ModBlocks.blockDirt) {
-//          }
         }
     }
 
@@ -39,31 +36,28 @@ public class StoneWorldGen implements IWorldGenerator {
         if (!(world instanceof WorldServer)) { return; }
         if (world.provider.getDimensionType().equals(DimensionType.NETHER) || world.provider.getDimensionType().equals(DimensionType.THE_END)) { return; }
 
-        int posX = (chunkX * 16) + 1;
-        int posZ = (chunkZ * 16) + 1;
+        int posX = (chunkX * 16);
+        int posZ = (chunkZ * 16);
 
         try {
-            replaceBlocks(posX, posZ, world, blockMap);
+            replaceBlocksIn(world, posX, posZ, blockMap);
         } catch (NullPointerException e) {
             LibMeta.LOG.info(e.getMessage());
         }
     }
 
-    private static void replaceBlocks(int posX, int posZ, World world, HashMap<IBlockState, Block> blockReplaceMap) {
-        for (int x = posX; x < posX + 30; x++) {
-            for (int z = posZ; z < posZ + 30; z++) {
-                int maxY = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0 , z)).getY();
+    private static void replaceBlocksIn(World world, int chunkX, int chunkZ, HashMap<IBlockState, Block> blockReplaceMap) {
+        for (int x = 0; x < 16; x++) {
+            for (int z = 0; z < 16; z++) {
+                BlockPos bottom = new BlockPos(chunkX + x, 0, chunkZ + z);
+                int maxY = world.getTopSolidOrLiquidBlock(bottom).getY();
+
                 for (int y = 0; y < maxY; y++) {
-                    BlockPos pos = new BlockPos(x, y, z);
+                    BlockPos pos = new BlockPos(chunkX + x, y, chunkZ + z);
                     IBlockState oldBlock = world.getBlockState(pos);
 
                     if (blockReplaceMap.containsKey(oldBlock)) {
                         Block replacement = blockReplaceMap.get(oldBlock);
-
-                        if (replacement instanceof IGenerationCheck) {
-                            if (!((IGenerationCheck) replacement).checkShouldGenerate(x, z, posX, posZ))
-                                continue;
-                        }
 
                         world.setBlockState(pos,
                                 replacement.getDefaultState().withProperty(
@@ -74,7 +68,7 @@ public class StoneWorldGen implements IWorldGenerator {
                             && Conf.stone_config.FLAT_BEDROCK
                             && y > 0) {
                         world.setBlockState(pos, ModBlocks.blockStone.getDefaultState()
-                                .withProperty(LibMeta.PROPERTY_DENSITY, DensityHelper.getDensityFromDepth(y)),
+                                        .withProperty(LibMeta.PROPERTY_DENSITY, DensityHelper.getDensityFromDepth(y)),
                                 20);
                     }
                 }
