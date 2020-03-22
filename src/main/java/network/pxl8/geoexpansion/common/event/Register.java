@@ -18,8 +18,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
-import network.pxl8.geoexpansion.common.blocks.BlockStone;
 import network.pxl8.geoexpansion.common.blocks.ModBlocks;
+import network.pxl8.geoexpansion.common.blocks.dynamic.DynamicTintedBlock;
 import network.pxl8.geoexpansion.common.items.*;
 import network.pxl8.geoexpansion.lib.LibTools;
 
@@ -93,9 +93,9 @@ public class Register {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void registerBlockColors(ColorHandlerEvent.Block event) {
-        for(Block block : ModBlocks.allModBlocks) {
+        for(DynamicTintedBlock block : ModBlocks.allModBlocks) {
             event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) ->
-                    world != null && pos != null && tintIndex == 0 ? BlockStone.getColor(state) : -1, block);
+                    world != null && pos != null && tintIndex == 0 ? block.getColor(state) : -1, block);
         }
     }
 
