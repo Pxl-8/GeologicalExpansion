@@ -1,0 +1,13 @@
+{
+  "name": "de.ore_draconium",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "draconicevolution:draconium_ore",
+    "meta": 0
+  },
+  "drops": {
+    "resource": "geoexpansion:de.dust_cluster_draconium"
+  },
+  "behaviour": "ore"
+}

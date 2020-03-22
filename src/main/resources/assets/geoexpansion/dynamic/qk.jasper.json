@@ -1,0 +1,11 @@
+{
+  "name": "qk.jasper",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "quark:jasper"
+  },
+  "drops": {
+    "resource": "quark:jasper"
+  }
+}

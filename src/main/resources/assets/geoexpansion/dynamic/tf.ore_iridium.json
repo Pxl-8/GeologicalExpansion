@@ -1,0 +1,13 @@
+{
+  "name": "tf.ore_iridium",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "thermalfoundation:ore",
+    "meta": 7
+  },
+  "drops": {
+    "resource": "geoexpansion:tf.ore_cluster_iridium"
+  },
+  "behaviour": "ore"
+}

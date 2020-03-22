@@ -1,0 +1,13 @@
+{
+  "name": "mc.stone_brick_mossy",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "minecraft:stonebrick",
+    "meta": 1
+  },
+  "drops": {
+    "resource": "minecraft:stonebrick",
+    "meta": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "mc.dirt",
+  "tool": "shovel",
+  "hardness": 0.5,
+  "material": "ground",
+  "sound": "ground",
+  "replaces": {
+    "resource": "minecraft:dirt"
+  },
+  "drops": {
+    "resource": "minecraft:dirt"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "bp.ore_amethyst",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "bluepower:amethyst_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:bp.crystal_cluster_amethyst"
+  },
+  "behaviour": "ore"
+}

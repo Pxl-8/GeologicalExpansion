@@ -1,0 +1,13 @@
+{
+  "name": "qk.brimstone",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "quark:biome_cobblestone",
+    "meta": 0
+  },
+  "drops": {
+    "resource": "quark:biome_cobblestone",
+    "meta": 0
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "mm.ore_uranium",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "modernmetals:uranium_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:mm.ore_cluster_uranium"
+  },
+  "behaviour": "ore"
+}

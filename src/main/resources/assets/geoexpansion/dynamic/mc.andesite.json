@@ -1,0 +1,13 @@
+{
+  "name": "mc.andesite",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "minecraft:stone",
+    "meta": 5
+  },
+  "drops": {
+    "resource": "minecraft:stone",
+    "meta": 5
+  }
+}

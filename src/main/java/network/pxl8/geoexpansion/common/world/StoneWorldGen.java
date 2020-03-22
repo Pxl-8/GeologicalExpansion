@@ -10,10 +10,9 @@ import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import network.pxl8.geoexpansion.common.blocks.BlockOre;
-import network.pxl8.geoexpansion.common.blocks.BlockTintedBase;
+import network.pxl8.geoexpansion.DensityHelper;
 import network.pxl8.geoexpansion.common.blocks.ModBlocks;
-import network.pxl8.geoexpansion.common.blocks.BlockStone;
+import network.pxl8.geoexpansion.common.blocks.dynamic.IReplacingBlock;
 import network.pxl8.geoexpansion.config.Conf;
 import network.pxl8.geoexpansion.lib.LibMeta;
 
@@ -22,36 +21,14 @@ import java.util.Random;
 
 public class StoneWorldGen implements IWorldGenerator {
 
-    private static HashMap<IBlockState, Block> blockMap = new HashMap<>();
+    private HashMap<IBlockState, Block> blockMap = new HashMap<>();
 
-    static {
-        for (BlockStone block : ModBlocks.blockStoneList) {
-            if (block != ModBlocks.blockStone && block != ModBlocks.blockBedrock && block != ModBlocks.blockDirt) {
-                if (!block.getBlockToReplace().equals(Blocks.AIR.getDefaultState())) {
-                    blockMap.put(block.getBlockToReplace(), block);
-                }
-            }
-
-        }
-
-        for (BlockOre ore : ModBlocks.blockOreList) {
-            if (!ore.getBlockToReplace().equals(Blocks.AIR.getDefaultState())) {
-                blockMap.put(ore.getBlockToReplace(), ore);
+    {
+        for (IReplacingBlock block : ModBlocks.allModBlocks) {
+            if (!block.getTarget().equals(Blocks.AIR.getDefaultState())) {
+                blockMap.put(block.getTarget(), block.getReplacement());
             }
         }
-
-        for (BlockStone block : ModBlocks.compatStoneList) {
-            if (!block.getBlockToReplace().equals(Blocks.AIR.getDefaultState())) {
-                blockMap.put(block.getBlockToReplace(), block);
-            }
-        }
-
-        for (BlockOre ore : ModBlocks.compatOreList) {
-            if (!ore.getBlockToReplace().equals(Blocks.AIR.getDefaultState())) {
-                blockMap.put(ore.getBlockToReplace(), ore);
-            }
-        }
-
     }
 
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
@@ -59,42 +36,40 @@ public class StoneWorldGen implements IWorldGenerator {
         if (!(world instanceof WorldServer)) { return; }
         if (world.provider.getDimensionType().equals(DimensionType.NETHER) || world.provider.getDimensionType().equals(DimensionType.THE_END)) { return; }
 
-        int posX = (chunkX * 16) + 1;
-        int posZ = (chunkZ * 16) + 1;
+        int posX = (chunkX * 16);
+        int posZ = (chunkZ * 16);
 
         try {
-            replaceBlocks(posX, posZ, world, blockMap);
+            replaceBlocksIn(world, posX, posZ, blockMap);
         } catch (NullPointerException e) {
             LibMeta.LOG.info(e.getMessage());
         }
     }
 
-    private static void replaceBlocks(int posX, int posZ, World world, HashMap<IBlockState, Block> blockReplaceMap) {
-        for (int x = posX; x < posX + 30; x++) {
-            for (int z = posZ; z < posZ + 30; z++) {
-                int maxY = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0 , z)).getY();
+    private static void replaceBlocksIn(World world, int chunkX, int chunkZ, HashMap<IBlockState, Block> blockReplaceMap) {
+        for (int x = 0; x < 16; x++) {
+            for (int z = 0; z < 16; z++) {
+                BlockPos bottom = new BlockPos(chunkX + x, 0, chunkZ + z);
+                int maxY = world.getTopSolidOrLiquidBlock(bottom).getY();
+
                 for (int y = 0; y < maxY; y++) {
-                    IBlockState oldBlock = world.getBlockState(new BlockPos(x, y, z));
-                    if (oldBlock == Blocks.STONE.getDefaultState() && x > (posX+6) && x < (posX+23)  && z > (posZ+6) && z < (posZ+23)) {
-                        world.setBlockState(new BlockPos(x, y, z), ModBlocks.blockStone.getDefaultState().withProperty(LibMeta.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 20);
-                    } else if (oldBlock == Blocks.DIRT.getDefaultState() && x > (posX+6) && x < (posX+23)  && z > (posZ+6) && z < (posZ+23)) {
-                        world.setBlockState(new BlockPos(x, y, z), ModBlocks.blockDirt.getDefaultState().withProperty(LibMeta.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 20);
-                    } else if (oldBlock == Blocks.BEDROCK.getDefaultState()) {
-                        if (Conf.stone_config.FLAT_BEDROCK) {
-                            if (y > 0) {
-                                world.setBlockState(new BlockPos(x, y, z), ModBlocks.blockStone.getDefaultState().withProperty(LibMeta.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 20);
-                            } else {
-                                world.setBlockState(new BlockPos(x, y, z), ModBlocks.blockBedrock.getDefaultState().withProperty(LibMeta.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 20);
-                            }
-                        } else {
-                            world.setBlockState(new BlockPos(x, y, z), ModBlocks.blockBedrock.getDefaultState().withProperty(LibMeta.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 20);
-                        }
-                    } else {
-                        for (IBlockState block : blockReplaceMap.keySet()) {
-                            if (oldBlock == block) {
-                                world.setBlockState(new BlockPos(x, y, z), blockReplaceMap.get(block).getDefaultState().withProperty(LibMeta.PROPERTY_DENSITY, BlockTintedBase.getDensityFromDepth(y)), 20);
-                            }
-                        }
+                    BlockPos pos = new BlockPos(chunkX + x, y, chunkZ + z);
+                    IBlockState oldBlock = world.getBlockState(pos);
+
+                    if (blockReplaceMap.containsKey(oldBlock)) {
+                        Block replacement = blockReplaceMap.get(oldBlock);
+
+                        world.setBlockState(pos,
+                                replacement.getDefaultState().withProperty(
+                                        LibMeta.PROPERTY_DENSITY,
+                                        DensityHelper.getDensityFromDepth(y)
+                                ), 20);
+                    } else if (oldBlock.getBlock() == Blocks.BEDROCK
+                            && Conf.stone_config.FLAT_BEDROCK
+                            && y > 0) {
+                        world.setBlockState(pos, ModBlocks.blockStone.getDefaultState()
+                                        .withProperty(LibMeta.PROPERTY_DENSITY, DensityHelper.getDensityFromDepth(y)),
+                                20);
                     }
                 }
             }

@@ -1,0 +1,11 @@
+{
+  "name": "qk.basalt",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "quark:basalt"
+  },
+  "drops": {
+    "resource": "quark:basalt"
+  }
+}

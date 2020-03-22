@@ -1,0 +1,12 @@
+{
+  "name": "mm.ore_thorium",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "modernmetals:thorium_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:mm.ore_cluster_thorium"
+  },
+  "behaviour": "ore"
+}

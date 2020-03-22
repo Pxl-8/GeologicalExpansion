@@ -1,0 +1,11 @@
+{
+  "name": "qk.slate",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "quark:slate"
+  },
+  "drops": {
+    "resource": "quark:slate"
+  }
+}

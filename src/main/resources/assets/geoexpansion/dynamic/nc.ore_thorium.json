@@ -1,0 +1,13 @@
+{
+  "name": "nc.ore_thorium",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "nuclearcraft:ore",
+    "meta": 3
+  },
+  "drops": {
+    "resource": "geoexpansion:nc.ore_cluster_thorium"
+  },
+  "behaviour": "ore"
+}

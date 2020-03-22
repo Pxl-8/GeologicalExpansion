@@ -1,0 +1,12 @@
+{
+  "name": "bp.ore_sapphire",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "bluepower:sapphire_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:bp.crystal_cluster_sapphire"
+  },
+  "behaviour": "ore"
+}

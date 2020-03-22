@@ -1,0 +1,12 @@
+{
+  "name": "mc.ore_gold",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "minecraft:gold_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:mc.ore_cluster_gold"
+  },
+  "behaviour": "ore"
+}

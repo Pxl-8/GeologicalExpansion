@@ -1,0 +1,11 @@
+{
+  "name": "qk.marble",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "quark:marble"
+  },
+  "drops": {
+    "resource": "quark:marble"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "er.ore_yellorite",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "bigreactors:oreyellorite"
+  },
+  "drops": {
+    "resource": "geoexpansion:er.ore_cluster_yellorite"
+  },
+  "behaviour": "ore"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "tr.ore_galena",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "techreborn:ore",
+    "meta": 0
+  },
+  "drops": {
+    "resource": "geoexpansion:tr.ore_cluster_galena"
+  },
+  "behaviour": "ore"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "nc.ore_copper",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "nuclearcraft:ore",
+    "meta": 0
+  },
+  "drops": {
+    "resource": "geoexpansion:nc.ore_cluster_copper"
+  },
+  "behaviour": "ore"
+}

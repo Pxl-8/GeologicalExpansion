@@ -1,0 +1,12 @@
+{
+  "name": "bm.ore_lead",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "basemetals:lead_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:bm.ore_cluster_lead"
+  },
+  "behaviour": "ore"
+}

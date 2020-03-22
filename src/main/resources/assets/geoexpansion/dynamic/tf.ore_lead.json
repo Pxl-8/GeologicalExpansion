@@ -1,0 +1,13 @@
+{
+  "name": "tf.ore_lead",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "thermalfoundation:ore",
+    "meta": 3
+  },
+  "drops": {
+    "resource": "geoexpansion:tf.ore_cluster_lead"
+  },
+  "behaviour": "ore"
+}

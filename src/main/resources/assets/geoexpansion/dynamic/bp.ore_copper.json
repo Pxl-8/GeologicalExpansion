@@ -1,0 +1,12 @@
+{
+  "name": "bp.ore_copper",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "bluepower:copper_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:bp.ore_cluster_copper"
+  },
+  "behaviour": "ore"
+}

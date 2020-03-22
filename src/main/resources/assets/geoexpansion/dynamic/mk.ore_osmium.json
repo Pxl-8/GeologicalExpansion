@@ -1,0 +1,13 @@
+{
+  "name": "mk.ore_osmium",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "mekanism:oreblock",
+    "meta": 0
+  },
+  "drops": {
+    "resource": "geoexpansion:mk.ore_cluster_osmium"
+  },
+  "behaviour": "ore"
+}

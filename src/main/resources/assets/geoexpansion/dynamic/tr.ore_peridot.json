@@ -1,0 +1,13 @@
+{
+  "name": "tr.ore_peridot",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "techreborn:ore",
+    "meta": 10
+  },
+  "drops": {
+    "resource": "geoexpansion:tr.crystal_cluster_peridot"
+  },
+  "behaviour": "ore"
+}

@@ -14,5 +14,6 @@ public class LibMeta {
 
     public static final Logger LOG = LogManager.getLogger(MOD_ID);
 
-    public static final PropertyEnum PROPERTY_DENSITY = PropertyEnum.create("density", EnumDensity.class);
+    public static final PropertyEnum<EnumDensity> PROPERTY_DENSITY =
+            PropertyEnum.create("density", EnumDensity.class);
 }

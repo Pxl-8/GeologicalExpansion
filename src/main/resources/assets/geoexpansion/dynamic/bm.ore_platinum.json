@@ -1,0 +1,12 @@
+{
+  "name": "bm.ore_platinum",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "basemetals:platinum_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:bm.ore_cluster_platinum"
+  },
+  "behaviour": "ore"
+}

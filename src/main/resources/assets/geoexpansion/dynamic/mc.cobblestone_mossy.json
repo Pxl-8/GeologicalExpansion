@@ -1,0 +1,11 @@
+{
+  "name": "mc.cobblestone_mossy",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "minecraft:mossy_cobblestone"
+  },
+  "drops": {
+    "resource": "minecraft:mossy_cobblestone"
+  }
+}

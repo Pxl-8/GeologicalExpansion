@@ -1,0 +1,13 @@
+{
+  "name": "mk.ore_copper",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "mekanism:oreblock",
+    "meta": 1
+  },
+  "drops": {
+    "resource": "geoexpansion:mk.ore_cluster_copper"
+  },
+  "behaviour": "ore"
+}

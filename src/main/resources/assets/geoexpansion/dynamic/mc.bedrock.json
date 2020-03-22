@@ -1,0 +1,12 @@
+{
+  "name": "mc.bedrock",
+  "tool": null,
+  "hardness": -1.0,
+  "replaces": {
+    "resource": "minecraft:bedrock"
+  },
+  "drops": {
+    "resource": "minecraft:air"
+  },
+  "behaviour": "bedrock"
+}

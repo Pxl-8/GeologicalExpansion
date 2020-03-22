@@ -1,0 +1,13 @@
+{
+  "name": "nc.ore_lead",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "nuclearcraft:ore",
+    "meta": 2
+  },
+  "drops": {
+    "resource": "geoexpansion:nc.ore_cluster_lead"
+  },
+  "behaviour": "ore"
+}

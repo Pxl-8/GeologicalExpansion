@@ -1,0 +1,13 @@
+{
+  "name": "mc.stone_brick_cracked",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "minecraft:stonebrick",
+    "meta": 2
+  },
+  "drops": {
+    "resource": "minecraft:stonebrick",
+    "meta": 2
+  }
+}

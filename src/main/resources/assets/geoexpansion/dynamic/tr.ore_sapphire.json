@@ -1,0 +1,13 @@
+{
+  "name": "tr.ore_sapphire",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "techreborn:ore",
+    "meta": 3
+  },
+  "drops": {
+    "resource": "geoexpansion:tr.crystal_cluster_sapphire"
+  },
+  "behaviour": "ore"
+}

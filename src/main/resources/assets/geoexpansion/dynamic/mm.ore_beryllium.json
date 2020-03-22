@@ -1,0 +1,12 @@
+{
+  "name": "mm.ore_beryllium",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "modernmetals:beryllium_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:mm.ore_cluster_beryllium"
+  },
+  "behaviour": "ore"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "bp.ore_zinc",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "bluepower:zinc_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:bp.ore_cluster_zinc"
+  },
+  "behaviour": "ore"
+}

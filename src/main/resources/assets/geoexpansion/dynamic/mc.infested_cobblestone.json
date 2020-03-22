@@ -1,0 +1,13 @@
+{
+  "name": "mc.infested_cobblestone",
+  "tool": "pickaxe",
+  "hardness": 1.5,
+  "replaces": {
+    "resource": "minecraft:monster_egg",
+    "meta": 1
+  },
+  "drops": {
+    "resource": "minecraft:cobblestone"
+  },
+  "behaviour": "infested"
+}

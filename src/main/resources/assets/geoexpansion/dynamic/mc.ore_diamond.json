@@ -1,0 +1,12 @@
+{
+  "name": "mc.ore_diamond",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "minecraft:diamond_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:mc.crystal_cluster_diamond"
+  },
+  "behaviour": "ore"
+}

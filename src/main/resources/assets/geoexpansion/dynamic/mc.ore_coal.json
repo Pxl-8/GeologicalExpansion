@@ -1,0 +1,12 @@
+{
+  "name": "mc.ore_coal",
+  "tool": "pickaxe",
+  "hardness": 2.0,
+  "replaces": {
+    "resource": "minecraft:coal_ore"
+  },
+  "drops": {
+    "resource": "geoexpansion:mc.ore_cluster_coal"
+  },
+  "behaviour": "ore"
+}
