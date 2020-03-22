@@ -3,7 +3,7 @@ jdk:
 - openjdk8
 
 install: "./gradlew setupCIWorkspace -s"
-script: "./gradlew wrapper build -s"
+script: "./gradlew build -s"
 
 deploy:
   provider: releases
