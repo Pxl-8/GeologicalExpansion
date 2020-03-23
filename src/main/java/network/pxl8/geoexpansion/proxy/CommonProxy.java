@@ -5,6 +5,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import network.pxl8.geoexpansion.common.blocks.ModBlocks;
 import network.pxl8.geoexpansion.common.blocks.dynamic.IHolderRefresh;
+import network.pxl8.geoexpansion.common.event.BlockBehaviorListeners;
 import network.pxl8.geoexpansion.common.event.OreGenOverride;
 import network.pxl8.geoexpansion.common.world.StoneWorldGen;
 import network.pxl8.geoexpansion.compat.CompatHandler;
@@ -12,7 +13,9 @@ import network.pxl8.geoexpansion.compat.CompatHandler;
 public class CommonProxy implements Proxy {
     @Override
     public void preInit() {
+        MinecraftForge.EVENT_BUS.register(new BlockBehaviorListeners());
         MinecraftForge.ORE_GEN_BUS.register(new OreGenOverride());
+
         CompatHandler.registerModCompat();
     }
 

@@ -27,6 +27,7 @@ import java.util.Random;
 public class DynamicTintedBlock extends Block implements IReplacingBlock, IHolderRefresh {
 	private DynamicBlockData data;
 	private Random random = new Random();
+	private BehaviorMixin customBehavior;
 
 	private BlockRef replaces;
 	private ItemRef drops;
@@ -64,6 +65,16 @@ public class DynamicTintedBlock extends Block implements IReplacingBlock, IHolde
 
 		if (data.getSilkDrops() != null)
 			silkDrops = data.getSilkDrops().toItemRef(items);
+	}
+
+	@Nullable
+	public BehaviorMixin getBehavior() {
+		return customBehavior;
+	}
+
+	public DynamicTintedBlock setCustomBehavior(@Nullable BehaviorMixin customBehavior) {
+		this.customBehavior = customBehavior;
+		return this;
 	}
 
 	private float getDropBase(IBlockState state) {
