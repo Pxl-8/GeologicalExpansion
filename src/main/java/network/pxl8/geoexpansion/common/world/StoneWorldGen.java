@@ -56,7 +56,13 @@ public class StoneWorldGen implements IWorldGenerator {
                     BlockPos pos = new BlockPos(chunkX + x, y, chunkZ + z);
                     IBlockState oldBlock = world.getBlockState(pos);
 
-                    if (blockReplaceMap.containsKey(oldBlock)) {
+                    if (oldBlock.getBlock() == Blocks.BEDROCK
+                            && Conf.stone_config.FLAT_BEDROCK
+                            && y > 0) {
+                        world.setBlockState(pos, ModBlocks.blockStone.getDefaultState()
+                                        .withProperty(LibMeta.PROPERTY_DENSITY, DensityHelper.getDensityFromDepth(y)),
+                                20);
+                    } else if (blockReplaceMap.containsKey(oldBlock)) {
                         Block replacement = blockReplaceMap.get(oldBlock);
 
                         world.setBlockState(pos,
@@ -64,12 +70,6 @@ public class StoneWorldGen implements IWorldGenerator {
                                         LibMeta.PROPERTY_DENSITY,
                                         DensityHelper.getDensityFromDepth(y)
                                 ), 20);
-                    } else if (oldBlock.getBlock() == Blocks.BEDROCK
-                            && Conf.stone_config.FLAT_BEDROCK
-                            && y > 0) {
-                        world.setBlockState(pos, ModBlocks.blockStone.getDefaultState()
-                                        .withProperty(LibMeta.PROPERTY_DENSITY, DensityHelper.getDensityFromDepth(y)),
-                                20);
                     }
                 }
             }
