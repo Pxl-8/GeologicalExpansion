@@ -5,12 +5,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntitySilverfish;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import network.pxl8.geoexpansion.DensityHelper;
@@ -19,6 +21,7 @@ import network.pxl8.geoexpansion.common.event.Register;
 import network.pxl8.geoexpansion.config.Conf;
 import network.pxl8.geoexpansion.lib.LibMeta;
 
+import javax.annotation.Nullable;
 import java.util.Random;
 
 public class DynamicTintedBlock extends Block implements IReplacingBlock, IHolderRefresh {
@@ -191,6 +194,22 @@ public class DynamicTintedBlock extends Block implements IReplacingBlock, IHolde
 			case SOLID: return 2;
 			case HARD: return 3;
 			default: return 0;
+		}
+	}
+
+	@Override
+	public float getExplosionResistance(World world, BlockPos pos, @Nullable Entity exploder, Explosion explosion) {
+		if (data.getBehaviour() == DynamicBlockBehaviour.BEDROCK)
+			return super.getExplosionResistance(world, pos, exploder, explosion);
+
+		float mult = 6.0F;
+		IBlockState state = world.getBlockState(pos);
+		switch (state.getValue(LibMeta.PROPERTY_DENSITY)) {
+			case SOFT: return mult * Conf.base_config.HARDNESS_MULT_1_SOFT;
+			case FIRM: return mult * Conf.base_config.HARDNESS_MULT_2_FIRM;
+			case SOLID: return mult * Conf.base_config.HARDNESS_MULT_3_SOLID;
+			case HARD: return mult * Conf.base_config.HARDNESS_MULT_4_HARD;
+			default: return mult;
 		}
 	}
 
