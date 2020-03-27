@@ -7,9 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import network.pxl8.geoexpansion.lib.LibMeta;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Config(modid = LibMeta.MOD_ID, name = LibMeta.MOD_ID)
@@ -96,6 +94,10 @@ public class Conf {
 
         @Config.Comment({"Only a single ore will be generated per ore dictionary type (eg. oreCopper) based on the compat list order"})
         public boolean ONLY_REGISTER_UNIQUE_OREDIC = true;
+
+        @Config.Comment({"If false, this mod will hijack the world generation registry to ensure it always runs replacement last.",
+                "If you're using CoFH World, you may need to set this to false in order for our replacement to run correctly."})
+        public boolean PLAY_NICE_WITH_WORLDGEN = true;
     }
 
     public static class WorldConf {

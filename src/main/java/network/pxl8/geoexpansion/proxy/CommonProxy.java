@@ -9,6 +9,7 @@ import network.pxl8.geoexpansion.common.event.BlockBehaviorListeners;
 import network.pxl8.geoexpansion.common.event.OreGenOverride;
 import network.pxl8.geoexpansion.common.world.StoneWorldGen;
 import network.pxl8.geoexpansion.compat.CompatHandler;
+import network.pxl8.geoexpansion.config.Conf;
 import network.pxl8.geoexpansion.lib.ReflectionUtil;
 
 public class CommonProxy implements Proxy {
@@ -34,6 +35,8 @@ public class CommonProxy implements Proxy {
 
     @Override
     public void postInit() {
-        ReflectionUtil.modifyWorldGenerators();
+        if (!Conf.compat_config.PLAY_NICE_WITH_WORLDGEN) {
+            ReflectionUtil.modifyWorldGenerators();
+        }
     }
 }
