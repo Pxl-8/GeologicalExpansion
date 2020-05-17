@@ -47,8 +47,8 @@ public class StoneWorldGen implements IWorldGenerator {
     }
 
     private static void replaceBlocksIn(World world, int chunkX, int chunkZ, HashMap<IBlockState, Block> blockReplaceMap) {
-        for (int x = 0; x < 16; x++) {
-            for (int z = 0; z < 16; z++) {
+        for (int x = 0; x < 30; x++) {
+            for (int z = 0; z < 30; z++) {
                 BlockPos bottom = new BlockPos(chunkX + x, 0, chunkZ + z);
                 int maxY = world.getTopSolidOrLiquidBlock(bottom).getY();
 
